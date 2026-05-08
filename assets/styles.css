@@ -100,6 +100,8 @@ nav a:hover {
   grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
   gap: clamp(28px, 6vw, 80px);
   align-items: center;
+  padding-top: clamp(36px, 5vw, 64px);
+  padding-bottom: clamp(36px, 5vw, 64px);
   min-height: calc(78vh - 72px);
 }
 
