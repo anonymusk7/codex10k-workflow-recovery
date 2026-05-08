@@ -246,10 +246,27 @@ h3 {
   align-items: stretch;
 }
 
+.floorplan-grid {
+  display: grid;
+  grid-template-columns: minmax(280px, 360px) minmax(0, 1fr);
+  gap: 22px;
+  align-items: stretch;
+}
+
 .intake {
   display: grid;
   gap: 16px;
   padding: 22px;
+}
+
+.floorplan-form {
+  display: grid;
+  gap: 16px;
+  padding: 22px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
 }
 
 label {
@@ -278,6 +295,80 @@ textarea {
 
 .workflow-output {
   min-height: 440px;
+  padding: 22px;
+}
+
+.plan-workbench {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.85fr) minmax(0, 1.15fr);
+  gap: 18px;
+  min-height: 520px;
+}
+
+.plan-preview,
+.feasibility-output {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.plan-preview {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.25fr 0.85fr;
+  grid-template-rows: 1.15fr 0.85fr;
+  gap: 8px;
+  min-height: 520px;
+  padding: 16px;
+  background:
+    linear-gradient(90deg, rgba(20, 32, 29, 0.04) 1px, transparent 1px),
+    linear-gradient(rgba(20, 32, 29, 0.04) 1px, transparent 1px),
+    #fff;
+  background-size: 24px 24px;
+}
+
+.room {
+  display: grid;
+  place-items: center;
+  min-height: 110px;
+  border: 3px solid var(--ink);
+  border-radius: 4px;
+  color: var(--ink);
+  font-size: 0.82rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.living {
+  background: #edf7f4;
+}
+
+.kitchen {
+  background: #fff2e6;
+}
+
+.bed {
+  background: #eef3fb;
+}
+
+.bath {
+  background: #f7eeee;
+}
+
+.scale-bar {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  padding: 7px 10px;
+  border: 1px solid var(--ink);
+  border-radius: 4px;
+  background: #fff;
+  font-size: 0.75rem;
+  font-weight: 900;
+}
+
+.feasibility-output {
   padding: 22px;
 }
 
@@ -310,9 +401,17 @@ textarea {
   padding-left: 22px;
 }
 
-#workflow-steps li {
+#workflow-steps li,
+#plan-steps li {
   padding: 10px 0 10px 8px;
   line-height: 1.5;
+}
+
+#plan-steps {
+  display: grid;
+  gap: 12px;
+  margin: 22px 0;
+  padding-left: 22px;
 }
 
 .record {
@@ -326,6 +425,33 @@ textarea {
 .record p {
   margin-bottom: 0;
   line-height: 1.55;
+}
+
+.schema-preview {
+  display: grid;
+  gap: 10px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+.schema-preview span {
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+pre {
+  max-width: 100%;
+  min-height: 140px;
+  margin: 0;
+  overflow: auto;
+  padding: 14px;
+  border-radius: 8px;
+  background: #111c19;
+  color: #e7f7f1;
+  font-size: 0.84rem;
+  line-height: 1.45;
 }
 
 .fit-grid,
@@ -446,6 +572,8 @@ footer p {
 
   .hero,
   .demo-grid,
+  .floorplan-grid,
+  .plan-workbench,
   .contact-band {
     grid-template-columns: 1fr;
   }
@@ -471,6 +599,7 @@ footer p {
   }
 
   nav {
+    flex-wrap: wrap;
     gap: 10px;
     font-size: 0.86rem;
   }

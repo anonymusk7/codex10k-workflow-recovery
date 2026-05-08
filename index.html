@@ -21,6 +21,7 @@
       </a>
       <nav aria-label="Page sections">
         <a href="#demo">Demo</a>
+        <a href="#floorplan">Floor plan</a>
         <a href="#fit">Fit</a>
         <a href="#pricing">Pricing</a>
         <a href="#contact">Contact</a>
@@ -111,6 +112,74 @@
             <div class="record">
               <span>CRM summary</span>
               <p id="crm-summary">No request processed yet.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="floorplan" class="band floorplan-band">
+        <div class="section-head">
+          <p class="eyebrow">Phase 0 feasibility proof</p>
+          <h2>Floor-plan intake with confidence gates</h2>
+          <p>
+            A paid feasibility milestone should expose uncertainty early: scale, wall clarity, room labels, and review paths. This sample uses synthetic data only and shows the decision structure I would validate against anonymized Bluestork plans.
+          </p>
+        </div>
+
+        <div class="floorplan-grid">
+          <form class="floorplan-form" id="floorplan-form">
+            <label>
+              Plan type
+              <select name="planType">
+                <option selected>Residential apartment</option>
+                <option>Detached home</option>
+                <option>Commercial unit</option>
+                <option>Scanned contractor sketch</option>
+              </select>
+            </label>
+            <label>
+              Scale available
+              <select name="scale">
+                <option selected>Explicit scale on plan</option>
+                <option>Known room dimension only</option>
+                <option>No scale visible</option>
+              </select>
+            </label>
+            <label>
+              Visual complexity
+              <input id="plan-complexity" name="complexity" type="range" min="1" max="5" value="3" />
+            </label>
+            <label>
+              Desired contractor output
+              <select name="output">
+                <option selected>Room/surface checklist</option>
+                <option>Measurement estimate packet</option>
+                <option>Quote-ready scope summary</option>
+              </select>
+            </label>
+            <button class="button primary" type="submit">Assess sample plan</button>
+          </form>
+
+          <div class="plan-workbench" aria-live="polite">
+            <div class="plan-preview" aria-label="Synthetic floor-plan preview">
+              <div class="room living">Living</div>
+              <div class="room kitchen">Kitchen</div>
+              <div class="room bed">Bedroom</div>
+              <div class="room bath">Bath</div>
+              <div class="scale-bar">1:100</div>
+            </div>
+            <div class="feasibility-output">
+              <div class="queue-header">
+                <span>Feasibility status</span>
+                <strong id="plan-status">Ready</strong>
+              </div>
+              <ol id="plan-steps">
+                <li>Assess the synthetic plan to generate risk and review output.</li>
+              </ol>
+              <div class="schema-preview">
+                <span>Contractor output schema</span>
+                <pre id="plan-schema">No plan assessed yet.</pre>
+              </div>
             </div>
           </div>
         </div>

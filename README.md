@@ -25,6 +25,7 @@ Ledger: `data/ledger.csv`
 - `index.html` - public-facing proof page and interactive demo.
 - `assets/styles.css` - site styling.
 - `assets/app.js` - interactive ROI and workflow demo logic.
+- `index.html#floorplan` - synthetic floor-plan feasibility proof for the Bluestork Phase 0 close path.
 - `docs/offer.md` - offer, scope, pricing, delivery plan.
 - `docs/outreach.md` - approved outreach templates and compliance notes.
 - `docs/payment-flow.md` - Stripe/manual invoice setup draft.
