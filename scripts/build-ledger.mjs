@@ -2,67 +2,65 @@ import fs from "node:fs/promises";
 import { SpreadsheetFile, Workbook } from "@oai/artifact-tool";
 
 const outputDir = new URL("../outputs/codex10k/", import.meta.url);
+const prospectsCsv = new URL("../data/prospects.csv", import.meta.url);
+const ledgerCsv = new URL("../data/ledger.csv", import.meta.url);
+
+function parseCsv(text) {
+  const rows = [];
+  let row = [];
+  let cell = "";
+  let quoted = false;
+
+  for (let index = 0; index < text.length; index += 1) {
+    const char = text[index];
+    const next = text[index + 1];
+
+    if (char === '"' && quoted && next === '"') {
+      cell += '"';
+      index += 1;
+    } else if (char === '"') {
+      quoted = !quoted;
+    } else if (char === "," && !quoted) {
+      row.push(cell);
+      cell = "";
+    } else if ((char === "\n" || char === "\r") && !quoted) {
+      if (char === "\r" && next === "\n") {
+        index += 1;
+      }
+      row.push(cell);
+      if (row.some((value) => value.length > 0)) {
+        rows.push(row);
+      }
+      row = [];
+      cell = "";
+    } else {
+      cell += char;
+    }
+  }
+
+  row.push(cell);
+  if (row.some((value) => value.length > 0)) {
+    rows.push(row);
+  }
+
+  return rows.map((csvRow) => csvRow.map((value) => {
+    if (value === "") return null;
+    const numeric = Number(value);
+    return Number.isFinite(numeric) && value.trim() !== "" ? numeric : value;
+  }));
+}
+
+const prospectsRaw = parseCsv(await fs.readFile(prospectsCsv, "utf8"));
+const ledgerRaw = parseCsv(await fs.readFile(ledgerCsv, "utf8"));
 
 const prospects = [
-  [
-    "Lead ID",
-    "Company",
-    "Channel",
-    "Segment",
-    "Problem Hypothesis",
-    "Offer",
-    "Status",
-    "Next Action",
-    "Follow-up Date",
-    "Evidence",
-  ],
-  [
-    "C10K-000",
-    "Internal",
-    "Workspace",
-    "Run setup",
-    "Independent Codex10k pipeline initialized",
-    "10-Day Workflow Revenue Recovery Sprint",
-    "Initialized",
-    "Begin fresh lead sourcing",
-    "",
-    "docs/research.md",
-  ],
+  ["Lead ID", "Created", "Label Namespace", "Company", "Contact", "Channel", "Source URL", "Segment", "Problem Hypothesis", "Offer", "Status", "Last Touch", "Next Action", "Follow-up Date", "Evidence", "Notes"],
+  ...prospectsRaw.slice(1),
 ];
 
 const ledger = [
-  [
-    "Date",
-    "Event ID",
-    "Counterparty",
-    "Channel",
-    "Description",
-    "Gross Revenue",
-    "Payment Fees",
-    "Platform Fees",
-    "Direct Costs",
-    "Refunds",
-    "Net Profit",
-    "Status",
-    "Transaction ID",
-    "Evidence URI",
-  ],
-  [
-    "2026-05-08",
-    "LEDGER-000",
-    "Internal",
-    "Workspace",
-    "Codex10k ledger initialized",
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    "Initialized",
-    "",
-    "docs/research.md",
-  ],
+  ["Date", "Event ID", "Counterparty", "Channel", "Description", "Gross Revenue", "Payment Fees", "Platform Fees", "Direct Costs", "Refunds", "Net Profit", "Status", "Transaction ID", "Evidence URI", "Notes"],
+  ...ledgerRaw.slice(1),
 ];
 
 const workbook = Workbook.create();
@@ -92,10 +90,10 @@ dashboard.getRange("D3:F7").values = [
   ["Rule", "Count settled revenue only", ""],
 ];
 
-ledgerSheet.getRange(`A1:N${ledger.length}`).values = ledger;
+ledgerSheet.getRange(`A1:O${ledger.length}`).values = ledger;
 ledgerSheet.getRange("K2").formulas = [["=F2-G2-H2-I2-J2"]];
 
-prospectsSheet.getRange(`A1:J${prospects.length}`).values = prospects;
+prospectsSheet.getRange(`A1:P${prospects.length}`).values = prospects;
 
 assumptions.getRange("A1:D9").values = [
   ["Assumption", "Value", "Source", "Notes"],
