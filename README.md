@@ -12,6 +12,7 @@ Primary offer: **10-Day Workflow Revenue Recovery Sprint**
 - Typical targets: missed lead response, quote intake, CRM cleanup, internal reporting, and AI-assisted inbox/support triage.
 - Demo-first sales motion: show a working prototype, then sell a paid pilot.
 - No unverifiable credential claims, fake case studies, fake reviews, or deceptive outreach.
+- This run does not pursue employment for the user. Public hiring posts are useful only when they can be converted into a fixed-scope client deliverable that Codex can build and hand off.
 
 ## Profit Definition
 
@@ -40,4 +41,3 @@ Ledger: `data/ledger.csv`
 - `Codex10k/Bounced`
 - `Codex10k/OptOut`
 - `Codex10k/Paid`
-

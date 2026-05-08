@@ -55,3 +55,13 @@ Excluded unless separately scoped:
 5. Collect payment or signed acceptance before build.
 6. Record all evidence in `data/ledger.csv`.
 
+## Not Employment
+
+Do not apply for roles that require the user to personally interview, join payroll, attend daily meetings, or perform ongoing employee-style work.
+
+Use public "hiring" posts only when the buyer has a concrete automation problem that can be sold as a done-for-you fixed-scope implementation:
+
+- buyer sends sample inputs and target outputs,
+- Codex scopes a paid milestone,
+- Codex builds, tests, documents, and hands off the workflow,
+- user involvement stays limited to approvals, account access, payment, and legal/commercial acceptance.

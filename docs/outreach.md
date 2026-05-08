@@ -12,15 +12,17 @@ All outreach originated in this run must use the `Codex10k/` Gmail label namespa
 
 ## Template: Public Hiring Post
 
-Subject: Contractor workflow sprint for {{company}}
+Use this only when the post can be served as a done-for-you client project, not an employment application.
+
+Subject: Fixed-scope workflow build for {{company}}
 
 Hi {{name/team}},
 
 I saw your public post looking for help with {{workflow/tooling}}.
 
-I can help as a contractor on one tightly scoped workflow: map the current process, build or fix the automation, add logging/error handling, and hand over docs so your team can run it without me.
+I’m not looking for an employee role. I can take one tightly scoped workflow as a done-for-you build: map the current process, build or fix the automation, add logging/error handling, and hand over docs so your team can run it without me.
 
-Best first step: send me one workflow that is blocked or painful. I’ll reply with either a fixed-price sprint scope or a clear no-fit.
+Best first step: send one blocked workflow with sample inputs and the target output. I’ll reply with either a fixed-price milestone scope or a clear no-fit.
 
 Best,
 Nakul
@@ -60,6 +62,21 @@ From there I can send a fixed scope, price, timeline, and handoff plan.
 Best,
 Nakul
 
+## Template: Employment Clarification
+
+Subject: Re: {{original subject}}
+
+Hi {{name}},
+
+Small clarification: I’m not seeking an employee role or a long interview process.
+
+I’m offering a done-for-you fixed-scope build. If you still need this workflow, the practical path is: send anonymized sample inputs and the target output, I scope a paid milestone, then I build/test/document the workflow and hand it over.
+
+If you’re only collecting employment-style applications, no problem; feel free to ignore this.
+
+Best,
+Nakul
+
 ## Template: No-Pressure Follow-Up
 
 Subject: Re: {{original subject}}
@@ -72,4 +89,3 @@ If this is not relevant, reply "unsubscribe" and I will not contact you again.
 
 Best,
 Nakul
-
