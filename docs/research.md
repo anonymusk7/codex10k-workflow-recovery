@@ -17,6 +17,15 @@ Date: 2026-05-08
 - Upwork Connects: https://support.upwork.com/hc/en-us/articles/34955398999699-Connects
 - Upwork in-demand skills 2026: https://investors.upwork.com/node/12681/pdf
 - Zapier pricing: https://zapier.com/pricing
+- Chain Reaction Motorcycle School automation request: https://www.reddit.com/r/AiAutomations/comments/1s599vw/looking_for_ai_automation_expert_to_build/
+- Chain Reaction official contact page/site footer: https://www.chainreactionmotorcycleschool.com/
+- Ferncliff website redesign RFP: https://ferncliff.org/about/jobs/rfps/
+- City of Hidden Hills RFP page: https://hiddenhills.gov/city-departments/city-clerk/notice-inviting-bids-proposals-rfps/
+- SCIDpda website redesign RFQ: https://scidpda.org/website-redesign-and-development-for-scidpda-request-for-qualifications-rfq/
+- ShelbyKY Tourism website design RFP: https://www.visitshelbyky.com/articles/post/request-for-proposals-website-design/
+- Bellingham Housing Authority website RFP: https://bellinghamhousing.org/request-for-proposals-website-development-and-design-services/2026/04/20/
+- Willow Springs website services RFP: https://www.willowspringsmo.com/bids.aspx?bidID=8
+- Yolo-Solano AQMD website redesign RFP notice: https://www.ysaqmd.org/about-the-district/announcements/
 
 ## Recommendation
 
@@ -29,4 +38,3 @@ Fastest paths:
 3. Warm contacts and replies.
 4. Upwork proposals where the buyer has clear scope and budget.
 5. Community answers that lead to invited DMs or paid triage.
-

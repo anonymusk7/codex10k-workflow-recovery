@@ -117,3 +117,7 @@ Do not count revenue until all are true:
 - payment/platform fees are known,
 - direct costs and refunds are known,
 - transaction ID and evidence path are recorded in `data/ledger.csv`.
+
+## Fresh Batch Scopes
+
+Use `docs/fresh-batch-close-packet.md` for reply-to-approval scopes covering `C10K-038` through `C10K-045`.

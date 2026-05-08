@@ -89,3 +89,32 @@ If this is not relevant, reply "unsubscribe" and I will not contact you again.
 
 Best,
 Nakul
+
+## Template: RFP Support Slice
+
+Use this only for a public RFP or RFQ where the buyer has listed an official contact path. Do not send it to nondesignated staff during restricted procurement.
+
+Subject: {{project}}: bounded QA/accessibility support option
+
+Hi {{name/team}},
+
+I saw {{organization}}'s public {{RFP/RFQ}} for {{project}}. I am not sending this as a full prime proposal or trying to bypass the procurement process.
+
+If useful to {{organization}} or the selected vendor, I can provide a fixed-scope launch QA/support package focused on {{risk areas}}.
+
+Fixed support package: USD {{price}}
+
+Includes:
+
+- {{path_or_integration}} QA
+- accessibility checks on key templates and high-use pages
+- mobile, browser, link, redirect, and form checks
+- CMS editor workflow checks
+- launch acceptance checklist and prioritized punch-list tracker
+
+No sensitive data should be sent by email; public/staging pages and dummy/test records are enough.
+
+If this support option is relevant, reply with the expected staging window or forward it to the selected vendor after award, and I will send a one-page scope with acceptance criteria.
+
+Best,
+Nakul
