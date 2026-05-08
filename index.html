@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>10-Day Workflow Revenue Recovery Sprint</title>
+    <meta
+      name="description"
+      content="A fixed-scope AI workflow sprint for missed leads, quote intake, CRM cleanup, and operational dashboards."
+    />
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Workflow Revenue Recovery">
+        <span class="brand-mark">10</span>
+        <span>
+          <strong>Workflow Revenue Recovery</strong>
+          <small>fixed-scope AI automation sprint</small>
+        </span>
+      </a>
+      <nav aria-label="Page sections">
+        <a href="#demo">Demo</a>
+        <a href="#fit">Fit</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">10 business days. One bottleneck. Documented handoff.</p>
+          <h1>Workflow Revenue Recovery Sprint</h1>
+          <p class="lede">
+            Recover missed revenue hiding in slow follow-up, messy quotes, and manual ops. I build one production-ready workflow that captures leads, structures requests, updates your tools, and gives your team a clean queue to act on.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#demo">Try the demo</a>
+            <a class="button secondary" href="mailto:nanznakul@gmail.com?subject=Workflow%20Revenue%20Recovery%20Sprint">Start a pilot</a>
+          </div>
+        </div>
+        <aside class="hero-panel" aria-label="Sprint summary">
+          <div class="metric-row">
+            <span>Build window</span>
+            <strong>10 business days</strong>
+          </div>
+          <div class="metric-row">
+            <span>Best for</span>
+            <strong>lead intake, quote flow, CRM cleanup</strong>
+          </div>
+          <div class="metric-row">
+            <span>Deliverables</span>
+            <strong>workflow, dashboard, docs, handoff</strong>
+          </div>
+          <div class="metric-row">
+            <span>Pilot</span>
+            <strong>fixed scope, fixed price</strong>
+          </div>
+        </aside>
+      </section>
+
+      <section id="demo" class="band">
+        <div class="section-head">
+          <p class="eyebrow">Live sample workflow</p>
+          <h2>From inbound request to team-ready queue</h2>
+          <p>
+            This demo uses sample data only. It shows the kind of system a paid sprint turns into a real workflow using your forms, inbox, CRM, sheets, or dashboard.
+          </p>
+        </div>
+
+        <div class="demo-grid">
+          <form class="intake" id="lead-form">
+            <label>
+              Lead name
+              <input name="name" value="Maya Patel" autocomplete="name" />
+            </label>
+            <label>
+              Business type
+              <select name="segment">
+                <option>Home services</option>
+                <option selected>Industrial supplier</option>
+                <option>Agency</option>
+                <option>Clinic</option>
+                <option>Professional services</option>
+              </select>
+            </label>
+            <label>
+              Request
+              <textarea name="request" rows="4">Need pricing for 20 cordless drills, 12 cutting discs, and delivery by Friday.</textarea>
+            </label>
+            <label>
+              Urgency
+              <select name="urgency">
+                <option>Low</option>
+                <option selected>High</option>
+                <option>Same day</option>
+              </select>
+            </label>
+            <button class="button primary" type="submit">Run workflow</button>
+          </form>
+
+          <div class="workflow-output" aria-live="polite">
+            <div class="queue-header">
+              <span>Team queue</span>
+              <strong id="queue-status">Ready</strong>
+            </div>
+            <ol id="workflow-steps">
+              <li>Submit the sample request to generate workflow output.</li>
+            </ol>
+            <div class="record">
+              <span>CRM summary</span>
+              <p id="crm-summary">No request processed yet.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="band compact" id="fit">
+        <div class="section-head">
+          <p class="eyebrow">Good-fit bottlenecks</p>
+          <h2>Sellable because the problem is already expensive</h2>
+        </div>
+        <div class="fit-grid">
+          <article>
+            <h3>Speed-to-lead</h3>
+            <p>Respond to form, call, and email enquiries faster, then log every follow-up with owners and deadlines.</p>
+          </article>
+          <article>
+            <h3>Quote intake</h3>
+            <p>Turn vague product or service requests into structured requirements, clean summaries, and quote queues.</p>
+          </article>
+          <article>
+            <h3>CRM cleanup</h3>
+            <p>Deduplicate messy lists, enrich records, flag stale opportunities, and create a repeatable import process.</p>
+          </article>
+          <article>
+            <h3>Ops dashboard</h3>
+            <p>Replace manual reporting with one operational view for open requests, bottlenecks, aging, and owners.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="band calculator" aria-labelledby="roi-title">
+        <div class="section-head">
+          <p class="eyebrow">ROI calculator</p>
+          <h2 id="roi-title">Estimate the leak</h2>
+        </div>
+        <div class="calc-grid">
+          <label>
+            Missed or slow leads per week
+            <input id="leads" type="number" min="0" value="8" />
+          </label>
+          <label>
+            Average deal value
+            <input id="deal" type="number" min="0" value="750" />
+          </label>
+          <label>
+            Realistic recovery rate
+            <input id="close" type="number" min="0" max="100" value="20" />
+          </label>
+          <label>
+            Admin hours saved per week
+            <input id="hours" type="number" min="0" value="5" />
+          </label>
+        </div>
+        <div class="roi-result">
+          <span>Estimated monthly upside</span>
+          <strong id="roi">$0</strong>
+          <small>Calculated from recovered revenue plus admin time valued at $50/hour.</small>
+        </div>
+      </section>
+
+      <section id="pricing" class="band pricing">
+        <div class="section-head">
+          <p class="eyebrow">Pilot structure</p>
+          <h2>Fixed scope so the work can close fast</h2>
+        </div>
+        <div class="pricing-grid">
+          <article class="price-card">
+            <h3>Workflow Triage</h3>
+            <p class="price">$750</p>
+            <p>Paid diagnosis, system map, ROI estimate, and implementation spec. Credited toward a sprint if started within 14 days.</p>
+          </article>
+          <article class="price-card featured">
+            <h3>10-Day Sprint</h3>
+            <p class="price">$4,800-$7,500</p>
+            <p>One workflow built, tested, documented, and handed off. Includes one revision pass and rollback notes.</p>
+          </article>
+          <article class="price-card">
+            <h3>Optimization Retainer</h3>
+            <p class="price">$750-$1,500/mo</p>
+            <p>Monitoring, fixes, reporting, and workflow improvements after launch. Optional and cancellable monthly.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" class="contact-band">
+        <div>
+          <p class="eyebrow">Next step</p>
+          <h2>Send one bottleneck. I’ll return a paid pilot scope or a clear no-fit.</h2>
+        </div>
+        <a class="button primary" href="mailto:nanznakul@gmail.com?subject=Workflow%20Revenue%20Recovery%20Sprint&body=The%20workflow%20I%20want%20fixed%20is%3A%0A%0ATools%20involved%3A%0A%0AWhat%20happens%20when%20it%20breaks%3A%0A">Email the bottleneck</a>
+      </section>
+    </main>
+
+    <footer>
+      <p>Sample demo and offer page. No real customer data is processed here.</p>
+    </footer>
+
+    <script src="assets/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,3 @@
+lead_id,created_at,label_namespace,company,contact,channel,source_url,segment,problem_hypothesis,offer,status,last_touch,next_action,follow_up_date,evidence_uri,notes
+C10K-000,2026-05-08,Codex10k,Internal,,,,,Run setup,10-Day Workflow Revenue Recovery Sprint,initialized,2026-05-08,Begin fresh lead sourcing,,docs/research.md,Do not mix with prior Revenue Run labels
+
