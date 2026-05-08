@@ -28,6 +28,7 @@ Ledger: `data/ledger.csv`
 - `docs/offer.md` - offer, scope, pricing, delivery plan.
 - `docs/outreach.md` - approved outreach templates and compliance notes.
 - `docs/payment-flow.md` - Stripe/manual invoice setup draft.
+- `docs/close-packet.md` - ready replies for scope, acceptance, and payment requests.
 - `docs/research.md` - current market/channel research sources.
 - `data/prospects.csv` - lead tracker for this run only.
 - `data/ledger.csv` - verified profit ledger.
