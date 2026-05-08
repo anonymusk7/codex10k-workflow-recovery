@@ -81,7 +81,7 @@ dashboard.getRange("A3:B9").values = [
 ];
 dashboard.getRange("B5").formulas = [["=B3-B4"]];
 dashboard.getRange("B8").formulas = [["=COUNTIFS(Prospects!K2:K200,\"<>initialized\",Prospects!K2:K200,\"<>hold_employment_style\",Prospects!K2:K200,\"<>bounced\",Prospects!K2:K200,\"<>\")"]];
-dashboard.getRange("B9").formulas = [["=COUNTIF(Prospects!K2:K200,\"interested\") + COUNTIF(Prospects!K2:K200,\"interested_phase0_sent\") + COUNTIF(Prospects!K2:K200,\"proposal_sent\") + COUNTIF(Prospects!K2:K200,\"invoice_sent\") + COUNTIF(Prospects!K2:K200,\"paid\")"]];
+dashboard.getRange("B9").formulas = [["=COUNTIF(Prospects!K2:K200,\"interested\") + COUNTIF(Prospects!K2:K200,\"interested_phase0_sent\") + COUNTIF(Prospects!K2:K200,\"meeting_proposed_phase0\") + COUNTIF(Prospects!K2:K200,\"proposal_sent\") + COUNTIF(Prospects!K2:K200,\"invoice_sent\") + COUNTIF(Prospects!K2:K200,\"paid\")"]];
 dashboard.getRange("D3:F7").values = [
   ["Run Label", "Codex10k", ""],
   ["Primary Offer", "10-Day Workflow Revenue Recovery Sprint", ""],
