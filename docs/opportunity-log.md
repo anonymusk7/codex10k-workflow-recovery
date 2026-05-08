@@ -20,3 +20,11 @@ Rules:
 - `C10K-006` Strive Digital: public LinkedIn post included a concrete data workflow problem and project-based option. Sent fixed-scope project proposal, Gmail message `19e08eb918b791a3`.
 - `C10K-007` Bluestork AI: public Reddit post asked for a freelance n8n workflow around AI floor-plan analysis. Sent fixed-scope milestone offer, Gmail message `19e08ebf205599ce`.
 - `C10K-008` Shilling Strategy Consulting: public LinkedIn post asked for an N8N automation freelancer and price details. Sent fixed-scope build offer, Gmail message `19e08ec44f776529`.
+
+## 2026-05-09
+
+- `C10K-009` RestaurantFlow OS: public n8n Community post asked for a paid build fee and ongoing retainer for production restaurant automation workflows with Supabase, GHL, Printnode, idempotency, HMAC validation, and error handling. Sent USD 2,500 fixed first-workflow-group offer, Gmail message `19e08f2811f81844`.
+- `C10K-010` SPAudio: public n8n Community post asked for experienced freelance n8n setup, production workflow, API integration, and operational support. Sent USD 1,800 fixed stabilization package offer, Gmail message `19e08f2a422b2929`.
+- `C10K-011` PristinePro Technologies: public Reddit post asked for n8n AI agent help and company site shows AI automation services. Sent USD 1,500-2,500 fixed workflow offer, Gmail message `19e08f2c2d25180a`.
+- `C10K-012` Noevo: public LinkedIn posting and company site show n8n/AI automation needs around an AI-powered student counselor and paid application support workflows. Sent USD 1,500 fixed workflow offer, Gmail message `19e08f2e136045e9`.
+- Duplicate guard: skipped Synergy Effect for this batch because Gmail search found an older separate-run outbound email to `info@s-e.lt` (`19e08d0f9af8d0cb`), so the new Codex10k batch stayed focused on different contacts.
