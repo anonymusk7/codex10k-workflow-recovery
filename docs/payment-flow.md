@@ -9,6 +9,7 @@ Use Stripe Payment Links or hosted Checkout for simple one-time milestone paymen
 | Product | Price | Collection Timing |
 | --- | ---: | --- |
 | Workflow Triage | USD 750 | 100% upfront |
+| Floor-Plan Feasibility Phase 0 | USD 1,200 | 100% upfront |
 | 10-Day Workflow Sprint | USD 4,800 | 50% upfront, 50% on acceptance |
 | Advanced 10-Day Workflow Sprint | USD 7,500 | 50% upfront, 50% on acceptance |
 | Optimization Retainer | USD 1,000/mo | Monthly, cancel anytime |
@@ -27,6 +28,10 @@ Use Stripe Payment Links or hosted Checkout for simple one-time milestone paymen
 Description:
 
 > Fixed-scope workflow automation sprint covering discovery, implementation, testing, documentation, one revision pass, and handoff for one agreed workflow.
+
+Bluestork Phase 0 description:
+
+> Fixed-scope AI floor-plan feasibility milestone covering 5 anonymized sample plans, output-schema review, extraction-risk taxonomy, n8n architecture, human-review checkpoints, and one proof path for a narrow contractor output slice. USD 1,200 upfront, credited toward a later implementation milestone if approved.
 
 Evidence to store in `evidence/`:
 

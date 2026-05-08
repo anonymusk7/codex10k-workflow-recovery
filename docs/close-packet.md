@@ -75,6 +75,39 @@ If production access is eventually needed, it should use least-privilege credent
 Best,
 Nakul
 
+## Reply: Bluestork Phase 0 Approval
+
+Subject: Re: Bluestork floor-plan feasibility milestone
+
+Hi Bluestork team,
+
+Great. Here is the exact Phase 0 milestone:
+
+Deliverables:
+
+- review 5 representative anonymized floor plans across easy, medium, hard, and edge-case examples,
+- define the contractor-facing output schema for the first production target,
+- identify scale/measurement assumptions, failure modes, confidence levels, and human-review checkpoints,
+- design the n8n workflow architecture for intake, extraction, review, storage, and handoff,
+- produce one proof path for a narrow output slice using dummy/test records,
+- deliver the feasibility memo, workflow map, acceptance checklist, and recommended implementation scope.
+
+Acceptance checks:
+
+- each sample plan is classified with a feasibility/risk note,
+- the first output schema is clear enough for a contractor/user to accept or reject,
+- the architecture states which parts are automated, which require review, and what happens when confidence is low,
+- no production customer data or live credentials are required.
+
+Price: USD 1,200 fixed, 100% upfront.
+Credit: the USD 1,200 is credited toward a later USD 4,500-7,500 implementation milestone if you continue.
+Timeline: 3-5 business days after payment and sample files are available.
+
+If approved, reply "approved for Phase 0" with the billing name/email and I will send the payment link or invoice.
+
+Best,
+Nakul
+
 ## Ledger Gate
 
 Do not count revenue until all are true:
