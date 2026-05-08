@@ -100,7 +100,7 @@ nav a:hover {
   grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
   gap: clamp(28px, 6vw, 80px);
   align-items: center;
-  min-height: calc(88vh - 72px);
+  min-height: calc(78vh - 72px);
 }
 
 .hero-copy {
