@@ -292,12 +292,12 @@
       .video-player {
         display: block;
         width: 100%;
-        min-height: 420px;
+        aspect-ratio: 16 / 9;
         border: 1px solid var(--line);
         border-radius: 8px;
         background: #0d1f1b;
         box-shadow: var(--shadow);
-        object-fit: cover;
+        object-fit: contain;
       }
 
       .script-card {
@@ -416,9 +416,6 @@
           width: 100%;
         }
 
-        .video-player {
-          min-height: 280px;
-        }
       }
     </style>
   </head>
@@ -428,13 +425,13 @@
         <span class="brand-mark">GX</span>
         <span>
           <strong>GoodieX Sales Lifecycle Sprint</strong>
-          <small>intro/demo packet from Nakul</small>
+          <small>intro and workflow proposal from Nakul</small>
         </span>
       </a>
       <nav aria-label="Page sections">
         <a href="#fit">Fit</a>
         <a href="#workflow">Workflow</a>
-        <a href="#video">Video outline</a>
+        <a href="#video">Intro video</a>
         <a href="#deliverables">Deliverables</a>
         <a href="#next">Next step</a>
       </nav>
@@ -516,18 +513,18 @@
 
       <section id="video" class="band">
         <div class="section-head">
-          <p class="eyebrow">Intro video outline</p>
-          <h2>A concise screen walkthrough GoodieX can skim</h2>
+          <p class="eyebrow">Intro video</p>
+          <h2>A concise screen walkthrough for GoodieX</h2>
           <p>
-            This page is designed to be recorded as a 45 to 60 second intro/demo. It avoids unverifiable claims and focuses on the first sellable workflow.
+            The video below summarizes how I would approach a focused first n8n milestone for GoodieX: one useful sales-lifecycle workflow, built with test records first, then connected only after the access boundary and rules are approved.
           </p>
         </div>
         <div class="video-layout">
-          <video class="video-player" controls playsinline preload="metadata" poster="assets/goodiex-sales-workflow-visual.png">
-            <source src="outputs/codex10k/goodiex-intro-captioned-draft.mp4" type="video/mp4" />
+          <video class="video-player" controls playsinline preload="metadata" poster="outputs/codex10k/goodiex-intro-video-poster.png">
+            <source src="outputs/codex10k/goodiex-intro-video.mp4" type="video/mp4" />
           </video>
           <aside class="script-card">
-            <h3>Suggested voiceover</h3>
+            <h3>Intro summary</h3>
             <blockquote>
               Hi Krystal, I am Nakul, an independent freelancer focused on practical n8n automation. For GoodieX, I would start with one clothing sales-lifecycle bottleneck: capture the request or order, normalize the key fields, prevent duplicates, route it to the right owner, queue approved follow-up, and log the status in one place.
             </blockquote>
@@ -596,15 +593,15 @@
 
       <section class="contact-band">
         <div>
-          <p class="eyebrow">Recommended reply</p>
-          <h2>Send the captioned intro/demo and ask for the current tool stack plus the highest-friction step.</h2>
+          <p class="eyebrow">Next step</p>
+          <h2>Share the current tool stack and the highest-friction sales step, and I will turn it into the exact v1 acceptance checklist.</h2>
         </div>
         <a class="button light" href="mailto:admin@goodiex-tech.com?subject=Re%3A%20Fixed-scope%20n8n%20sales-lifecycle%20sprint%20for%20GoodieX">Email GoodieX</a>
       </section>
     </main>
 
     <footer>
-      <p>Public-safe illustrative packet. No GoodieX internal systems or customer data are shown. The workflow visual is generated and not a screenshot of GoodieX tools.</p>
+      <p>Illustrative workflow proposal. No GoodieX internal systems or customer data are shown.</p>
     </footer>
   </body>
 </html>
