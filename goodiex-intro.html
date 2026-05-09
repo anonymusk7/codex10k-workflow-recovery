@@ -1,0 +1,610 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GoodieX Sales Lifecycle Sprint</title>
+    <meta
+      name="description"
+      content="A short intro and demo packet for GoodieX Tech's clothing sales-lifecycle automation request."
+    />
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #13211d;
+        --muted: #61736d;
+        --paper: #f7f5ef;
+        --panel: #ffffff;
+        --line: #d9e0dc;
+        --forest: #0d5f4d;
+        --coral: #d86645;
+        --blue: #275d9f;
+        --gold: #e7b85f;
+        --soft: #eaf3ef;
+        --shadow: 0 20px 60px rgba(19, 33, 29, 0.14);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 22px;
+        padding: 14px clamp(18px, 4vw, 56px);
+        background: rgba(247, 245, 239, 0.94);
+        border-bottom: 1px solid var(--line);
+        backdrop-filter: blur(14px);
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+      }
+
+      .brand-mark {
+        display: grid;
+        place-items: center;
+        width: 42px;
+        height: 42px;
+        border-radius: 8px;
+        background: var(--ink);
+        color: #fff;
+        font-weight: 900;
+      }
+
+      .brand strong,
+      .brand small {
+        display: block;
+      }
+
+      .brand small {
+        color: var(--muted);
+        font-size: 0.8rem;
+      }
+
+      nav {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      nav a {
+        text-decoration: none;
+      }
+
+      nav a:hover {
+        color: var(--ink);
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 46px;
+        padding: 0 18px;
+        border: 1px solid var(--ink);
+        border-radius: 8px;
+        font-weight: 850;
+        text-decoration: none;
+      }
+
+      .button.primary {
+        background: var(--ink);
+        color: #fff;
+      }
+
+      .button.light {
+        border-color: #fff;
+        background: #fff;
+        color: var(--ink);
+      }
+
+      .hero {
+        position: relative;
+        display: grid;
+        align-items: end;
+        min-height: calc(78vh - 72px);
+        padding: clamp(70px, 9vw, 110px) clamp(18px, 4vw, 56px) clamp(36px, 6vw, 72px);
+        color: #fff;
+        background:
+          linear-gradient(90deg, rgba(19, 33, 29, 0.86), rgba(19, 33, 29, 0.52) 48%, rgba(19, 33, 29, 0.1)),
+          url("assets/goodiex-sales-workflow-visual.png") center / cover no-repeat;
+      }
+
+      .hero-copy {
+        max-width: 850px;
+      }
+
+      .eyebrow {
+        margin: 0 0 12px;
+        color: var(--gold);
+        font-size: 0.78rem;
+        font-weight: 900;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        max-width: 820px;
+        margin-bottom: 22px;
+        font-size: clamp(2.8rem, 6vw, 5.4rem);
+        line-height: 1;
+        letter-spacing: 0;
+      }
+
+      h2 {
+        margin-bottom: 14px;
+        font-size: clamp(2rem, 4vw, 3.7rem);
+        line-height: 1;
+        letter-spacing: 0;
+      }
+
+      h3 {
+        margin-bottom: 10px;
+        font-size: 1.12rem;
+      }
+
+      .lede {
+        max-width: 720px;
+        color: rgba(255, 255, 255, 0.86);
+        font-size: clamp(1.08rem, 2vw, 1.34rem);
+        line-height: 1.55;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 28px;
+      }
+
+      .band {
+        padding: clamp(48px, 8vw, 96px) clamp(18px, 4vw, 56px);
+        border-top: 1px solid var(--line);
+        background: #fffdfa;
+      }
+
+      .band.soft {
+        background: var(--soft);
+      }
+
+      section[id] {
+        scroll-margin-top: 104px;
+      }
+
+      .section-head {
+        max-width: 840px;
+        margin-bottom: 32px;
+      }
+
+      .section-head p:not(.eyebrow) {
+        color: var(--muted);
+        font-size: 1.08rem;
+        line-height: 1.55;
+      }
+
+      .panel-grid,
+      .delivery-grid,
+      .check-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .panel,
+      .delivery,
+      .script-card {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+      }
+
+      .panel {
+        padding: 22px;
+      }
+
+      .panel span {
+        display: inline-grid;
+        place-items: center;
+        width: 42px;
+        height: 42px;
+        margin-bottom: 18px;
+        border-radius: 8px;
+        background: var(--soft);
+        color: var(--forest);
+        font-size: 0.9rem;
+        font-weight: 900;
+      }
+
+      .panel p,
+      .delivery p,
+      .script-card p,
+      li {
+        color: var(--muted);
+        line-height: 1.55;
+      }
+
+      .workflow-board {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 28px;
+      }
+
+      .workflow-step {
+        min-height: 132px;
+        padding: 18px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+      }
+
+      .workflow-step strong {
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      .workflow-step small {
+        color: var(--muted);
+        line-height: 1.4;
+      }
+
+      .video-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
+        gap: 22px;
+        align-items: stretch;
+      }
+
+      .video-player {
+        display: block;
+        width: 100%;
+        min-height: 420px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #0d1f1b;
+        box-shadow: var(--shadow);
+        object-fit: cover;
+      }
+
+      .script-card {
+        display: grid;
+        align-content: center;
+        gap: 16px;
+        padding: 24px;
+      }
+
+      .script-card blockquote {
+        margin: 0;
+        padding-left: 18px;
+        border-left: 4px solid var(--coral);
+        color: var(--ink);
+        font-size: clamp(1rem, 1.5vw, 1.18rem);
+        line-height: 1.55;
+      }
+
+      .delivery {
+        padding: 24px;
+      }
+
+      .price-row {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 18px;
+        margin-top: 28px;
+        padding: 24px;
+        border-radius: 8px;
+        background: var(--ink);
+        color: #fff;
+      }
+
+      .price-row strong {
+        font-size: clamp(2.4rem, 6vw, 4.8rem);
+      }
+
+      .price-row span {
+        color: rgba(255, 255, 255, 0.72);
+        line-height: 1.4;
+      }
+
+      .check-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .check-grid ul {
+        margin: 0;
+        padding-left: 22px;
+      }
+
+      .contact-band {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 28px;
+        padding: clamp(42px, 6vw, 72px) clamp(18px, 4vw, 56px);
+        background: var(--forest);
+        color: #fff;
+      }
+
+      .contact-band h2 {
+        max-width: 760px;
+        margin-bottom: 0;
+      }
+
+      .contact-band .eyebrow {
+        color: #ffe5bc;
+      }
+
+      footer {
+        padding: 24px clamp(18px, 4vw, 56px);
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 980px) {
+        .topbar {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        nav {
+          flex-wrap: wrap;
+        }
+
+        .panel-grid,
+        .delivery-grid,
+        .workflow-board,
+        .video-layout,
+        .check-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .workflow-step {
+          min-height: 0;
+        }
+
+        .contact-band,
+        .price-row {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .hero {
+          min-height: 72vh;
+          background:
+            linear-gradient(180deg, rgba(19, 33, 29, 0.9), rgba(19, 33, 29, 0.62)),
+            url("assets/goodiex-sales-workflow-visual.png") center / cover no-repeat;
+        }
+
+        .button {
+          width: 100%;
+        }
+
+        .video-player {
+          min-height: 280px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="GoodieX sales lifecycle sprint">
+        <span class="brand-mark">GX</span>
+        <span>
+          <strong>GoodieX Sales Lifecycle Sprint</strong>
+          <small>intro/demo packet from Nakul</small>
+        </span>
+      </a>
+      <nav aria-label="Page sections">
+        <a href="#fit">Fit</a>
+        <a href="#workflow">Workflow</a>
+        <a href="#video">Video outline</a>
+        <a href="#deliverables">Deliverables</a>
+        <a href="#next">Next step</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Prepared for Krystal Boyd and GoodieX Tech</p>
+          <h1>GoodieX sales lifecycle sprint</h1>
+          <p class="lede">
+            I am Nakul, an independent freelancer focused on practical workflow automation. For GoodieX, I would keep the first n8n sprint narrow: one working clothing sales-lifecycle workflow, tested with dummy records, documented, and ready to hand off.
+          </p>
+          <div class="hero-actions">
+            <a class="button light" href="#video">View intro outline</a>
+            <a class="button primary" href="#deliverables">Review fixed scope</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="fit" class="band">
+        <div class="section-head">
+          <p class="eyebrow">Why this fits</p>
+          <h2>Clothing sales ops usually leak time in the same few places</h2>
+          <p>
+            The fastest paid milestone is not a giant automation map. It is one reliable path from inquiry or order signal to a structured sales record, clean owner assignment, approved follow-up, and visible status.
+          </p>
+        </div>
+        <div class="panel-grid">
+          <article class="panel">
+            <span>01</span>
+            <h3>Manual routing</h3>
+            <p>Requests land in different channels, then someone has to sort product, size, delivery, customer, and owner details by hand.</p>
+          </article>
+          <article class="panel">
+            <span>02</span>
+            <h3>Duplicate records</h3>
+            <p>The same customer or order can appear more than once, which creates follow-up confusion and unreliable reporting.</p>
+          </article>
+          <article class="panel">
+            <span>03</span>
+            <h3>Slow follow-up</h3>
+            <p>Approved email or WhatsApp follow-up can be queued automatically while anything risky or unclear is held for review.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="workflow" class="band soft">
+        <div class="section-head">
+          <p class="eyebrow">Proposed v1 workflow</p>
+          <h2>One production-ready path, not a fragile demo</h2>
+          <p>
+            I would start with dummy/test records and wire this around the tools GoodieX already uses. The exact integrations depend on your current stack, but the operating shape stays the same.
+          </p>
+        </div>
+        <div class="workflow-board" aria-label="Proposed GoodieX workflow">
+          <div class="workflow-step">
+            <strong>Capture</strong>
+            <small>Form, email, Shopify/WooCommerce, sheet, or manual sales intake.</small>
+          </div>
+          <div class="workflow-step">
+            <strong>Normalize</strong>
+            <small>Product, customer, order, urgency, channel, and missing-field checks.</small>
+          </div>
+          <div class="workflow-step">
+            <strong>Dedupe</strong>
+            <small>Match existing customer/order records before creating new ones.</small>
+          </div>
+          <div class="workflow-step">
+            <strong>Route</strong>
+            <small>Assign owner, update the source of truth, and alert the right channel.</small>
+          </div>
+          <div class="workflow-step">
+            <strong>Follow up</strong>
+            <small>Queue approved messages, log status, and surface exceptions.</small>
+          </div>
+        </div>
+      </section>
+
+      <section id="video" class="band">
+        <div class="section-head">
+          <p class="eyebrow">Intro video outline</p>
+          <h2>A concise screen walkthrough GoodieX can skim</h2>
+          <p>
+            This page is designed to be recorded as a 45 to 60 second intro/demo. It avoids unverifiable claims and focuses on the first sellable workflow.
+          </p>
+        </div>
+        <div class="video-layout">
+          <video class="video-player" controls playsinline preload="metadata" poster="assets/goodiex-sales-workflow-visual.png">
+            <source src="outputs/codex10k/goodiex-intro-captioned-draft.mp4" type="video/mp4" />
+          </video>
+          <aside class="script-card">
+            <h3>Suggested voiceover</h3>
+            <blockquote>
+              Hi Krystal, I am Nakul, an independent freelancer focused on practical n8n automation. For GoodieX, I would start with one clothing sales-lifecycle bottleneck: capture the request or order, normalize the key fields, prevent duplicates, route it to the right owner, queue approved follow-up, and log the status in one place.
+            </blockquote>
+            <p>
+              The first milestone would use dummy records first, then connect real tools only after access and rules are approved.
+            </p>
+          </aside>
+        </div>
+      </section>
+
+      <section id="deliverables" class="band soft">
+        <div class="section-head">
+          <p class="eyebrow">Fixed first sprint</p>
+          <h2>USD 1,800 for one working workflow</h2>
+          <p>
+            This keeps the offer aligned with the original GoodieX outreach and makes the next step easy to approve without open-ended hourly ambiguity.
+          </p>
+        </div>
+        <div class="delivery-grid">
+          <article class="delivery">
+            <h3>Built workflow</h3>
+            <p>One n8n workflow around the highest-value sales-lifecycle bottleneck, connected to approved tools under GoodieX accounts.</p>
+          </article>
+          <article class="delivery">
+            <h3>Reliability basics</h3>
+            <p>Error paths, duplicate prevention, missing-field handling, test records, and a practical rollback note.</p>
+          </article>
+          <article class="delivery">
+            <h3>Handoff</h3>
+            <p>Acceptance checklist, simple documentation, and comments/labels that make later Spanish translation or team handoff easier.</p>
+          </article>
+        </div>
+        <div class="price-row">
+          <span>Proposed first paid milestone</span>
+          <strong>$1,800</strong>
+          <span>Fixed scope, first workflow only, using dummy data before production access.</span>
+        </div>
+      </section>
+
+      <section id="next" class="band">
+        <div class="section-head">
+          <p class="eyebrow">Acceptance checklist</p>
+          <h2>What I need from GoodieX to make v1 real</h2>
+        </div>
+        <div class="check-grid">
+          <div>
+            <h3>Inputs</h3>
+            <ul>
+              <li>Current tools involved in the sales lifecycle.</li>
+              <li>The one step wasting the most time or causing missed follow-up.</li>
+              <li>Three dummy or sanitized example records.</li>
+              <li>Rules for owner assignment, follow-up timing, and exception review.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Completion standard</h3>
+            <ul>
+              <li>Workflow runs successfully on test records.</li>
+              <li>Duplicates and missing fields do not silently break the process.</li>
+              <li>GoodieX can see each record status and owner.</li>
+              <li>Handoff notes show how to run, test, and maintain the workflow.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact-band">
+        <div>
+          <p class="eyebrow">Recommended reply</p>
+          <h2>Send the captioned intro/demo and ask for the current tool stack plus the highest-friction step.</h2>
+        </div>
+        <a class="button light" href="mailto:admin@goodiex-tech.com?subject=Re%3A%20Fixed-scope%20n8n%20sales-lifecycle%20sprint%20for%20GoodieX">Email GoodieX</a>
+      </section>
+    </main>
+
+    <footer>
+      <p>Public-safe illustrative packet. No GoodieX internal systems or customer data are shown. The workflow visual is generated and not a screenshot of GoodieX tools.</p>
+    </footer>
+  </body>
+</html>
