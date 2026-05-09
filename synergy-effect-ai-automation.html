@@ -1,0 +1,552 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Synergy Effect AI Automation Delivery Packet</title>
+    <meta
+      name="description"
+      content="A project-based n8n and AI automation delivery packet prepared for Synergy Effect."
+    />
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #13211d;
+        --muted: #5c6e68;
+        --paper: #f7f6f0;
+        --panel: #ffffff;
+        --line: #d7dfdc;
+        --forest: #0f684f;
+        --coral: #d86242;
+        --blue: #2f659f;
+        --gold: #e4b95c;
+        --soft: #e8f3ef;
+        --shadow: 0 20px 60px rgba(19, 33, 29, 0.14);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 22px;
+        padding: 14px clamp(18px, 4vw, 56px);
+        background: rgba(247, 246, 240, 0.94);
+        border-bottom: 1px solid var(--line);
+        backdrop-filter: blur(14px);
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+      }
+
+      .brand-mark {
+        display: grid;
+        place-items: center;
+        width: 42px;
+        height: 42px;
+        border-radius: 8px;
+        background: var(--ink);
+        color: #fff;
+        font-weight: 900;
+      }
+
+      .brand strong,
+      .brand small {
+        display: block;
+      }
+
+      .brand small,
+      nav {
+        color: var(--muted);
+      }
+
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 18px;
+        font-size: 0.95rem;
+      }
+
+      nav a {
+        text-decoration: none;
+      }
+
+      .hero {
+        position: relative;
+        display: grid;
+        align-items: end;
+        min-height: calc(82vh - 72px);
+        padding: clamp(70px, 9vw, 112px) clamp(18px, 4vw, 56px) clamp(38px, 6vw, 74px);
+        color: #fff;
+        background:
+          linear-gradient(90deg, rgba(19, 33, 29, 0.9), rgba(19, 33, 29, 0.66) 45%, rgba(19, 33, 29, 0.08)),
+          url("assets/synergy-automation-workflow-visual.png") center / cover no-repeat;
+      }
+
+      .hero-copy {
+        max-width: 860px;
+      }
+
+      .eyebrow {
+        margin: 0 0 12px;
+        color: var(--gold);
+        font-size: 0.78rem;
+        font-weight: 900;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        max-width: 850px;
+        margin-bottom: 22px;
+        font-size: clamp(2.7rem, 6vw, 5.2rem);
+        line-height: 1;
+        letter-spacing: 0;
+      }
+
+      h2 {
+        margin-bottom: 14px;
+        font-size: clamp(2rem, 4vw, 3.6rem);
+        line-height: 1;
+        letter-spacing: 0;
+      }
+
+      h3 {
+        margin-bottom: 10px;
+        font-size: 1.12rem;
+      }
+
+      .lede {
+        max-width: 730px;
+        color: rgba(255, 255, 255, 0.86);
+        font-size: clamp(1.08rem, 2vw, 1.34rem);
+        line-height: 1.55;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 28px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 46px;
+        padding: 0 18px;
+        border: 1px solid var(--ink);
+        border-radius: 8px;
+        font-weight: 850;
+        text-decoration: none;
+      }
+
+      .button.primary {
+        background: var(--ink);
+        color: #fff;
+      }
+
+      .button.light {
+        border-color: #fff;
+        background: #fff;
+        color: var(--ink);
+      }
+
+      .band {
+        padding: clamp(48px, 8vw, 96px) clamp(18px, 4vw, 56px);
+        border-top: 1px solid var(--line);
+        background: #fffdfa;
+      }
+
+      .band.soft {
+        background: var(--soft);
+      }
+
+      section[id] {
+        scroll-margin-top: 104px;
+      }
+
+      .section-head {
+        max-width: 880px;
+        margin-bottom: 32px;
+      }
+
+      .section-head p:not(.eyebrow),
+      .card p,
+      .timeline p,
+      li {
+        color: var(--muted);
+        line-height: 1.55;
+      }
+
+      .card-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .card,
+      .timeline,
+      .diagram {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+      }
+
+      .card {
+        padding: 22px;
+      }
+
+      .card span {
+        display: inline-grid;
+        place-items: center;
+        width: 42px;
+        height: 42px;
+        margin-bottom: 18px;
+        border-radius: 8px;
+        background: var(--soft);
+        color: var(--forest);
+        font-size: 0.9rem;
+        font-weight: 900;
+      }
+
+      .diagram {
+        display: grid;
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 10px;
+        padding: 18px;
+      }
+
+      .node {
+        min-height: 118px;
+        padding: 16px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fffdfa;
+      }
+
+      .node strong {
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      .node small {
+        color: var(--muted);
+        line-height: 1.4;
+      }
+
+      .timeline {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        overflow: hidden;
+      }
+
+      .timeline article {
+        padding: 24px;
+        border-right: 1px solid var(--line);
+      }
+
+      .timeline article:last-child {
+        border-right: 0;
+      }
+
+      .check-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 32px;
+      }
+
+      .check-grid ul {
+        margin: 0;
+        padding-left: 22px;
+      }
+
+      .price-row {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 18px;
+        margin-top: 28px;
+        padding: 24px;
+        border-radius: 8px;
+        background: var(--ink);
+        color: #fff;
+      }
+
+      .price-row strong {
+        font-size: clamp(2.1rem, 5vw, 4.2rem);
+      }
+
+      .price-row span {
+        color: rgba(255, 255, 255, 0.72);
+        line-height: 1.4;
+      }
+
+      .contact-band {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 28px;
+        padding: clamp(42px, 6vw, 72px) clamp(18px, 4vw, 56px);
+        background: var(--forest);
+        color: #fff;
+      }
+
+      .contact-band h2 {
+        max-width: 780px;
+        margin-bottom: 0;
+      }
+
+      footer {
+        padding: 24px clamp(18px, 4vw, 56px);
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 1040px) {
+        .card-grid,
+        .diagram,
+        .timeline,
+        .check-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .timeline article {
+          border-right: 0;
+          border-bottom: 1px solid var(--line);
+        }
+
+        .timeline article:last-child {
+          border-bottom: 0;
+        }
+
+        .contact-band,
+        .price-row {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+      }
+
+      @media (max-width: 700px) {
+        .topbar {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .hero {
+          min-height: 74vh;
+          background:
+            linear-gradient(180deg, rgba(19, 33, 29, 0.9), rgba(19, 33, 29, 0.64)),
+            url("assets/synergy-automation-workflow-visual.png") center / cover no-repeat;
+        }
+
+        .button {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Synergy Effect automation packet">
+        <span class="brand-mark">SE</span>
+        <span>
+          <strong>Synergy Effect Automation Packet</strong>
+          <small>project-based response from Nakul</small>
+        </span>
+      </a>
+      <nav aria-label="Page sections">
+        <a href="#fit">Fit</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#milestone">Milestone</a>
+        <a href="#answers">Answers</a>
+        <a href="#next">Next step</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Prepared for Tomas Maciulskas and Synergy Effect</p>
+          <h1>Project-based n8n and AI automation delivery</h1>
+          <p class="lede">
+            I am Nakul, an independent freelancer focused on practical workflow automation. The useful first step is one bounded production workflow: clear inputs, validation, human review where needed, tested outputs, logging, and a handoff your team can inspect.
+          </p>
+          <div class="hero-actions">
+            <a class="button light" href="#architecture">View workflow shape</a>
+            <a class="button primary" href="#milestone">Review first milestone</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="fit" class="band">
+        <div class="section-head">
+          <p class="eyebrow">Why this fits</p>
+          <h2>One client workflow turned into a reliable delivery slice</h2>
+          <p>
+            Your post spans n8n, AI agents, OCR, CRM/ERP, browser automation, RAG, and human-in-the-loop review. I would not start by promising the whole menu. I would start with one client-safe process and make it measurable.
+          </p>
+        </div>
+        <div class="card-grid">
+          <article class="card">
+            <span>01</span>
+            <h3>Messy intake</h3>
+            <p>Documents, emails, uploads, API payloads, or CRM records are normalized before any irreversible action.</p>
+          </article>
+          <article class="card">
+            <span>02</span>
+            <h3>Human checkpoints</h3>
+            <p>Low-confidence extraction, missing fields, high-value actions, and edge cases pause for review instead of silently failing.</p>
+          </article>
+          <article class="card">
+            <span>03</span>
+            <h3>Operational handoff</h3>
+            <p>The deliverable is not just a workflow. It includes test cases, logging, replay notes, and an operator checklist.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="architecture" class="band soft">
+        <div class="section-head">
+          <p class="eyebrow">Reference architecture</p>
+          <h2>A safe shape for production n8n and AI work</h2>
+          <p>
+            This is the pattern I would adapt to the first real process Synergy Effect wants shipped. It uses dummy or sanitized records first, then replaces placeholders with approved tools and least-privilege access.
+          </p>
+        </div>
+        <div class="diagram" aria-label="Reference automation architecture">
+          <div class="node">
+            <strong>Intake</strong>
+            <small>Email, upload, form, API, CRM, ERP, or browser-collected source.</small>
+          </div>
+          <div class="node">
+            <strong>Extract</strong>
+            <small>OCR, parsing, classification, enrichment, and source metadata capture.</small>
+          </div>
+          <div class="node">
+            <strong>Validate</strong>
+            <small>Required fields, confidence checks, duplicate detection, policy rules.</small>
+          </div>
+          <div class="node">
+            <strong>Review</strong>
+            <small>Human approval queue for exceptions, high-value actions, and uncertain outputs.</small>
+          </div>
+          <div class="node">
+            <strong>Sync</strong>
+            <small>Create or update approved records in CRM, ERP, sheets, ticketing, or database.</small>
+          </div>
+          <div class="node">
+            <strong>Monitor</strong>
+            <small>Run log, error alerts, replay notes, audit trail, and handoff checklist.</small>
+          </div>
+        </div>
+      </section>
+
+      <section id="milestone" class="band">
+        <div class="section-head">
+          <p class="eyebrow">Suggested first milestone</p>
+          <h2>Fixed-scope delivery before broader cooperation</h2>
+          <p>
+            A good first milestone should be small enough to ship, real enough to prove quality, and documented enough for your team to reuse the pattern on future projects.
+          </p>
+        </div>
+        <div class="timeline">
+          <article>
+            <h3>1. Scope</h3>
+            <p>Pick one process, target system, owner, sample inputs, and acceptance checks.</p>
+          </article>
+          <article>
+            <h3>2. Build</h3>
+            <p>Create the workflow with validation, review gates, error handling, and logging.</p>
+          </article>
+          <article>
+            <h3>3. Test</h3>
+            <p>Run sample cases, capture failures, tune prompts/rules, and document limits.</p>
+          </article>
+          <article>
+            <h3>4. Handoff</h3>
+            <p>Deliver workflow export, setup notes, operator guide, and revision notes.</p>
+          </article>
+        </div>
+        <div class="price-row">
+          <span>Practical first milestone range</span>
+          <strong>$1,800-$4,500</strong>
+          <span>Final price depends on tools, access boundaries, sample volume, and acceptance checks.</span>
+        </div>
+      </section>
+
+      <section id="answers" class="band soft">
+        <div class="section-head">
+          <p class="eyebrow">Requested details</p>
+          <h2>Concise answers for project-based screening</h2>
+        </div>
+        <div class="check-grid">
+          <div>
+            <h3>Cooperation model</h3>
+            <ul>
+              <li>Independent freelancer / project-based contractor.</li>
+              <li>Best fit: fixed milestone first, repeat work only after delivery quality is clear.</li>
+              <li>Async-friendly; kickoff around one workflow, not an open-ended role.</li>
+              <li>Production access only after sample-data validation and scope approval.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Relevant proof materials</h3>
+            <ul>
+              <li><a href="https://anonymusk7.github.io/codex10k-workflow-recovery/">Live workflow-recovery demo</a>.</li>
+              <li><a href="https://anonymusk7.github.io/codex10k-workflow-recovery/goodiex-intro.html?v=ctafix2">n8n sales-lifecycle proposal packet</a>.</li>
+              <li><a href="https://anonymusk7.github.io/codex10k-workflow-recovery/outputs/codex10k/goodiex-n8n-sales-lifecycle-blueprint.json">Sample n8n blueprint JSON</a>.</li>
+              <li>Additional technical scope can be produced for the first chosen process.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="next" class="contact-band">
+        <div>
+          <p class="eyebrow">Next step</p>
+          <h2>Send one workflow brief, the systems involved, and the target output. I will turn it into a fixed-scope milestone with acceptance checks.</h2>
+        </div>
+        <a class="button light" href="#milestone">Review milestone</a>
+      </section>
+    </main>
+
+    <footer>
+      <p>Illustrative project-delivery packet. No Synergy Effect systems, credentials, or customer data are shown.</p>
+    </footer>
+  </body>
+</html>

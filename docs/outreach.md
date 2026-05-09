@@ -9,6 +9,8 @@ All outreach originated in this run must use the `Codex10k/` Gmail label namespa
 - Honor opt-outs immediately.
 - Do not use cold SMS, robocalls, WhatsApp blasts, LinkedIn bots, scraped personal data, fake reviews, or review gating.
 - For U.S. commercial cold email, CAN-SPAM requires a valid physical postal address and clear opt-out mechanism. Until a valid postal address is available, prioritize explicit hiring posts, warm replies, marketplace proposals, contact forms, and communities where the recipient has requested help.
+- Outreach cadence: send at most 10 outbound emails/day by default, never more than 20/day without explicit same-day user approval, and keep at least 15 minutes between outbound emails.
+- Run `node scripts/check-email-cadence.mjs --cap 10` immediately before sending and record successful sends in `data/email-send-log.csv`.
 
 ## Template: Public Hiring Post
 
