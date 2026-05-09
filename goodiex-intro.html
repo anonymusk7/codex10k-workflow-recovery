@@ -282,6 +282,67 @@
         line-height: 1.4;
       }
 
+      .blueprint-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+        gap: 18px;
+        align-items: stretch;
+      }
+
+      .blueprint-card {
+        display: grid;
+        align-content: start;
+        gap: 18px;
+        padding: 24px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        box-shadow: var(--shadow);
+      }
+
+      .blueprint-card p {
+        color: var(--muted);
+        line-height: 1.55;
+      }
+
+      .blueprint-list {
+        display: grid;
+        gap: 10px;
+      }
+
+      .blueprint-item {
+        display: grid;
+        grid-template-columns: 38px minmax(0, 1fr);
+        gap: 12px;
+        align-items: start;
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fffdfa;
+      }
+
+      .blueprint-item span {
+        display: grid;
+        place-items: center;
+        width: 38px;
+        height: 38px;
+        border-radius: 8px;
+        background: var(--soft);
+        color: var(--forest);
+        font-size: 0.82rem;
+        font-weight: 900;
+      }
+
+      .blueprint-item strong {
+        display: block;
+        margin-bottom: 4px;
+      }
+
+      .blueprint-item small {
+        color: var(--muted);
+        line-height: 1.4;
+      }
+
       .video-layout {
         display: grid;
         grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
@@ -388,6 +449,7 @@
         .panel-grid,
         .delivery-grid,
         .workflow-board,
+        .blueprint-layout,
         .video-layout,
         .check-grid {
           grid-template-columns: 1fr;
@@ -431,6 +493,7 @@
       <nav aria-label="Page sections">
         <a href="#fit">Fit</a>
         <a href="#workflow">Workflow</a>
+        <a href="#blueprint">Blueprint</a>
         <a href="#video">Intro video</a>
         <a href="#deliverables">Deliverables</a>
         <a href="#next">Next step</a>
@@ -448,6 +511,7 @@
           <div class="hero-actions">
             <a class="button light" href="#video">View intro outline</a>
             <a class="button primary" href="#deliverables">Review fixed scope</a>
+            <a class="button light" href="#blueprint">Download blueprint</a>
           </div>
         </div>
       </section>
@@ -507,6 +571,57 @@
           <div class="workflow-step">
             <strong>Follow up</strong>
             <small>Queue approved messages, log status, and surface exceptions.</small>
+          </div>
+        </div>
+      </section>
+
+      <section id="blueprint" class="band">
+        <div class="section-head">
+          <p class="eyebrow">Sample workflow blueprint</p>
+          <h2>A concrete n8n shape for the first sprint</h2>
+          <p>
+            This sample blueprint uses dummy fields only. It shows the structure I would start from before replacing placeholders with GoodieX-approved tools, accounts, routing rules, and follow-up language.
+          </p>
+        </div>
+        <div class="blueprint-layout">
+          <article class="blueprint-card">
+            <h3>Downloadable sample</h3>
+            <p>
+              The blueprint outlines one safe v1 path: capture a sales signal, clean the record, hold incomplete items for review, check for likely duplicates, route clean work, queue approved follow-up, and log the result.
+            </p>
+            <a class="button primary" href="outputs/codex10k/goodiex-n8n-sales-lifecycle-blueprint.json" download>
+              Download sample JSON
+            </a>
+          </article>
+          <div class="blueprint-list" aria-label="Sample n8n blueprint steps">
+            <div class="blueprint-item">
+              <span>01</span>
+              <div>
+                <strong>Dummy intake</strong>
+                <small>Creates a test clothing request with product, size, channel, customer, and deadline fields.</small>
+              </div>
+            </div>
+            <div class="blueprint-item">
+              <span>02</span>
+              <div>
+                <strong>Normalize and validate</strong>
+                <small>Trims messy fields, builds a lookup key, and pauses records missing required details.</small>
+              </div>
+            </div>
+            <div class="blueprint-item">
+              <span>03</span>
+              <div>
+                <strong>Dedupe and route</strong>
+                <small>Separates likely duplicates from new work, then assigns the next owner and status.</small>
+              </div>
+            </div>
+            <div class="blueprint-item">
+              <span>04</span>
+              <div>
+                <strong>Follow up and log</strong>
+                <small>Queues approved outreach copy and records the run outcome for review.</small>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -601,7 +716,7 @@
     </main>
 
     <footer>
-      <p>Illustrative workflow proposal. No GoodieX internal systems or customer data are shown.</p>
+      <p>Illustrative workflow proposal. No GoodieX systems or customer data are shown.</p>
     </footer>
   </body>
 </html>

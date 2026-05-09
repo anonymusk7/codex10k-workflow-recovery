@@ -1,0 +1,352 @@
+{
+  "name": "GoodieX sample sales lifecycle v1",
+  "active": false,
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "0d6d9c19-74a5-45f5-90a6-7b558e0e9f5b",
+      "name": "Start sample run",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -940,
+        120
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "customer-name",
+              "name": "customer_name",
+              "type": "string",
+              "value": "Sample Boutique Buyer"
+            },
+            {
+              "id": "customer-email",
+              "name": "customer_email",
+              "type": "string",
+              "value": "buyer@example.com"
+            },
+            {
+              "id": "request-channel",
+              "name": "request_channel",
+              "type": "string",
+              "value": "website form"
+            },
+            {
+              "id": "product",
+              "name": "product",
+              "type": "string",
+              "value": "linen shirt"
+            },
+            {
+              "id": "size",
+              "name": "size",
+              "type": "string",
+              "value": "M"
+            },
+            {
+              "id": "quantity",
+              "name": "quantity",
+              "type": "number",
+              "value": 4
+            },
+            {
+              "id": "needed-by",
+              "name": "needed_by",
+              "type": "string",
+              "value": "2026-05-15"
+            },
+            {
+              "id": "notes",
+              "name": "notes",
+              "type": "string",
+              "value": "Dummy record only. Replace this node with GoodieX-approved intake tools."
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "5f43a19c-c0bb-4d54-b5a2-2bf17c38ef5c",
+      "name": "Sample clothing sales intake",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -700,
+        120
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const required = ['customer_email', 'product', 'quantity'];\nreturn items.map((item) => {\n  const data = item.json;\n  const normalized = {\n    ...data,\n    customer_email: String(data.customer_email || '').trim().toLowerCase(),\n    product: String(data.product || '').trim().toLowerCase(),\n    size: String(data.size || '').trim().toUpperCase(),\n    quantity: Number(data.quantity || 0),\n    request_channel: String(data.request_channel || '').trim().toLowerCase(),\n    status: 'needs review',\n    owner: 'sales review queue'\n  };\n  const missing = required.filter((field) => !normalized[field]);\n  normalized.missing_required_fields = missing;\n  normalized.lookup_key = [normalized.customer_email, normalized.product, normalized.size].join('|');\n  normalized.ready_for_routing = missing.length === 0 && normalized.quantity > 0;\n  return { json: normalized };\n});"
+      },
+      "id": "dc25bec5-f0c6-42d8-a2ff-3021ae268d79",
+      "name": "Normalize fields and build lookup key",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -460,
+        120
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "ready-for-routing",
+              "leftValue": "={{ $json.ready_for_routing }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "aa7c1d59-7918-4198-828d-2d79313e5f3d",
+      "name": "Required fields present?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -220,
+        120
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "return items.map((item) => ({\n  json: {\n    ...item.json,\n    status: 'held for review',\n    next_action: 'Add missing sales details before customer follow-up'\n  }\n}));"
+      },
+      "id": "cdd495f4-c1e9-4eb4-9962-62e9a130678c",
+      "name": "Hold incomplete record for review",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        40,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "return items.map((item) => {\n  const data = item.json;\n  return {\n    json: {\n      ...data,\n      possible_duplicate: false,\n      duplicate_check_source: 'Replace with GoodieX CRM, sheet, ecommerce, or order table lookup'\n    }\n  };\n});"
+      },
+      "id": "de53eeea-34ab-4a23-8772-8aa596498d8e",
+      "name": "Dedupe lookup placeholder",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        40,
+        40
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "possible-duplicate",
+              "leftValue": "={{ $json.possible_duplicate }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "9b6b2de0-d2f6-41b0-8785-f2a2d9ebd9f4",
+      "name": "Possible duplicate?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        300,
+        40
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "return items.map((item) => ({\n  json: {\n    ...item.json,\n    status: 'duplicate review',\n    owner: 'sales review queue',\n    next_action: 'Confirm whether this should update an existing record'\n  }\n}));"
+      },
+      "id": "fb329725-7dd2-43fc-a0df-6d28247fe3da",
+      "name": "Route duplicate to review",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        560,
+        -80
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "return items.map((item) => ({\n  json: {\n    ...item.json,\n    status: 'ready for approved follow-up',\n    owner: 'sales owner',\n    follow_up_message: `Hi ${item.json.customer_name}, thanks for the request about ${item.json.quantity} ${item.json.product}. We are checking availability and will follow up shortly.`\n  }\n}));"
+      },
+      "id": "3e1fbd76-8391-46aa-b334-3f2c10666f0e",
+      "name": "Create or update routed sales record",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        560,
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "return items.map((item) => ({\n  json: {\n    ...item.json,\n    queued_follow_up: true,\n    queue_note: 'Replace with approved email, WhatsApp, CRM task, or ticket action'\n  }\n}));"
+      },
+      "id": "88b0bc97-4dac-4d41-9f13-97849479c97c",
+      "name": "Queue approved follow-up",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        820,
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "return items.map((item) => ({\n  json: {\n    run_completed_at: new Date().toISOString(),\n    lookup_key: item.json.lookup_key,\n    customer_email: item.json.customer_email,\n    status: item.json.status,\n    owner: item.json.owner,\n    next_action: item.json.next_action || 'Follow-up queued for owner review'\n  }\n}));"
+      },
+      "id": "4dfc29f3-9d3a-446b-9ec8-d5e6645f4998",
+      "name": "Log workflow status",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1080,
+        140
+      ]
+    }
+  ],
+  "connections": {
+    "Start sample run": {
+      "main": [
+        [
+          {
+            "node": "Sample clothing sales intake",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sample clothing sales intake": {
+      "main": [
+        [
+          {
+            "node": "Normalize fields and build lookup key",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalize fields and build lookup key": {
+      "main": [
+        [
+          {
+            "node": "Required fields present?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Required fields present?": {
+      "main": [
+        [
+          {
+            "node": "Dedupe lookup placeholder",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Hold incomplete record for review",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Dedupe lookup placeholder": {
+      "main": [
+        [
+          {
+            "node": "Possible duplicate?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Possible duplicate?": {
+      "main": [
+        [
+          {
+            "node": "Route duplicate to review",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Create or update routed sales record",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create or update routed sales record": {
+      "main": [
+        [
+          {
+            "node": "Queue approved follow-up",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Queue approved follow-up": {
+      "main": [
+        [
+          {
+            "node": "Log workflow status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "pinData": {},
+  "versionId": "c10k-goodiex-sample-blueprint",
+  "meta": {
+    "templateCredsSetupCompleted": false
+  },
+  "tags": []
+}
