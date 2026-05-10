@@ -130,7 +130,7 @@ To: tim@3dwalkabout.com.au
 
 Subject: HubSpot to ClickUp Make reliability sprint
 
-Status: prepared pending cadence and public page publish.
+Status: sent May 10, 2026 as Gmail message `19e0feb8882b174a`. Do not resend. Next action is to watch for a reply; if positive, request current scenario shape, trigger stages, target ClickUp list, representative sample deals, and turn the USD 1,800 reliability sprint into an acceptance checklist.
 
 Body:
 
