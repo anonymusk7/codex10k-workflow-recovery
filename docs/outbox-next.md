@@ -201,3 +201,42 @@ If the project is still open, send the NDA and scope document, and I will reply 
 
 Best,
 Nakul
+
+## C10K-072 Chek Creative / Josh
+
+Source checked May 10, 2026: Make Community post asks for senior Make.com automation partners; official contact page lists `hello@chekcreative.com`.
+
+To: hello@chekcreative.com
+
+Subject: Paid Make automation partner pilot
+
+Status: prepared pending cadence and public page publish.
+
+Body:
+
+Hi Josh,
+
+I saw your Make Community post about building Chek Creative's senior Make.com automation bench for CRM, marketing ops, lead attribution, APIs, webhooks, reliable documentation, and async-first client work.
+
+I am not applying for a role. A cleaner way to test fit is a paid fixed-scope pilot on one client-safe workflow.
+
+I prepared the pilot shape here:
+
+https://anonymusk7.github.io/codex10k-workflow-recovery/chek-automation-partner-pilot.html?v=chek1
+
+Proposed pilot: USD 1,200.
+
+The pilot would cover one bounded workflow or reusable Make pattern:
+
+- source-of-truth and field ownership map
+- create/update/dedupe behavior
+- API/webhook logic and validation
+- error handling, retries, run log, and manual-review cases
+- QA checklist and short SOP your team can reuse
+
+No client secrets or private workflows need to be sent by email. A sanitized brief, dummy payloads, or client-safe sample records are enough for the first checklist.
+
+If useful, send one client-safe workflow brief and I will reply with the exact pilot acceptance checklist.
+
+Best,
+Nakul
