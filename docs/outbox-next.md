@@ -40,6 +40,44 @@ If this support slice is useful, reply with the expected staging or vendor-selec
 Best,
 Nakul
 
+## C10K-075 Ely Area Tourism Bureau / Ely Chamber of Commerce
+
+Source checked May 10, 2026: official Ely RFP page and RFP PDF request website development and content migration from Simpleview, with proposals due May 11, 2026. The RFP says submissions go to Jess Edberg at `jess@rootbeerlady.com` as a PDF with subject `Website Development RFP - [Your Company Name]`.
+
+To: jess@rootbeerlady.com
+
+Subject: Website Development RFP - Nakul
+
+Status: prepared, not sent yet. Run `node scripts/check-email-cadence.mjs --cap=10` before sending. Attach `outputs/codex10k/ely_migration_qa_launch_readiness_proposal.pdf` and include the public-safe page link after it returns HTTP 200.
+
+Body:
+
+Hello Jess,
+
+I saw the Ely Area Tourism Bureau / Ely Chamber of Commerce Website Development & Content Migration RFP, including the Simpleview migration, 50-70 page content move, business/member directory functions, SEO preservation, analytics, WCAG 2.1 AA, CMS training, QA, launch support, and 90-day post-launch support requirements.
+
+I am Nakul, an independent freelancer/sole proprietor. I am not submitting this as a complete redesign-prime agency response, hosting proposal, CMS license, or legal accessibility certification. I am submitting a limited support slice that could help Ely directly or sit beside the selected website/CMS vendor around migration QA, directory readiness, and launch support.
+
+Reference page:
+
+https://anonymusk7.github.io/codex10k-workflow-recovery/ely-migration-qa-sidecar.html?v=ely1
+
+Attached proposal: USD 12,500 fixed.
+
+Scope summary:
+
+- content inventory, redirect/SEO spot checks, metadata checks, media/link validation, and post-migration issue register
+- business/member listing field review, template acceptance checks, tier/reporting validation, and dashboard/admin-flow notes
+- WCAG-oriented, mobile, browser, search, form, analytics, CMS publishing, and launch-readiness QA checks
+- go-live checklist, retest notes, staff publishing guardrails, and short post-launch support
+
+Boundaries: this is QA, directory-readiness, and launch-support only. It does not include the full website rebuild, hosting, CMS licensing, legal accessibility certification, or long-term maintenance unless separately scoped. No credentials, analytics exports, private member data, payment data, or internal Ely files are needed by email.
+
+If this limited support slice is useful, I can provide the migration QA checklist and issue-register format before vendor selection discussions.
+
+Best,
+Nakul
+
 ## C10K-074 Town of Duck, NC
 
 Source checked May 10, 2026: official Town of Duck website redesign and CMS implementation RFP was published April 23, 2026. Proposals are due May 14, 2026 at 5:00 PM EST, electronic submissions are acceptable, and the RFP contact is Kay Nickens at `knickens@ducknc.gov`.

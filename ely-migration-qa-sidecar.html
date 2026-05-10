@@ -1,0 +1,794 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ely Website Migration QA Support</title>
+    <meta
+      name="description"
+      content="A limited independent website migration QA, directory readiness, accessibility, analytics, and launch support proposal for Ely Area Tourism Bureau and Ely Chamber of Commerce."
+    />
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #13201d;
+        --muted: #5d6d68;
+        --paper: #fbfaf4;
+        --panel: #ffffff;
+        --line: #d9e1db;
+        --pine: #12674f;
+        --lake: #267c9e;
+        --sky: #d9edf3;
+        --gold: #d4a84d;
+        --berry: #cf664b;
+        --soft: #edf6ef;
+        --shadow: 0 20px 54px rgba(19, 32, 29, 0.14);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 30;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 14px clamp(18px, 4vw, 56px);
+        border-bottom: 1px solid var(--line);
+        background: rgba(251, 250, 244, 0.94);
+        backdrop-filter: blur(14px);
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+      }
+
+      .brand-mark {
+        display: grid;
+        place-items: center;
+        width: 42px;
+        height: 42px;
+        border-radius: 8px;
+        background: var(--ink);
+        color: #fff;
+        font-weight: 950;
+      }
+
+      .brand strong,
+      .brand small {
+        display: block;
+      }
+
+      .brand small,
+      nav {
+        color: var(--muted);
+      }
+
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 18px;
+        font-size: 0.94rem;
+      }
+
+      nav a {
+        text-decoration: none;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 0.92fr) minmax(390px, 1.08fr);
+        gap: clamp(32px, 5vw, 74px);
+        align-items: center;
+        min-height: calc(84vh - 72px);
+        padding: clamp(56px, 8vw, 104px) clamp(18px, 4vw, 56px);
+        background:
+          linear-gradient(120deg, rgba(237, 246, 239, 0.98), rgba(251, 250, 244, 0.96) 52%, rgba(217, 237, 243, 0.86)),
+          radial-gradient(circle at 84% 18%, rgba(212, 168, 77, 0.2), transparent 28%);
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        max-width: 890px;
+        margin-bottom: 22px;
+        font-size: clamp(2.45rem, 5.8vw, 4.55rem);
+        line-height: 1;
+        letter-spacing: 0;
+      }
+
+      h2 {
+        margin-bottom: 14px;
+        font-size: clamp(2rem, 4vw, 3.25rem);
+        line-height: 1;
+        letter-spacing: 0;
+      }
+
+      h3 {
+        margin-bottom: 10px;
+        font-size: 1.08rem;
+      }
+
+      .eyebrow {
+        margin-bottom: 12px;
+        color: var(--pine);
+        font-size: 0.78rem;
+        font-weight: 950;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      .lede {
+        max-width: 740px;
+        color: var(--muted);
+        font-size: clamp(1.06rem, 2vw, 1.28rem);
+        line-height: 1.55;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 28px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 46px;
+        padding: 0 18px;
+        border: 1px solid var(--ink);
+        border-radius: 8px;
+        font-weight: 850;
+        text-decoration: none;
+      }
+
+      .button.primary {
+        background: var(--ink);
+        color: #fff;
+      }
+
+      .button.secondary {
+        background: #fff;
+      }
+
+      .pipeline {
+        position: relative;
+        overflow: hidden;
+        min-height: 560px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background:
+          linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(217, 237, 243, 0.65)),
+          repeating-linear-gradient(90deg, transparent 0 34px, rgba(38, 124, 158, 0.05) 34px 35px);
+        box-shadow: var(--shadow);
+      }
+
+      .pipeline-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        padding: 18px;
+        border-bottom: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.78);
+      }
+
+      .pipeline-title strong,
+      .pipeline-title small {
+        display: block;
+      }
+
+      .pipeline-title small {
+        color: var(--muted);
+      }
+
+      .status-dot {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        min-height: 34px;
+        padding: 0 12px;
+        border-radius: 999px;
+        background: #e8f4ef;
+        color: var(--pine);
+        font-size: 0.78rem;
+        font-weight: 900;
+      }
+
+      .status-dot::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: currentColor;
+        animation: pulse 1.8s infinite ease-in-out;
+      }
+
+      .lanes {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+        padding: 18px;
+      }
+
+      .lane {
+        min-height: 352px;
+        border: 1px solid rgba(217, 225, 219, 0.9);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.74);
+      }
+
+      .lane h3 {
+        margin: 0;
+        padding: 14px 14px 8px;
+        font-size: 0.92rem;
+      }
+
+      .ticket {
+        position: relative;
+        margin: 10px 12px;
+        padding: 12px;
+        border: 1px solid rgba(217, 225, 219, 0.98);
+        border-left: 4px solid var(--lake);
+        border-radius: 8px;
+        background: #fff;
+        box-shadow: 0 12px 24px rgba(19, 32, 29, 0.08);
+      }
+
+      .ticket strong,
+      .ticket small {
+        display: block;
+      }
+
+      .ticket small {
+        margin-top: 5px;
+        color: var(--muted);
+        line-height: 1.35;
+      }
+
+      .ticket.pine {
+        border-left-color: var(--pine);
+      }
+
+      .ticket.gold {
+        border-left-color: var(--gold);
+      }
+
+      .ticket.berry {
+        border-left-color: var(--berry);
+      }
+
+      .moving-ticket {
+        position: absolute;
+        left: 28px;
+        bottom: 118px;
+        z-index: 4;
+        width: min(230px, calc(100% - 56px));
+        border-left-color: var(--pine);
+        animation: moveTicket 10s infinite ease-in-out;
+      }
+
+      .metrics {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+        padding: 0 18px 18px;
+      }
+
+      .metric {
+        min-height: 80px;
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+      }
+
+      .metric strong,
+      .metric span {
+        display: block;
+      }
+
+      .metric strong {
+        font-size: 1.4rem;
+      }
+
+      .metric span {
+        color: var(--muted);
+        font-size: 0.82rem;
+      }
+
+      .band {
+        padding: clamp(48px, 8vw, 92px) clamp(18px, 4vw, 56px);
+        border-top: 1px solid var(--line);
+        background: #fffdfa;
+      }
+
+      .band.soft {
+        background: var(--soft);
+      }
+
+      .band.sky {
+        background: var(--sky);
+      }
+
+      section[id] {
+        scroll-margin-top: 104px;
+      }
+
+      .section-head {
+        max-width: 920px;
+        margin-bottom: 32px;
+      }
+
+      .section-head p:not(.eyebrow),
+      .card p,
+      .node small,
+      li {
+        color: var(--muted);
+        line-height: 1.55;
+      }
+
+      .flow {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .card-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .node,
+      .card {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel);
+        box-shadow: var(--shadow);
+      }
+
+      .node {
+        min-height: 152px;
+        padding: 18px;
+      }
+
+      .node span {
+        display: inline-grid;
+        place-items: center;
+        width: 36px;
+        height: 36px;
+        margin-bottom: 14px;
+        border-radius: 8px;
+        background: var(--ink);
+        color: #fff;
+        font-size: 0.85rem;
+        font-weight: 900;
+      }
+
+      .node small {
+        display: block;
+        margin-top: 8px;
+      }
+
+      .card {
+        padding: 22px;
+      }
+
+      ul {
+        margin: 0;
+        padding-left: 20px;
+      }
+
+      li + li {
+        margin-top: 8px;
+      }
+
+      .price-row {
+        display: grid;
+        grid-template-columns: 1fr auto 1.1fr;
+        gap: 18px;
+        align-items: center;
+        margin-top: 20px;
+        padding: 22px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--ink);
+        color: #fff;
+      }
+
+      .price-row strong {
+        font-size: clamp(2rem, 4vw, 3.1rem);
+        letter-spacing: 0;
+      }
+
+      .price-row span:last-child {
+        color: rgba(255, 255, 255, 0.78);
+        line-height: 1.45;
+      }
+
+      .check-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .contact-band {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        padding: clamp(42px, 7vw, 76px) clamp(18px, 4vw, 56px);
+        background: var(--pine);
+        color: #fff;
+      }
+
+      .contact-band h2 {
+        max-width: 900px;
+        margin-bottom: 0;
+      }
+
+      .contact-band .eyebrow {
+        color: #f4d888;
+      }
+
+      footer {
+        padding: 26px clamp(18px, 4vw, 56px);
+        color: var(--muted);
+        border-top: 1px solid var(--line);
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(0.88);
+          opacity: 0.6;
+        }
+        50% {
+          transform: scale(1.15);
+          opacity: 1;
+        }
+      }
+
+      @keyframes moveTicket {
+        0%,
+        15% {
+          transform: translate(0, 0);
+        }
+        30%,
+        42% {
+          transform: translate(calc((100vw - 112px) * 0.21), -6px);
+        }
+        55%,
+        67% {
+          transform: translate(calc((100vw - 112px) * 0.43), 0);
+        }
+        80%,
+        92% {
+          transform: translate(calc((100vw - 112px) * 0.65), -6px);
+        }
+        100% {
+          transform: translate(0, 0);
+        }
+      }
+
+      @media (min-width: 1180px) {
+        @keyframes moveTicket {
+          0%,
+          15% {
+            transform: translate(0, 0);
+          }
+          30%,
+          42% {
+            transform: translate(205px, -6px);
+          }
+          55%,
+          67% {
+            transform: translate(412px, 0);
+          }
+          80%,
+          92% {
+            transform: translate(618px, -6px);
+          }
+          100% {
+            transform: translate(0, 0);
+          }
+        }
+      }
+
+      @media (max-width: 1040px) {
+        .hero,
+        .check-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .flow,
+        .card-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .moving-ticket {
+          display: none;
+        }
+      }
+
+      @media (max-width: 720px) {
+        nav {
+          display: none;
+        }
+
+        .lanes,
+        .metrics,
+        .flow,
+        .card-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .pipeline,
+        .lane {
+          min-height: 0;
+        }
+
+        .price-row {
+          grid-template-columns: 1fr;
+        }
+
+        .contact-band {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          animation-duration: 0.001ms !important;
+          animation-iteration-count: 1 !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar" id="top">
+      <a class="brand" href="#top" aria-label="Ely website migration QA proposal">
+        <span class="brand-mark">ELY</span>
+        <span>
+          <strong>Ely Migration QA Support</strong>
+          <small>limited independent proposal from Nakul</small>
+        </span>
+      </a>
+      <nav aria-label="Page sections">
+        <a href="#workflow">Workflow</a>
+        <a href="#scope">Scope</a>
+        <a href="#checks">Acceptance</a>
+        <a href="#next">Next step</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Website Development RFP - Ely Area Tourism Bureau / Ely Chamber</p>
+          <h1>Migration QA and launch readiness for Ely's next tourism website</h1>
+          <p class="lede">
+            Ely's RFP centers on a Simpleview migration, 50-70 pages, business/member listings, directory administration, SEO preservation, analytics, accessibility, staff workflows, and 90 days of post-launch support. This proposal is a fixed, limited support slice for the parts of the launch where hidden risk usually appears.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#scope">Review fixed scope</a>
+            <a class="button secondary" href="#checks">See acceptance checks</a>
+          </div>
+        </div>
+
+        <div class="pipeline" aria-label="Animated website migration workflow board">
+          <div class="pipeline-header">
+            <div class="pipeline-title">
+              <strong>Migration readiness board</strong>
+              <small>Representative workflow for content, listings, redirects, QA, and launch support</small>
+            </div>
+            <span class="status-dot">QA loop active</span>
+          </div>
+          <div class="lanes">
+            <section class="lane" aria-label="Inventory lane">
+              <h3>Inventory</h3>
+              <article class="ticket pine">
+                <strong>Page map</strong>
+                <small>50-70 pages, blog posts, resources, forms, landing pages, and top visitor paths.</small>
+              </article>
+              <article class="ticket">
+                <strong>Directory fields</strong>
+                <small>Business listings, links, logos, graphics, tiers, admin fields, and reporting needs.</small>
+              </article>
+            </section>
+            <section class="lane" aria-label="Migration lane">
+              <h3>Migration</h3>
+              <article class="ticket gold">
+                <strong>Redirect map</strong>
+                <small>URL mapping, SEO tags, internal links, metadata, and preservation risks.</small>
+              </article>
+              <article class="ticket">
+                <strong>Media cleanup</strong>
+                <small>Images, graphics, alt text, sizes, duplicate assets, and broken references.</small>
+              </article>
+            </section>
+            <section class="lane" aria-label="Validation lane">
+              <h3>Validation</h3>
+              <article class="ticket berry">
+                <strong>Access QA</strong>
+                <small>WCAG-oriented spot checks across templates, forms, navigation, listings, and mobile views.</small>
+              </article>
+              <article class="ticket">
+                <strong>Analytics check</strong>
+                <small>GA/GTM readiness, key events, form tracking, directory and search paths, and launch baseline.</small>
+              </article>
+            </section>
+            <section class="lane" aria-label="Launch lane">
+              <h3>Launch</h3>
+              <article class="ticket pine">
+                <strong>Go-live list</strong>
+                <small>Launch checklist, issue register, owner/status fields, and retest notes.</small>
+              </article>
+              <article class="ticket berry">
+                <strong>Staff handoff</strong>
+                <small>CMS and directory publishing guardrails for ongoing content work.</small>
+              </article>
+            </section>
+          </div>
+          <article class="ticket moving-ticket" aria-hidden="true">
+            <strong>Sample risk</strong>
+            <small>Business listing loses tier/reporting field; moves from inventory to validation.</small>
+          </article>
+          <div class="metrics" aria-label="Support metrics">
+            <div class="metric">
+              <strong>SEO</strong>
+              <span>Redirect and metadata checks</span>
+            </div>
+            <div class="metric">
+              <strong>Directory</strong>
+              <span>Member listing validation</span>
+            </div>
+            <div class="metric">
+              <strong>Launch</strong>
+              <span>QA register and support</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="band" id="workflow">
+        <div class="section-head">
+          <p class="eyebrow">Suggested workflow</p>
+          <h2>Protect the migration before design decisions become launch problems</h2>
+          <p>
+            This support package does not replace a full website development partner. It gives Ely or the selected vendor a focused, auditable QA layer around content migration, business listings, redirects, analytics, accessibility, staff handoff, and launch readiness.
+          </p>
+        </div>
+        <div class="flow">
+          <div class="node">
+            <span>01</span>
+            <strong>Map content</strong>
+            <small>Inventory pages, blog/resources, forms, events, landing pages, images, and high-value visitor paths.</small>
+          </div>
+          <div class="node">
+            <span>02</span>
+            <strong>Validate listings</strong>
+            <small>Check business/member data fields, tiers, templates, logos, links, dashboards, and reporting needs.</small>
+          </div>
+          <div class="node">
+            <span>03</span>
+            <strong>Preserve SEO</strong>
+            <small>Spot-check URL mapping, redirects, metadata, internal links, search visibility, and broken-link risk.</small>
+          </div>
+          <div class="node">
+            <span>04</span>
+            <strong>Run QA</strong>
+            <small>Accessibility, mobile, browser, forms, search, analytics, CMS publishing, and launch-readiness checks.</small>
+          </div>
+          <div class="node">
+            <span>05</span>
+            <strong>Support launch</strong>
+            <small>Issue register, retest notes, go-live checklist, staff guardrails, and short post-launch hypercare.</small>
+          </div>
+        </div>
+      </section>
+
+      <section class="band soft" id="scope">
+        <div class="section-head">
+          <p class="eyebrow">Limited fixed proposal</p>
+          <h2>USD 12,500 for migration QA, directory readiness, and launch support</h2>
+          <p>
+            This is a narrow independent package for Ely or the selected website/CMS vendor. It is not a full redesign-prime proposal, hosting proposal, CMS license, legal accessibility certification, or ongoing maintenance contract.
+          </p>
+        </div>
+        <div class="card-grid">
+          <article class="card">
+            <h3>Migration assurance</h3>
+            <p>Content inventory, redirect/SEO spot checks, metadata checks, media/link validation, and post-migration issue register.</p>
+          </article>
+          <article class="card">
+            <h3>Directory readiness</h3>
+            <p>Business listing field review, template acceptance checks, tier/reporting validation, dashboard/admin-flow notes.</p>
+          </article>
+          <article class="card">
+            <h3>Launch support</h3>
+            <p>Accessibility and mobile/browser QA, analytics verification, go-live checklist, staff publishing guardrails, and retest notes.</p>
+          </article>
+        </div>
+        <div class="price-row">
+          <span>Limited support slice</span>
+          <strong>$12,500</strong>
+          <span>Fixed package for QA evidence, risk register, directory readiness, launch checklist, staff guardrails, and short post-launch support.</span>
+        </div>
+      </section>
+
+      <section class="band sky" id="checks">
+        <div class="section-head">
+          <p class="eyebrow">Acceptance checks</p>
+          <h2>What would be delivered</h2>
+        </div>
+        <div class="check-grid">
+          <div>
+            <h3>Inputs needed</h3>
+            <ul>
+              <li>Current page export, sitemap, or crawl of the Simpleview site.</li>
+              <li>Representative business/member listing export with non-sensitive fields.</li>
+              <li>Staging access after Ely or the selected vendor approves access rules.</li>
+              <li>Preferred tracker format and launch owner for remediation decisions.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Done means</h3>
+            <ul>
+              <li>Migration risks are logged with severity, evidence, likely owner, and retest result.</li>
+              <li>Redirect/SEO, metadata, internal-link, search, and analytics checks are documented.</li>
+              <li>Directory/listing templates and admin flows have concrete acceptance notes.</li>
+              <li>Staff receive practical publishing guardrails for pages, images, links, listings, forms, and events.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact-band" id="next">
+        <div>
+          <p class="eyebrow">Next step</p>
+          <h2>If this limited support slice is useful, I can send the migration QA checklist and issue-register format before vendor selection discussions.</h2>
+        </div>
+        <a class="button secondary" href="#scope">Review price</a>
+      </section>
+    </main>
+
+    <footer>
+      <p>Support proposal based on Ely Area Tourism Bureau and Ely Chamber of Commerce's published website development and content migration RFP. Prepared by Nakul as an independent freelancer/sole proprietor. No Ely private systems, credentials, analytics exports, member data, or internal files are shown.</p>
+    </footer>
+  </body>
+</html>
