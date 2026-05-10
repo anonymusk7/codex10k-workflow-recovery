@@ -121,3 +121,43 @@ If this is still open, reply with the first flow you want working, for example p
 
 Best,
 Nakul
+
+## C10K-069 3D Walkabout / Tim Brickle
+
+Source checked May 10, 2026: Make Community post asks for HubSpot to ClickUp automation help; official/public company sources identify Tim Brickle and `tim@3dwalkabout.com.au`.
+
+To: tim@3dwalkabout.com.au
+
+Subject: HubSpot to ClickUp Make reliability sprint
+
+Status: prepared pending cadence and public page publish.
+
+Body:
+
+Hi Tim,
+
+I saw your Make Community post about stabilizing HubSpot to ClickUp automations in Make: deal-stage triggers, ClickUp task creation, writebacks to HubSpot, duplicate prevention, correct filtering, and simplifying messy scenarios.
+
+I can take the first slice as a fixed-scope reliability sprint rather than an open-ended hourly cleanup.
+
+I prepared the shape here:
+
+https://anonymusk7.github.io/codex10k-workflow-recovery/3dwalkabout-hubspot-clickup.html?v=3dw1
+
+The first sprint would focus on one dependable HubSpot-to-ClickUp path:
+
+- confirm which HubSpot deal stages should create tasks vs update existing tasks
+- define the cross-system key so one deal maps to one ClickUp task
+- separate create/update logic in Make
+- write ClickUp task ID/status/owner back to HubSpot
+- add duplicate guards, missing-field handling, and a clear failure log
+- leave a field map, test checklist, and handoff notes
+
+Fixed sprint price: USD 1,800.
+
+No production customer export is needed by email. A sandbox, sample records, or least-privilege access is enough to start safely.
+
+If this is still open, send the current scenario shape, trigger stages, and target ClickUp list, and I will reply with the exact sprint acceptance checklist.
+
+Best,
+Nakul
