@@ -93,6 +93,8 @@ def write_md(manifest: list[dict], logs: dict[str, dict]) -> None:
         "",
         f"Total draft pipeline: {money(sum(item['price_usd'] for item in manifest))}.",
         "",
+        "Payment close pack: `docs/draft-payment-close-pack.md` and `outputs/codex10k/draft_payment_close_pack.pdf`.",
+        "",
         "## Recommended New-Draft Order",
         "",
         "| Rank | Lead | Draft ID | Price | Why / Caution |",

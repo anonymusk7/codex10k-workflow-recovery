@@ -4,6 +4,8 @@ Updated: 2026-05-10T08:00:00Z
 
 Use this file when a buyer replies positively. It is a close-control sheet, not revenue evidence. Do not count any amount until the ledger gate at the bottom is satisfied.
 
+Draft batch payment close pack: use `docs/draft-payment-close-pack.md` or `outputs/codex10k/draft_payment_close_pack.pdf` for C10K-084 through C10K-103.
+
 ## Current Send Gate
 
 - May 10 Gmail cap used: 13 of 13.
@@ -126,4 +128,3 @@ Do not add revenue to `data/ledger.csv` unless all evidence exists:
 - final net-profit math.
 
 Verified net profit remains USD 0 until this gate is complete.
-

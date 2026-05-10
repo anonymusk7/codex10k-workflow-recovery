@@ -1,10 +1,12 @@
 # Codex10k Draft Batch Review Queue
 
-Updated: 2026-05-10T09:37:12Z
+Updated: 2026-05-10T09:46:04Z
 
 This is a review queue for Gmail drafts only. No email in this batch has been sent. Do not count any value here as revenue until completed and settled payment evidence exists in `data/ledger.csv`.
 
 Total draft pipeline: USD 172,600.
+
+Payment close pack: `docs/draft-payment-close-pack.md` and `outputs/codex10k/draft_payment_close_pack.pdf`.
 
 ## Recommended New-Draft Order
 
