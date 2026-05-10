@@ -161,3 +161,43 @@ If this is still open, send the current scenario shape, trigger stages, and targ
 
 Best,
 Nakul
+
+## C10K-070 SnipeAgent / Alex T
+
+Source checked May 10, 2026: Make Community post explicitly lists `contact@snipeagent.ai` for a fixed-price AI-powered SMS/MMS Make build.
+
+To: contact@snipeagent.ai
+
+Subject: SnipeAgent Make SMS automation architecture pass
+
+Status: prepared pending cadence and public page publish.
+
+Body:
+
+Hi Alex,
+
+I saw your Make Community post for the AI-powered SMS/MMS automation system: Sinch, Claude Haiku, Rainforest API, SerpApi, Carrd webhooks, parallel API calls, MMS image handling, E.164 normalization, per-user locks, data stores, and re-engagement flows.
+
+I can help, but I would de-risk the 6-scenario / ~41-module build before wiring everything at once.
+
+I prepared the build path here:
+
+https://anonymusk7.github.io/codex10k-workflow-recovery/snipeagent-sms-automation.html?v=snipe1
+
+Recommended first step: a USD 400 architecture pass, credited toward a USD 2,400 fixed build if the checklist matches what you need.
+
+The architecture pass would produce:
+
+- scenario map for the 6 Make scenarios
+- data-store schema for users, analytics, savings, redirects, and locks
+- Sinch SMS/MMS handling plan, including E.164 normalization
+- parallel Rainforest + SerpApi branch plan with timeout/error handling
+- Claude Haiku structured-output and fallback plan
+- milestone-demo acceptance checklist for the 30/30/40 payment structure
+
+Boundary: I will only build consent-based SMS flows under your accounts. No unsolicited messaging system, no production phone/customer data by email, and no credential sharing outside approved access.
+
+If the project is still open, send the NDA and scope document, and I will reply with the architecture-pass checklist.
+
+Best,
+Nakul
