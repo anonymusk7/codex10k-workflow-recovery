@@ -1,0 +1,26 @@
+Hello Alexa,
+
+I saw IIE's RFP 05062026/AK for Fulbright Scholar Program Website Development and Maintenance and prepared a focused support packet for maintenance QA, accessibility checks, broken-link/form testing, and handoff evidence.
+
+I am Nakul, an independent freelancer/sole proprietor. I can provide a fixed QA/readiness support slice that complements a full-service website maintenance provider.
+
+Reference page:
+https://anonymusk7.github.io/codex10k-workflow-recovery/c10k-092-institute-of-international-education.html?v=draft1
+
+Attached package: USD 12,500 fixed.
+
+The support slice would produce:
+
+- Current-state crawl and risk register for priority pages, forms, documents, and integrations
+- Accessibility, mobile, performance, SEO, analytics, and broken-link QA checklist
+- Content migration sampling plan with redirects, metadata, and ownership notes
+- Acceptance test scripts for staff review before launch or handoff
+- Defect and retest tracker with severity, owner, and closeout evidence
+- Launch-readiness memo with open risks, decision points, and next actions
+
+Boundary: No applicant, program participant, or protected account data should be sent by email; use public pages, dummy forms, and approved test accounts only.
+
+If a named support resource is acceptable, I can include this as a small fixed scope or route it to the full-service provider path.
+
+Best,
+Nakul

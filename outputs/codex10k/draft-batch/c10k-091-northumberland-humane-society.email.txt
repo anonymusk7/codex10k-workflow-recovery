@@ -1,0 +1,26 @@
+Hello Northumberland Humane Society Campaign Team,
+
+I saw the NHS website development RFP and prepared a focused support packet for adoption/donation workflows, accessibility, integration checks, and launch-readiness evidence.
+
+I am Nakul, an independent freelancer/sole proprietor. I can provide a compact QA/readiness package beside the selected web partner or as a small fixed support scope.
+
+Reference page:
+https://anonymusk7.github.io/codex10k-workflow-recovery/c10k-091-northumberland-humane-society.html?v=draft1
+
+Attached package: USD 4,800 fixed.
+
+The support slice would produce:
+
+- Current-state crawl and risk register for priority pages, forms, documents, and integrations
+- Accessibility, mobile, performance, SEO, analytics, and broken-link QA checklist
+- Content migration sampling plan with redirects, metadata, and ownership notes
+- Acceptance test scripts for staff review before launch or handoff
+- Defect and retest tracker with severity, owner, and closeout evidence
+- Launch-readiness memo with open risks, decision points, and next actions
+
+Boundary: No donor, adopter, volunteer, or animal medical records should be sent by email; use public pages, dummy forms, and redacted screenshots.
+
+If helpful, I can route the support packet to the right person or adapt it for the selected vendor once chosen.
+
+Best,
+Nakul

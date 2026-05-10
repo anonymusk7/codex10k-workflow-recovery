@@ -1,0 +1,26 @@
+Hello SnipeAgent team,
+
+I am following up on the support packet I sent earlier. I kept this as a small fixed scope so it can be approved quickly if the timing is useful.
+
+I am Nakul, an independent freelancer/sole proprietor. I can keep the first milestone tight: confirm the workflow, work from approved samples or public/staging material, produce acceptance evidence, and hand off the exact next fixes.
+
+Reference page:
+https://anonymusk7.github.io/codex10k-workflow-recovery/c10k-102-snipeagent.html?v=draft1
+
+Attached package: USD 400 fixed.
+
+The support slice would produce:
+
+- Requirements-to-acceptance matrix for the highest-risk workflow slice
+- Sample-data mapping checklist with duplicate, missing-value, and exception rules
+- Role-based UAT scripts with pass/fail evidence capture
+- Issue and retest register with severity, owner, and closure criteria
+- Reporting/export validation checklist for priority operational outputs
+- Executive handoff memo with open risks and recommended next actions
+
+Boundary: No credentials, private records, payment data, or production secrets should be sent by email; start with approved samples, public URLs, redacted screenshots, or a secure workspace.
+
+If this is useful, a simple reply with the right billing/procurement contact is enough and I will convert the scoped packet into the correct payment or vendor path.
+
+Best,
+Nakul

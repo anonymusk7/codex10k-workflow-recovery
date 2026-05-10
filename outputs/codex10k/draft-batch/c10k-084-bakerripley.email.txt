@@ -1,0 +1,26 @@
+Hi Ashley,
+
+I saw BakerRipley's RFP 26-06 for Salesforce Professional Services. Because the vendor conference appears to have been mandatory, I want to avoid an improper submission. I prepared a narrow QA/UAT support packet only for your review if this kind of support-sidecar is still eligible.
+
+I am Nakul, an independent freelancer/sole proprietor. I can support the implementation team with fixed-scope QA/UAT, release-readiness, and data-migration evidence without claiming to be a Salesforce prime.
+
+Reference page:
+https://anonymusk7.github.io/codex10k-workflow-recovery/c10k-084-bakerripley.html?v=draft1
+
+Attached package: USD 19,500 fixed.
+
+The support slice would produce:
+
+- Requirements-to-acceptance matrix for the highest-risk workflow slice
+- Sample-data mapping checklist with duplicate, missing-value, and exception rules
+- Role-based UAT scripts with pass/fail evidence capture
+- Issue and retest register with severity, owner, and closure criteria
+- Reporting/export validation checklist for priority operational outputs
+- Executive handoff memo with open risks and recommended next actions
+
+Boundary: No client, participant, or production CRM records should be sent by email; use dummy records or a secure BakerRipley-approved workspace.
+
+Could you confirm whether a vendor without documented attendance at the May 5 mandatory conference may still be considered for a narrow support-sidecar role? If not, no action is needed.
+
+Best,
+Nakul

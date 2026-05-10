@@ -1,0 +1,26 @@
+Hello David,
+
+I saw the Town of Hillsborough as-needed consulting and engineering services RFP and prepared a narrow data/GIS workflow support packet that could sit beside the licensed consultant team.
+
+I am Nakul, an independent freelancer/sole proprietor. I can provide fixed data, GIS, and deliverable QA support beside the town's selected consultant or task-order team.
+
+Reference page:
+https://anonymusk7.github.io/codex10k-workflow-recovery/c10k-089-town-of-hillsborough.html?v=draft1
+
+Attached package: USD 6,500 fixed.
+
+The support slice would produce:
+
+- Requirements-to-acceptance matrix for the highest-risk workflow slice
+- Sample-data mapping checklist with duplicate, missing-value, and exception rules
+- Role-based UAT scripts with pass/fail evidence capture
+- Issue and retest register with severity, owner, and closure criteria
+- Reporting/export validation checklist for priority operational outputs
+- Executive handoff memo with open risks and recommended next actions
+
+Boundary: No licensed engineering, survey, planning certification, or sealed deliverable is included; this is data/workflow QA and documentation support.
+
+Could you confirm whether a narrow data/GIS workflow support note is useful for this RFP, or should it be routed through the selected consultant team?
+
+Best,
+Nakul

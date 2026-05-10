@@ -1,0 +1,26 @@
+Hello THRIVE Development Team,
+
+I saw THRIVE's Website Designer RFP and prepared a focused support packet for campaign readiness, donor/funder paths, youth-and-family service navigation, accessibility, and launch QA.
+
+I am Nakul, an independent freelancer/sole proprietor. I can provide a bounded QA/readiness support package beside the chosen designer/developer or as a small fixed add-on.
+
+Reference page:
+https://anonymusk7.github.io/codex10k-workflow-recovery/c10k-093-thrive-victoria.html?v=draft1
+
+Attached package: USD 7,500 fixed.
+
+The support slice would produce:
+
+- Current-state crawl and risk register for priority pages, forms, documents, and integrations
+- Accessibility, mobile, performance, SEO, analytics, and broken-link QA checklist
+- Content migration sampling plan with redirects, metadata, and ownership notes
+- Acceptance test scripts for staff review before launch or handoff
+- Defect and retest tracker with severity, owner, and closeout evidence
+- Launch-readiness memo with open risks, decision points, and next actions
+
+Boundary: No client, youth, family, donor, or private service data should be sent by email; use public content, dummy forms, and redacted examples.
+
+If useful, I can provide this as a support slice around the main website proposal or route it to the selected vendor once chosen.
+
+Best,
+Nakul

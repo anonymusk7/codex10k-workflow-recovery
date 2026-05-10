@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Connecticut Auditors of Public Accounts SharePoint workflow QA and maintenance support slice</title>
+    <meta name="description" content="A support packet for Connecticut Auditors of Public Accounts: SharePoint workflow QA and maintenance support slice." />
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #142129;
+        --muted: #5c6870;
+        --paper: #fbfaf5;
+        --panel: #ffffff;
+        --line: #dfe5e2;
+        --blue: #235f91;
+        --green: #18704f;
+        --gold: #c99a2f;
+        --soft: #eef5f2;
+        --shadow: 0 22px 60px rgba(20, 33, 41, 0.15);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+      * { box-sizing: border-box; }
+      body { margin: 0; background: var(--paper); color: var(--ink); }
+      a { color: inherit; }
+      .topbar {
+        position: sticky; top: 0; z-index: 20; display: flex; align-items: center; justify-content: space-between; gap: 18px;
+        padding: 14px clamp(18px, 4vw, 56px); border-bottom: 1px solid var(--line);
+        background: rgba(251, 250, 245, 0.94); backdrop-filter: blur(14px);
+      }
+      .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+      .brand-mark { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 8px; background: var(--ink); color: #fff; font-weight: 950; }
+      .brand strong, .brand span { display: block; }
+      .brand span { color: var(--muted); font-size: 0.86rem; }
+      nav { display: flex; flex-wrap: wrap; gap: 18px; color: var(--muted); font-weight: 720; }
+      nav a { text-decoration: none; }
+      .hero, .section { padding: clamp(34px, 6vw, 76px) clamp(18px, 5vw, 72px); }
+      .hero { display: grid; grid-template-columns: minmax(0, 0.94fr) minmax(340px, 1.06fr); gap: clamp(26px, 5vw, 64px); align-items: center; min-height: calc(100vh - 72px); }
+      .eyebrow { margin: 0 0 12px; color: var(--gold); font-size: 0.78rem; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; }
+      h1 { max-width: 820px; margin: 0; font-size: 4.9rem; line-height: 0.96; letter-spacing: 0; }
+      .lede { max-width: 720px; margin: 24px 0 0; color: var(--muted); font-size: 1.18rem; line-height: 1.62; }
+      .price-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+      .pill { display: inline-flex; align-items: center; min-height: 42px; padding: 10px 14px; border: 1px solid var(--line); border-radius: 8px; background: var(--panel); color: var(--ink); font-weight: 850; }
+      .primary { background: var(--blue); color: #fff; }
+      .visual { position: relative; overflow: hidden; border: 1px solid rgba(20, 33, 41, 0.14); border-radius: 8px; background: #dfe9dc; box-shadow: var(--shadow); }
+      .visual img { display: block; width: 100%; height: auto; }
+      .workflow-strip { position: absolute; left: clamp(14px, 3vw, 30px); right: clamp(14px, 3vw, 30px); bottom: clamp(14px, 3vw, 28px); display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 7px; }
+      .step { position: relative; min-height: 78px; padding: 10px; border: 1px solid rgba(255, 255, 255, 0.42); border-radius: 8px; background: rgba(255, 255, 255, 0.86); box-shadow: 0 14px 34px rgba(20, 33, 41, 0.14); backdrop-filter: blur(12px); }
+      .step::before { content: ""; position: absolute; inset: -1px; border: 2px solid transparent; border-radius: inherit; animation: focusStep 10s linear infinite; pointer-events: none; }
+      .step:nth-child(2)::before { animation-delay: 2s; }
+      .step:nth-child(3)::before { animation-delay: 4s; }
+      .step:nth-child(4)::before { animation-delay: 6s; }
+      .step:nth-child(5)::before { animation-delay: 8s; }
+      .step small { display: block; color: var(--blue); font-size: 0.68rem; font-weight: 950; text-transform: uppercase; }
+      .step strong { display: block; margin-top: 6px; color: var(--ink); font-size: 0.72rem; line-height: 1.18; overflow-wrap: anywhere; }
+      .section { border-top: 1px solid var(--line); }
+      .section h2 { margin: 0 0 18px; font-size: 2.85rem; line-height: 1; letter-spacing: 0; }
+      .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+      .card { min-height: 168px; padding: 22px; border: 1px solid var(--line); border-radius: 8px; background: var(--panel); }
+      .card h3 { margin: 0 0 12px; font-size: 1.02rem; }
+      .card p, .scope-list li, .fineprint { color: var(--muted); line-height: 1.56; }
+      .scope-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 28px; max-width: 960px; margin: 0; padding-left: 20px; }
+      .closing { display: grid; grid-template-columns: minmax(0, 0.72fr) minmax(280px, 0.28fr); gap: 26px; align-items: start; }
+      .quote { padding: 24px; border-radius: 8px; background: var(--ink); color: #fff; }
+      .quote strong { display: block; font-size: 2.4rem; line-height: 1; }
+      .quote span { display: block; margin-top: 12px; color: rgba(255, 255, 255, 0.78); line-height: 1.5; }
+      @keyframes focusStep { 0%, 16% { border-color: rgba(35, 95, 145, 0.95); box-shadow: 0 0 0 4px rgba(35, 95, 145, 0.13); } 17%, 100% { border-color: transparent; box-shadow: none; } }
+      @media (max-width: 940px) {
+        .hero, .closing { grid-template-columns: 1fr; }
+        .hero { min-height: auto; }
+        .grid, .scope-list { grid-template-columns: 1fr; }
+        .workflow-strip { position: static; grid-template-columns: 1fr; padding: 12px; background: #fff; }
+        .step { min-height: 70px; }
+        h1 { font-size: 3.85rem; }
+        .section h2 { font-size: 2.35rem; }
+      }
+      @media (max-width: 640px) {
+        nav { display: none; }
+        .brand span { display: none; }
+        h1 { font-size: 2.55rem; }
+        .section h2 { font-size: 2.1rem; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Connecticut Auditors of Public Accounts support packet">
+        <span class="brand-mark">C</span>
+        <span>
+          <strong>Connecticut Auditors of Public Accounts</strong>
+          <span>SharePoint workflow QA and maintenance support slice from Nakul</span>
+        </span>
+      </a>
+      <nav aria-label="Packet sections"><a href="#fit">Fit</a><a href="#workflow">Workflow</a><a href="#deliverables">Deliverables</a><a href="#next">Next step</a></nav>
+    </header>
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div>
+          <p class="eyebrow">SharePoint maintenance support</p>
+          <h1 id="hero-title">SharePoint workflow QA and maintenance support slice</h1>
+          <p class="lede">I can provide a fixed workflow-QA and maintenance-readiness slice either as a named specialist resource or beside the selected maintenance team.</p>
+          <div class="price-row" aria-label="Proposal summary"><span class="pill primary">USD 12,500 fixed</span>
+<span class="pill ">SharePoint QA</span>
+<span class="pill ">RFP question</span></div>
+        </div>
+        <figure class="visual" aria-label="SharePoint workflow QA and maintenance support slice workflow preview">
+          <img src="assets/synergy-automation-workflow-visual.png" alt="SharePoint maintenance support workflow visual with intake, QA, evidence, and handoff steps." />
+          <figcaption class="workflow-strip" id="workflow"><span class="step"><small>01</small><strong>Inventory</strong></span>
+<span class="step"><small>02</small><strong>Permissions</strong></span>
+<span class="step"><small>03</small><strong>Flow checks</strong></span>
+<span class="step"><small>04</small><strong>Template QA</strong></span>
+<span class="step"><small>05</small><strong>Maintenance log</strong></span></figcaption>
+        </figure>
+      </section>
+      <section class="section" id="fit"><h2>Fit</h2><div class="grid"><article class="card"><h3>Narrow support</h3><p>The RFP maps well to SharePoint workflow maintenance, permission review, template QA, and repeatable support evidence.</p></article>
+<article class="card"><h3>Works beside the primary team</h3><p>I can provide a fixed workflow-QA and maintenance-readiness slice either as a named specialist resource or beside the selected maintenance team.</p></article>
+<article class="card"><h3>Data boundary</h3><p>No confidential audit files should be sent by email; the first pass can use site structure, redacted examples, or dummy records.</p></article></div></section>
+      <section class="section" id="deliverables"><h2>Deliverables</h2><ul class="scope-list"><li>Requirements-to-acceptance matrix for the highest-risk workflow slice</li>
+<li>Sample-data mapping checklist with duplicate, missing-value, and exception rules</li>
+<li>Role-based UAT scripts with pass/fail evidence capture</li>
+<li>Issue and retest register with severity, owner, and closure criteria</li>
+<li>Reporting/export validation checklist for priority operational outputs</li>
+<li>Executive handoff memo with open risks and recommended next actions</li></ul></section>
+      <section class="section" id="next">
+        <div class="closing">
+          <div>
+            <h2>Next step</h2>
+            <p class="fineprint">May respondents include named subcontractors or specialist partner resources for SharePoint/Power Platform maintenance, and where should those roles and qualifications be described?</p>
+            <p class="fineprint">Prepared by Nakul as an independent freelancer/sole proprietor. This is not a full prime-vendor proposal unless the buyer confirms that path; it is a bounded support slice.</p>
+          </div>
+          <aside class="quote" aria-label="Fixed price"><strong>$12,500</strong><span>Fixed support slice, subject to buyer approval and the required response path.</span></aside>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

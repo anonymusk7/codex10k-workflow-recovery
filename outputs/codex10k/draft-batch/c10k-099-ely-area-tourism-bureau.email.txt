@@ -1,0 +1,26 @@
+Hello Ely Area Tourism Bureau team,
+
+I am following up on the support packet I sent earlier. I kept this as a small fixed scope so it can be approved quickly if the timing is useful.
+
+I am Nakul, an independent freelancer/sole proprietor. I can keep the first milestone tight: confirm the workflow, work from approved samples or public/staging material, produce acceptance evidence, and hand off the exact next fixes.
+
+Reference page:
+https://anonymusk7.github.io/codex10k-workflow-recovery/c10k-099-ely-area-tourism-bureau.html?v=draft1
+
+Attached package: USD 12,500 fixed.
+
+The support slice would produce:
+
+- Current-state crawl and risk register for priority pages, forms, documents, and integrations
+- Accessibility, mobile, performance, SEO, analytics, and broken-link QA checklist
+- Content migration sampling plan with redirects, metadata, and ownership notes
+- Acceptance test scripts for staff review before launch or handoff
+- Defect and retest tracker with severity, owner, and closeout evidence
+- Launch-readiness memo with open risks, decision points, and next actions
+
+Boundary: No credentials, private records, payment data, or production secrets should be sent by email; start with approved samples, public URLs, redacted screenshots, or a secure workspace.
+
+If this is useful, a simple reply with the right billing/procurement contact is enough and I will convert the scoped packet into the correct payment or vendor path.
+
+Best,
+Nakul
