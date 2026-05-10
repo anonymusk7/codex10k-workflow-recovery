@@ -8,6 +8,8 @@ To: Janelle@GoSoIN.com
 
 Subject: Bounded CMS/CRM/Partner Portal QA support for SoIN RFP
 
+Status: sent May 10, 2026 as Gmail message `19e0fd37e18291d8` with `outputs/codex10k/soin_launch_qa_support_proposal.pdf` attached. Do not resend. Next action is to watch for a reply; if positive, request staging/vendor-selection window and convert into final scope plus payment link/invoice.
+
 Body:
 
 Hi Janelle,
@@ -17,6 +19,8 @@ I saw SoIN Tourism's Website Services RFP for the website, CMS, CRM system of re
 I am not asking for an individual pre-submission meeting. I can provide a bounded launch-QA support package for SoIN Tourism or the selected vendor once staging is available.
 
 Fixed support package: USD 8,500.
+
+I attached a concise support packet with the launch-QA scope and boundaries.
 
 Includes:
 
