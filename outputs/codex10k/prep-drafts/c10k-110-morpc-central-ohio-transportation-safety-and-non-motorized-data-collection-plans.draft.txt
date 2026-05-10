@@ -1,0 +1,26 @@
+Hello Maria,
+
+I saw the Central Ohio Transportation Safety and Non-Motorized Data Collection Plans RFP and prepared a narrow support-slice packet focused on dashboard/data workflow readiness.
+
+I am Nakul, an independent freelancer/sole proprietor. This is an indicative specialist support slice for a prime/subconsultant attachment or formal compliant proposal path after approval.
+
+Reference page:
+https://anonymusk7.github.io/codex10k-workflow-recovery/c10k-110-morpc-central-ohio-transportation-safety-and-non-motorized-data-collection-plans.html?v=prep2
+
+Proposal packet: Indicative fixed-fee support slice: USD 12,500, subject to MORPC/prime approval and final contracting.
+
+The support slice would produce:
+
+- Safety KPI and data-source model for crash, VRU, bike/ped counts, and plan priorities
+- Dashboard wireframes for executive view, corridor/location view, and update status
+- Data dictionary with field definitions, source owner, refresh cadence, and quality checks
+- Sample update workflow for monthly/quarterly data refresh and issue review
+- QA checklist for missing values, stale records, duplicate locations, and map joins
+- Handoff memo for the prime team with open decisions and implementation backlog
+
+Boundary: No confidential or restricted datasets should be sent by email; use public/sample datasets or an approved secure workspace.
+
+If a focused data/dashboard support role is eligible, I can adapt this as a prime/subconsultant attachment or formal compliant proposal component.
+
+Best,
+Nakul

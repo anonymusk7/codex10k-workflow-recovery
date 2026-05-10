@@ -1,0 +1,26 @@
+Hello,
+
+I prepared a narrow PACE scheduling data-migration readiness packet that can sit beside a future or primary scheduling platform vendor.
+
+I am Nakul, an independent freelancer/sole proprietor. This is a specialist support package beside a future or primary scheduling platform vendor, or as a portal attachment if the path is approved.
+
+Reference page:
+https://anonymusk7.github.io/codex10k-workflow-recovery/c10k-108-town-of-parker-pace.html?v=prep2
+
+Proposal packet: Indicative fixed-price support slice: USD 9,500, subject to portal eligibility and final scope; not a standalone prime SaaS proposal.
+
+The support slice would produce:
+
+- Legacy scheduling source inventory and export checklist
+- Field mapping matrix for events, rooms, staff, customers, fees, and integrations
+- Duplicate, missing-value, inactive-record, and attachment exception rules
+- Test migration checklist with sample-load acceptance criteria
+- Defect and retest register for vendor/user review
+- Cutover evidence pack with rollback notes and post-launch checks
+
+Boundary: No patron, payment, staff, or facility booking records should be sent by email. Use synthetic data, redacted samples, or schema-only field lists in an approved workspace.
+
+If this support slice is eligible, the first input would be a test export or sample field list from the legacy scheduling system.
+
+Best,
+Nakul

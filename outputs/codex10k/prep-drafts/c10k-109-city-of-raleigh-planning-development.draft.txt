@@ -1,0 +1,26 @@
+Hello,
+
+I prepared a narrow records-governance pilot packet for the Raleigh Planning & Development opportunity.
+
+I am Nakul, an independent freelancer/sole proprietor. This is a support slice beside a records-management lead or formal portal response if the path is approved.
+
+Reference page:
+https://anonymusk7.github.io/codex10k-workflow-recovery/c10k-109-city-of-raleigh-planning-development.html?v=prep2
+
+Proposal packet: Indicative fixed-price pilot support slice: USD 18,000, subject to portal eligibility and buyer approval.
+
+The support slice would produce:
+
+- Pilot content inventory template for selected content categories and record families
+- Taxonomy and metadata draft with owners, retention prompts, and exception rules
+- SharePoint/M365 permissions review checklist for pilot libraries and groups
+- Workflow QA checklist for intake, classification, access, retention trigger, and handoff
+- Issue/risk register covering privacy, access, duplicate stores, and unsupported content
+- Pilot findings memo with rollout backlog and governance decision points
+
+Boundary: No confidential records content should be sent by email; use metadata inventories, redacted samples, or approved workspace exports.
+
+If this support slice is eligible, the first input would be a metadata-only inventory from one pilot content area.
+
+Best,
+Nakul

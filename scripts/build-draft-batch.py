@@ -137,6 +137,7 @@ def html_page(lead: dict) -> str:
       .brand-mark {{ display: grid; place-items: center; width: 42px; height: 42px; border-radius: 8px; background: var(--ink); color: #fff; font-weight: 950; }}
       .brand strong, .brand span {{ display: block; }}
       .brand span {{ color: var(--muted); font-size: 0.86rem; }}
+      .brand-mark {{ color: #fff; }}
       nav {{ display: flex; flex-wrap: wrap; gap: 18px; color: var(--muted); font-weight: 720; }}
       nav a {{ text-decoration: none; }}
       .hero, .section {{ padding: clamp(34px, 6vw, 76px) clamp(18px, 5vw, 72px); }}
@@ -147,7 +148,7 @@ def html_page(lead: dict) -> str:
       .price-row {{ display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }}
       .pill {{ display: inline-flex; align-items: center; min-height: 42px; padding: 10px 14px; border: 1px solid var(--line); border-radius: 8px; background: var(--panel); color: var(--ink); font-weight: 850; }}
       .primary {{ background: var(--blue); color: #fff; }}
-      .visual {{ position: relative; overflow: hidden; border: 1px solid rgba(20, 33, 41, 0.14); border-radius: 8px; background: #dfe9dc; box-shadow: var(--shadow); }}
+      .visual {{ position: relative; overflow: hidden; margin: 0; border: 1px solid rgba(20, 33, 41, 0.14); border-radius: 8px; background: #dfe9dc; box-shadow: var(--shadow); }}
       .visual img {{ display: block; width: 100%; height: auto; }}
       .workflow-strip {{ position: absolute; left: clamp(14px, 3vw, 30px); right: clamp(14px, 3vw, 30px); bottom: clamp(14px, 3vw, 28px); display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 7px; }}
       .step {{ position: relative; min-height: 78px; padding: 10px; border: 1px solid rgba(255, 255, 255, 0.42); border-radius: 8px; background: rgba(255, 255, 255, 0.86); box-shadow: 0 14px 34px rgba(20, 33, 41, 0.14); backdrop-filter: blur(12px); }}
@@ -157,7 +158,7 @@ def html_page(lead: dict) -> str:
       .step:nth-child(4)::before {{ animation-delay: 6s; }}
       .step:nth-child(5)::before {{ animation-delay: 8s; }}
       .step small {{ display: block; color: var(--blue); font-size: 0.68rem; font-weight: 950; text-transform: uppercase; }}
-      .step strong {{ display: block; margin-top: 6px; color: var(--ink); font-size: 0.72rem; line-height: 1.18; overflow-wrap: anywhere; }}
+      .step strong {{ display: block; margin-top: 6px; color: var(--ink); font-size: 0.72rem; line-height: 1.18; overflow-wrap: normal; word-break: normal; hyphens: none; }}
       .section {{ border-top: 1px solid var(--line); }}
       .section h2 {{ margin: 0 0 18px; font-size: 2.85rem; line-height: 1; letter-spacing: 0; }}
       .grid {{ display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }}
@@ -181,7 +182,7 @@ def html_page(lead: dict) -> str:
       }}
       @media (max-width: 640px) {{
         nav {{ display: none; }}
-        .brand span {{ display: none; }}
+        .brand > span:not(.brand-mark) {{ display: none; }}
         h1 {{ font-size: 2.55rem; }}
         .section h2 {{ font-size: 2.1rem; }}
       }}
@@ -257,14 +258,20 @@ def build_pdf(lead: dict, pdf_path: Path) -> None:
         ),
     ]
 
+    def draw_page_background(canvas, _doc) -> None:
+        canvas.saveState()
+        canvas.setFillColor(colors.white)
+        canvas.rect(0, 0, letter[0], letter[1], stroke=0, fill=1)
+        canvas.restoreState()
+
     summary = Table(
         [
             [paragraph("Buyer", white), paragraph(lead["buyer"], white)],
             [paragraph("Opportunity", white), paragraph(lead["opportunity"], white)],
-            [paragraph("Package", white), paragraph(f"{money(lead['price_usd'])} fixed - {lead['offer_title']}", white)],
+            [paragraph("Package", white), paragraph(lead.get("package_line", f"{lead.get('price_label', money(lead['price_usd']) + ' fixed')} - {lead['offer_title']}"), white)],
             [paragraph("Path", white), paragraph(lead.get("packet_path", lead["send_caution"]), white)],
         ],
-        colWidths=[0.72 * inch, 2.72 * inch],
+        colWidths=[0.95 * inch, 2.49 * inch],
         hAlign="LEFT",
     )
     summary.setStyle(
@@ -311,7 +318,7 @@ def build_pdf(lead: dict, pdf_path: Path) -> None:
     story.append(paragraph("Boundary", h2))
     story.append(paragraph(lead["boundary"], body))
     note = Table(
-        [[paragraph(f"Fixed price: {money(lead['price_usd'])}", white), paragraph(lead["next_step"], white)]],
+        [[paragraph(lead.get("price_label", f"Fixed price: {money(lead['price_usd'])}"), white), paragraph(lead["next_step"], white)]],
         colWidths=[2.0 * inch, 4.9 * inch],
         hAlign="LEFT",
     )
@@ -329,7 +336,7 @@ def build_pdf(lead: dict, pdf_path: Path) -> None:
     )
     story.append(Spacer(1, 6))
     story.append(KeepTogether(note))
-    doc.build(story)
+    doc.build(story, onFirstPage=draw_page_background, onLaterPages=draw_page_background)
 
 
 def email_body(lead: dict, public_url: str) -> str:
@@ -340,8 +347,8 @@ def email_body(lead: dict, public_url: str) -> str:
             lead["opening"],
             f"I am Nakul, an independent freelancer/sole proprietor. {lead['positioning']}",
             f"Reference page:\n{public_url}",
-            f"Attached package: {money(lead['price_usd'])} fixed.",
-            f"The support slice would produce:\n\n{deliverables}",
+            f"Proposal packet: {lead.get('price_label', money(lead['price_usd']) + ' fixed')}.",
+            f"{lead.get('deliverables_intro', 'The support slice would produce')}:\n\n{deliverables}",
             f"Boundary: {lead['boundary']}",
             lead["email_next_step"],
             "Best,\nNakul",

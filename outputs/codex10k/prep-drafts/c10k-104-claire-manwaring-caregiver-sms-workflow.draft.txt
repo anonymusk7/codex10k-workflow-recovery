@@ -1,0 +1,26 @@
+Hi Claire,
+
+I saw your Make/Bubble/Supabase/Twilio/Claude caregiver SMS build post. I prepared a narrow first milestone that gets the state model and approval loop testable before production data enters the workflow.
+
+I am Nakul, an independent freelancer/sole proprietor. This is a fixed build-readiness sprint that can be credited toward implementation if the architecture matches the product constraints.
+
+Reference page:
+https://anonymusk7.github.io/codex10k-workflow-recovery/c10k-104-claire-manwaring-caregiver-sms-workflow.html?v=prep2
+
+Proposal packet: USD 3,500 fixed, credited toward implementation if approved.
+
+The support slice would produce:
+
+- Conversation-state schema for caregiver, scenario, message, status, and escalation events
+- Twilio plus Make flow map with retry, duplicate, timeout, and manual-review states
+- Supabase event-log table plan with analytics-ready fields and privacy boundaries
+- Slack approval loop specification with reviewer actions and rejection paths
+- Two dummy-data journey tests with expected prompts, approvals, and final outcomes
+- Implementation backlog with build estimate, risks, and acceptance criteria
+
+Boundary: No PHI, caregiver private data, real health details, or production phone numbers should be sent by email or forum DM. Use fully fictional conversations and buyer-approved secure workspaces.
+
+If this matches the gap, send one fully fictional caregiver conversation, desired approval states, and the current Bubble/Supabase table shape.
+
+Best,
+Nakul

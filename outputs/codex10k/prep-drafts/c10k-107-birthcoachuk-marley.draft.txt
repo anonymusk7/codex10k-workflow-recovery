@@ -1,0 +1,26 @@
+Hi Marley,
+
+I saw your Bubble SaaS MVP post for maternity professionals. I prepared a practical first milestone that gets the architecture and build plan clear before anyone commits to the full MVP.
+
+I am Nakul, an independent freelancer/sole proprietor. This is a paid discovery/architecture milestone that can roll into implementation if the boundaries are approved.
+
+Reference page:
+https://anonymusk7.github.io/codex10k-workflow-recovery/c10k-107-birthcoachuk-marley.html?v=prep2
+
+Proposal packet: USD 1,500 fixed blueprint; implementation quoted after boundaries and MVP scope are approved.
+
+The blueprint milestone would produce:
+
+- Bubble data model draft for users, clients, sessions, invoices, PDFs, and status records
+- Role/privacy map for maternity professionals, admins, and customer-facing views
+- Stripe, email, PDF, scheduling, localization, and notification integration plan
+- Compliance and data-boundary question list to resolve before build
+- MVP milestone plan with acceptance criteria and implementation quote range
+- Technical risks memo covering scalability, privacy, and no-code maintainability
+
+Boundary: No client/patient private data should be shared by email; use dummy personas, workflows, and sample documents until a secure workspace is approved.
+
+If useful, send dummy workflows, target user roles, and the must-have MVP screens; no private client/patient data needed.
+
+Best,
+Nakul

@@ -1,0 +1,26 @@
+Hi Ray,
+
+I saw your HubSpot document export/Nutshell post. I prepared a small rescue sprint that tests transfer feasibility before anyone commits to a full migration run.
+
+I am Nakul, an independent freelancer/sole proprietor. This is a compact migration rescue, not a broad CRM rebuild.
+
+Reference page:
+https://anonymusk7.github.io/codex10k-workflow-recovery/c10k-105-ray-roberts-hubspot-document-export.html?v=prep2
+
+Proposal packet: USD 950 fixed for the 25-record sample proof; full run quoted after inventory.
+
+The support slice would produce:
+
+- HubSpot document and association inventory for a representative sample
+- Nutshell attachment/API feasibility check with fallback export route
+- 25-record test transfer or export with success/failure evidence
+- CSV manifest with object ID, document name, owner, association, status, and error note
+- Failure taxonomy for permissions, duplicates, unsupported files, and missing associations
+- Full-run quote and runbook after sample proof
+
+Boundary: No customer private documents should be sent by forum DM or email; use a least-privilege workspace, sample records, or redacted test files.
+
+If helpful, send a redacted sample or a screen share of the document associations and I can confirm the first proof path.
+
+Best,
+Nakul

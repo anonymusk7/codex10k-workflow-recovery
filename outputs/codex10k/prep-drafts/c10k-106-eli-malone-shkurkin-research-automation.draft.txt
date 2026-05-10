@@ -1,0 +1,26 @@
+Hi Eli,
+
+I saw your daily industry research automation post. I prepared a bounded first milestone that focuses on the self-serve/client-onboarding layer inside the broader expansion.
+
+I am Nakul, an independent freelancer/sole proprietor. This is a bounded first milestone inside the broader expansion.
+
+Reference page:
+https://anonymusk7.github.io/codex10k-workflow-recovery/c10k-106-eli-malone-shkurkin-research-automation.html?v=prep2
+
+Proposal packet: USD 3,800 fixed for one self-serve onboarding and output path.
+
+The support slice would produce:
+
+- Client configuration schema for industry, sources, cadence, output style, and owner
+- Onboarding form or table plan that creates a new client run without manual scenario edits
+- Google Doc or Drive provisioning pattern with naming, folders, and permissions checklist
+- Persistence cleanup for run state, duplicate prevention, and source-level result tracking
+- Failure logging and alert rules for empty runs, source failures, and output errors
+- Handoff doc with one sample client configured end to end
+
+Boundary: No scraped/private data or client secrets should be shared by forum DM; use an approved source list and dummy client config first.
+
+If useful, send one sample client config, current scenario shape, and target output format.
+
+Best,
+Nakul
