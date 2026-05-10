@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Visualfestation Integration v1</title>
+    <meta
+      name="description"
+      content="A fixed-scope Skool, Zendo, Airtable, Rewardful, and Stripe integration proposal for Visualfestation."
+    />
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #13211d;
+        --muted: #5d6f68;
+        --paper: #f7f6f0;
+        --panel: #ffffff;
+        --line: #d8dfdc;
+        --forest: #0e684f;
+        --coral: #d86443;
+        --blue: #2f659f;
+        --gold: #e5ba5d;
+        --soft: #e8f3ef;
+        --shadow: 0 20px 60px rgba(19, 33, 29, 0.14);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 14px clamp(18px, 4vw, 56px);
+        background: rgba(247, 246, 240, 0.94);
+        border-bottom: 1px solid var(--line);
+        backdrop-filter: blur(14px);
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+      }
+
+      .brand-mark {
+        display: grid;
+        place-items: center;
+        width: 42px;
+        height: 42px;
+        border-radius: 8px;
+        background: var(--ink);
+        color: #fff;
+        font-weight: 900;
+      }
+
+      .brand strong,
+      .brand small {
+        display: block;
+      }
+
+      .brand small,
+      nav {
+        color: var(--muted);
+      }
+
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 18px;
+        font-size: 0.95rem;
+      }
+
+      nav a {
+        text-decoration: none;
+      }
+
+      .hero {
+        position: relative;
+        display: grid;
+        align-items: end;
+        min-height: calc(78vh - 72px);
+        padding: clamp(70px, 9vw, 108px) clamp(18px, 4vw, 56px) clamp(38px, 6vw, 72px);
+        color: #fff;
+        background:
+          linear-gradient(90deg, rgba(19, 33, 29, 0.88), rgba(19, 33, 29, 0.58) 48%, rgba(19, 33, 29, 0.1)),
+          url("assets/synergy-automation-workflow-visual.png") center / cover no-repeat;
+      }
+
+      .hero-copy {
+        max-width: 840px;
+      }
+
+      .eyebrow {
+        margin: 0 0 12px;
+        color: var(--gold);
+        font-size: 0.78rem;
+        font-weight: 900;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        max-width: 820px;
+        margin-bottom: 22px;
+        font-size: clamp(2.8rem, 6vw, 5.1rem);
+        line-height: 1;
+        letter-spacing: 0;
+      }
+
+      h2 {
+        margin-bottom: 14px;
+        font-size: clamp(2rem, 4vw, 3.6rem);
+        line-height: 1;
+        letter-spacing: 0;
+      }
+
+      h3 {
+        margin-bottom: 10px;
+        font-size: 1.12rem;
+      }
+
+      .lede {
+        max-width: 720px;
+        color: rgba(255, 255, 255, 0.86);
+        font-size: clamp(1.08rem, 2vw, 1.32rem);
+        line-height: 1.55;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 28px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 46px;
+        padding: 0 18px;
+        border: 1px solid var(--ink);
+        border-radius: 8px;
+        font-weight: 850;
+        text-decoration: none;
+      }
+
+      .button.primary {
+        background: var(--ink);
+        color: #fff;
+      }
+
+      .button.light {
+        border-color: #fff;
+        background: #fff;
+        color: var(--ink);
+      }
+
+      .band {
+        padding: clamp(48px, 8vw, 96px) clamp(18px, 4vw, 56px);
+        border-top: 1px solid var(--line);
+        background: #fffdfa;
+      }
+
+      .band.soft {
+        background: var(--soft);
+      }
+
+      section[id] {
+        scroll-margin-top: 104px;
+      }
+
+      .section-head {
+        max-width: 860px;
+        margin-bottom: 32px;
+      }
+
+      .section-head p:not(.eyebrow),
+      .card p,
+      .node small,
+      li {
+        color: var(--muted);
+        line-height: 1.55;
+      }
+
+      .flow {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .node,
+      .card {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+      }
+
+      .node {
+        min-height: 142px;
+        padding: 18px;
+      }
+
+      .node span {
+        display: inline-grid;
+        place-items: center;
+        width: 36px;
+        height: 36px;
+        margin-bottom: 14px;
+        border-radius: 8px;
+        background: var(--soft);
+        color: var(--forest);
+        font-size: 0.82rem;
+        font-weight: 900;
+      }
+
+      .node strong {
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      .card-grid,
+      .check-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .check-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 32px;
+      }
+
+      .card {
+        padding: 24px;
+      }
+
+      .check-grid ul {
+        margin: 0;
+        padding-left: 22px;
+      }
+
+      .price-row {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 18px;
+        margin-top: 28px;
+        padding: 24px;
+        border-radius: 8px;
+        background: var(--ink);
+        color: #fff;
+      }
+
+      .price-row strong {
+        font-size: clamp(2.3rem, 6vw, 4.6rem);
+      }
+
+      .price-row span {
+        color: rgba(255, 255, 255, 0.72);
+        line-height: 1.4;
+      }
+
+      .contact-band {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 28px;
+        padding: clamp(42px, 6vw, 72px) clamp(18px, 4vw, 56px);
+        background: var(--forest);
+        color: #fff;
+      }
+
+      .contact-band h2 {
+        max-width: 760px;
+        margin-bottom: 0;
+      }
+
+      footer {
+        padding: 24px clamp(18px, 4vw, 56px);
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 1000px) {
+        .flow,
+        .card-grid,
+        .check-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .contact-band,
+        .price-row {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+      }
+
+      @media (max-width: 700px) {
+        .topbar {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .hero {
+          min-height: 72vh;
+          background:
+            linear-gradient(180deg, rgba(19, 33, 29, 0.9), rgba(19, 33, 29, 0.64)),
+            url("assets/synergy-automation-workflow-visual.png") center / cover no-repeat;
+        }
+
+        .button {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Visualfestation integration proposal">
+        <span class="brand-mark">VF</span>
+        <span>
+          <strong>Visualfestation Integration v1</strong>
+          <small>fixed-scope response from Nakul</small>
+        </span>
+      </a>
+      <nav aria-label="Page sections">
+        <a href="#flow">Flow</a>
+        <a href="#scope">Scope</a>
+        <a href="#checks">Checks</a>
+        <a href="#next">Next step</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Prepared for Pete Adams and Visualfestation</p>
+          <h1>Skool, Zendo, Airtable, Rewardful, and Stripe integration</h1>
+          <p class="lede">
+            I am Nakul, an independent freelancer focused on practical workflow automation. The clean first version is one payment-to-access flow with attribution, a source-of-truth table, review gates, and handoff notes.
+          </p>
+          <div class="hero-actions">
+            <a class="button light" href="#flow">View v1 flow</a>
+            <a class="button primary" href="#scope">Review fixed scope</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="flow" class="band">
+        <div class="section-head">
+          <p class="eyebrow">Suggested v1 flow</p>
+          <h2>Payment, access, attribution, and status in one path</h2>
+          <p>
+            This starts in test mode with dummy records. Once the rules are confirmed, the same structure can be connected under Visualfestation-owned accounts with least-privilege access.
+          </p>
+        </div>
+        <div class="flow" aria-label="Visualfestation integration flow">
+          <div class="node">
+            <span>01</span>
+            <strong>Stripe event</strong>
+            <small>Payment, subscription, refund, failed payment, or customer update starts the scenario.</small>
+          </div>
+          <div class="node">
+            <span>02</span>
+            <strong>Rewardful match</strong>
+            <small>Capture referral and affiliate identifiers before the record is routed.</small>
+          </div>
+          <div class="node">
+            <span>03</span>
+            <strong>Airtable source</strong>
+            <small>Store customer, purchase, affiliate, and access status in one reviewable table.</small>
+          </div>
+          <div class="node">
+            <span>04</span>
+            <strong>Skool / Zendo</strong>
+            <small>Create access or project setup when rules are clear; otherwise flag for review.</small>
+          </div>
+          <div class="node">
+            <span>05</span>
+            <strong>Log and handoff</strong>
+            <small>Document runs, errors, duplicate contacts, and manual-review cases.</small>
+          </div>
+        </div>
+      </section>
+
+      <section id="scope" class="band soft">
+        <div class="section-head">
+          <p class="eyebrow">Fixed first build</p>
+          <h2>USD 1,200 for one working integration path</h2>
+          <p>
+            The goal is to remove the immediate technical bottleneck without turning the first engagement into a vague hourly build.
+          </p>
+        </div>
+        <div class="card-grid">
+          <article class="card">
+            <h3>Scenario build</h3>
+            <p>One Make scenario or equivalent automation path around the first approved flow.</p>
+          </article>
+          <article class="card">
+            <h3>Reliability basics</h3>
+            <p>Duplicate checks, failed payment handling, refund paths, missing attribution review, and run logging.</p>
+          </article>
+          <article class="card">
+            <h3>Handoff</h3>
+            <p>Scenario notes, field map, test checklist, and maintenance notes for future changes.</p>
+          </article>
+        </div>
+        <div class="price-row">
+          <span>Proposed v1 milestone</span>
+          <strong>$1,200</strong>
+          <span>Fixed scope, one flow first, using Stripe test mode and dummy records before production access.</span>
+        </div>
+      </section>
+
+      <section id="checks" class="band">
+        <div class="section-head">
+          <p class="eyebrow">Acceptance checks</p>
+          <h2>What v1 should prove before expansion</h2>
+        </div>
+        <div class="check-grid">
+          <div>
+            <h3>Inputs needed</h3>
+            <ul>
+              <li>The first flow to prioritize, such as purchase to access to affiliate tracking.</li>
+              <li>Which app owns the customer source of truth.</li>
+              <li>Dummy or test customer, payment, affiliate, and access records.</li>
+              <li>Rules for refunds, failed payments, duplicates, and manual review.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Done means</h3>
+            <ul>
+              <li>Test Stripe events create or update the expected Airtable record.</li>
+              <li>Rewardful attribution is preserved when available and flagged when missing.</li>
+              <li>Skool/Zendo access or setup is created only under approved rules.</li>
+              <li>Failures are logged with a clear next action instead of disappearing.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="next" class="contact-band">
+        <div>
+          <p class="eyebrow">Next step</p>
+          <h2>Pick the first flow you want working, and I will turn it into the exact v1 acceptance checklist.</h2>
+        </div>
+        <a class="button light" href="#checks">Review inputs</a>
+      </section>
+    </main>
+
+    <footer>
+      <p>Illustrative integration proposal. No Visualfestation systems, credentials, payments, or customer data are shown.</p>
+    </footer>
+  </body>
+</html>
