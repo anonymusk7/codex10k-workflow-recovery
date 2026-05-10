@@ -2,6 +2,8 @@
 
 Prepared local packets for Gmail draft review. These are drafts only; do not send without explicit user approval.
 
+Review order: use `docs/draft-batch-review-queue.md` or `outputs/codex10k/draft_batch_review_queue.pdf` first.
+
 ## C10K-084 BakerRipley
 
 - To: `abrown@bakerripley.org`
