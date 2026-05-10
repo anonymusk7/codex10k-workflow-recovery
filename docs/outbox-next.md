@@ -2,6 +2,47 @@
 
 Prepared on 2026-05-09 and updated on 2026-05-10 after the user allowed outbound email under a strict cadence. Before any email send, run `node scripts/check-email-cadence.mjs --cap 10`; send only if it returns `allowed: true`, then log the exact timestamp and message ID in `data/email-send-log.csv`.
 
+## C10K-079 Hiawatha Academies
+
+Source checked May 10, 2026: official Hiawatha Academies RFQ page and PDF request modernization and redesign of the school website, with WCAG 2.1 A/AA, English/Spanish/Somali support, mobile responsiveness, content migration, recruitment/family engagement, and communications requirements. Proposals are due May 15, 2026 at 11:59 PM, and the point of contact/submission email is Kyle Groves at `kgroves@hiawathaacademies.org`.
+
+To: kgroves@hiawathaacademies.org
+
+Subject: Modernization and Redesign of School Website RFQ - Nakul
+
+Status: sent May 10, 2026 as Gmail message `19e104c1b35de655` with `outputs/codex10k/hiawatha_school_website_qa_sidecar_proposal.pdf` attached. This was the 10th outbound email today under the default cap, so do not send more email on May 10 unless the user explicitly raises the cap. Next action is to watch for RFQ response/confirmation; if positive, request staging/vendor timeline, representative URLs/templates, language sample paths, preferred tracker format, and procurement/payment path.
+
+Body:
+
+Hello Kyle,
+
+I saw Hiawatha Academies' open RFQ for Modernization and Redesign of School Website, including the May 15, 2026 deadline, WCAG 2.1 A/AA accessibility expectations, English/Spanish/Somali language support, content migration, mobile responsiveness, recruitment/family engagement goals, and staff communication needs.
+
+I am Nakul, an independent freelancer/sole proprietor. Please register this sender for addenda if this limited support submission can be considered.
+
+I am not submitting this as a full redesign-prime agency response, hosting proposal, CMS license, or legal accessibility certification. I am submitting a limited support slice that could help Hiawatha directly or sit beside the selected website/CMS vendor around multilingual QA, accessibility acceptance testing, content migration checks, and launch readiness.
+
+Reference page:
+
+https://anonymusk7.github.io/codex10k-workflow-recovery/hiawatha-school-website-qa-sidecar.html?v=hiawatha1
+
+Attached proposal: USD 12,000 fixed.
+
+Scope summary:
+
+- RFQ-aligned acceptance checklist for mobile, accessibility, multilingual navigation, migration, forms, search, analytics, and CMS handoff
+- English, Spanish, and Somali sample coverage review across representative pages, navigation, calls to action, forms, and family pathways
+- WCAG-oriented checks for headings, keyboard path, labels, alt text, contrast, documents, forms, and key public pages
+- content migration, redirects, metadata, broken links, search, analytics, and staff publishing workflow spot checks
+- issue register, retest notes, launch-readiness summary, and staff publishing guardrails
+
+Boundaries: this is QA, acceptance testing, retest, and staff handoff support only. It does not include the full website rebuild, hosting, CMS licensing, legal accessibility certification, or long-term maintenance unless separately scoped. No student records, family records, credentials, payment data, analytics exports, or private Hiawatha files are needed by email.
+
+If this limited support slice is useful, I can provide the acceptance checklist and issue-register format before vendor selection discussions.
+
+Best,
+Nakul
+
 ## C10K-047 SoIN Tourism
 
 To: Janelle@GoSoIN.com
