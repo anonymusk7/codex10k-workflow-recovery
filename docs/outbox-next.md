@@ -43,6 +43,46 @@ If this limited support slice is useful, I can provide the acceptance checklist 
 Best,
 Nakul
 
+## C10K-083 Revenue Authority of Prince George's County
+
+Source checked May 10, 2026: official Revenue Authority solicitation page for `RVA-PMS-04-2026` says electronic proposals are due by email to `RVA-PMS.RFP@co.pg.md.us` by June 1, 2026 at 2:00 PM EST.
+
+To: RVA-PMS.RFP@co.pg.md.us
+
+Subject: RVA-PMS-04-2026 - limited parking data QA support slice
+
+Status: sent May 10, 2026 as Gmail message `19e10e01ea3147ae` with `outputs/codex10k/pgc_parking_data_qa_support_slice.pdf` attached. This was the third and final user-approved extra May 10 email; do not send more email on May 10 unless the user explicitly raises the cap again.
+
+Body:
+
+Hello,
+
+Please find attached a limited independent support proposal for RVA-PMS-04-2026, Cloud-Based Parking Management System.
+
+I am Nakul, an independent freelancer/sole proprietor. I am not submitting this as the full parking management system, hardware, LPR, enforcement, cyber insurance, or long-term maintenance bid. This is a narrow support slice that could sit beside the Revenue Authority, selected prime, or selected PMS vendor for data migration QA, integration acceptance, reporting QA, UAT evidence, and go-live readiness.
+
+Reference page:
+
+https://anonymusk7.github.io/codex10k-workflow-recovery/pgc-parking-data-qa-sidecar.html?v=pgc1
+
+Attached package: USD 14,500 fixed.
+
+The support slice would produce:
+
+- migration reconciliation checklist for citations, payments, permits, accounts, collections, locations, statuses, and owner mappings
+- integration acceptance matrix for LPR, payment, ERP/financial, court/Tyler, CRM/311, collections, DMV lookup, and reporting paths
+- duplicate, underpayment, overpayment, refund, permit, citation lifecycle, and exception-case test scenarios
+- BI/reporting QA notes for revenue analysis, forecasting, spatial views, operational dashboards, and data dictionary gaps
+- UAT issue register with severity, evidence, likely owner, remediation status, retest result, and go-live risk notes
+- launch evidence memo summarizing clean decisions, unresolved risks, and what should be proven before award or cutover
+
+Boundary: no live citation records, license plates, payment data, DMV records, credentials, or enforcement exports should be sent by email. Sample or anonymized records are enough to build the initial checklist.
+
+If this limited support slice can be considered, please register it as a narrow proposal beside the primary PMS vendor or route it to the appropriate selected-prime/subcontract path.
+
+Best,
+Nakul
+
 ## C10K-081 Harford County Public Schools
 
 Source checked May 10, 2026: RFP 26-SR-014 public procurement materials/subagent research identify a Bus Routing, Fleet Management, GPS, and School Planning Solutions procurement with questions due May 19, 2026 and proposals due June 10, 2026. Use this only as a procurement clarification/support question unless HCPS instructs a formal path.
