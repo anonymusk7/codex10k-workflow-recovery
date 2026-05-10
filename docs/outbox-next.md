@@ -250,7 +250,7 @@ Cc: rcoombs@nvta.ca.gov
 
 Subject: Quote for RFQ No. 26-R08, ADA WEBSITE COMPLIANCE
 
-Status: prepared pending cadence and public page publish. Attach `outputs/codex10k/nvta_ada_qa_sidecar_quote.pdf`.
+Status: sent May 10, 2026 as Gmail message `19e101890b095ee2` with `outputs/codex10k/nvta_ada_qa_sidecar_quote.pdf` attached. Do not resend. Next action is to watch for procurement response; if positive, request priority URLs, representative PDFs/documents, preferred tracker format, remediation owner, and procurement/payment path.
 
 Body:
 
