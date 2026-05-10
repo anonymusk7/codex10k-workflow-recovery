@@ -43,6 +43,45 @@ If this limited support slice is useful, I can provide the acceptance checklist 
 Best,
 Nakul
 
+## C10K-081 Harford County Public Schools
+
+Source checked May 10, 2026: RFP 26-SR-014 public procurement materials/subagent research identify a Bus Routing, Fleet Management, GPS, and School Planning Solutions procurement with questions due May 19, 2026 and proposals due June 10, 2026. Use this only as a procurement clarification/support question unless HCPS instructs a formal path.
+
+To: sara.rowe@hcps.org
+
+Subject: RFP 26-SR-014 - limited routing data QA support question
+
+Status: sent May 10, 2026 as Gmail message `19e10c2baf1299e8` with `outputs/codex10k/harford_routing_data_qa_support_question.pdf` attached. This was the second of the three user-approved extra May 10 emails; next outbound requires `node scripts/check-email-cadence.mjs --cap=13` and at least 30 minutes after `2026-05-10T07:21:14Z`.
+
+Body:
+
+Hello Sara,
+
+I saw HCPS RFP 26-SR-014 for Bus Routing, Fleet Management, GPS, and School Planning Solutions. I am writing this as a procurement clarification question, not as a full routing/fleet/GPS software proposal.
+
+I am Nakul, an independent freelancer/sole proprietor. Could HCPS consider a limited support slice that sits beside the primary solution vendor and focuses on routing data readiness, GPS validation samples, acceptance tests, issue tracking, and cutover evidence?
+
+Reference page:
+
+https://anonymusk7.github.io/codex10k-workflow-recovery/harford-routing-data-qa-sidecar.html?v=harford1
+
+Attached support question: USD 9,500 fixed.
+
+The support slice would produce:
+
+- route/stop/vehicle/school/schedule data readiness checklist
+- duplicate, missing-value, invalid-coordinate, and field-ownership checks
+- acceptance test scenarios for bell schedules, route exceptions, service changes, parent-facing outputs, reporting, and handoff criteria
+- GPS validation sample plan for device-to-route matching, stale signals, vehicle IDs, timing variance, and route-completion evidence
+- issue register with severity, evidence, likely owner, remediation status, retest result, and launch-risk notes
+
+Boundary: no student names, home addresses, live route assignments, GPS logs, credentials, or internal exports should be sent by email. A sample or anonymized data path is enough to shape the checklist.
+
+If this type of limited support is eligible, should it be submitted directly through the formal RFP path, routed through the selected vendor, or treated only as an informational procurement question?
+
+Best,
+Nakul
+
 ## C10K-080 Baxter State Park Authority
 
 Source checked May 10, 2026: official BSP RFP PDF says electronic proposals are due May 20, 2026 to `nava.tabak@baxterstatepark.org`.
