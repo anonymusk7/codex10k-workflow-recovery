@@ -57,6 +57,10 @@ def money(value: int | float) -> str:
     return f"USD {int(value):,}"
 
 
+def status_label(log: dict) -> str:
+    return "sent" if log.get("status") == "sent_from_draft" else "draft"
+
+
 def load() -> tuple[list[dict], dict[str, dict]]:
     manifest = json.loads(MANIFEST.read_text())
     with DRAFT_LOG.open(newline="") as handle:
@@ -65,7 +69,7 @@ def load() -> tuple[list[dict], dict[str, dict]]:
 
 
 def table_rows(order: list[str], by_id: dict[str, dict], logs: dict[str, dict]) -> list[list[str]]:
-    rows = [["Rank", "Lead", "Draft", "Price", "Recommendation"]]
+    rows = [["Rank", "Lead", "Status", "Draft", "Price", "Recommendation"]]
     for index, lead_id in enumerate(order, 1):
         item = by_id[lead_id]
         log = logs[lead_id]
@@ -73,6 +77,7 @@ def table_rows(order: list[str], by_id: dict[str, dict], logs: dict[str, dict]) 
             [
                 str(index),
                 f"{lead_id} - {item['buyer']}",
+                status_label(log),
                 log["draft_id"],
                 money(item["price_usd"]),
                 RISK[lead_id],
@@ -84,12 +89,14 @@ def table_rows(order: list[str], by_id: dict[str, dict], logs: dict[str, dict]) 
 def write_md(manifest: list[dict], logs: dict[str, dict]) -> None:
     by_id = {item["lead_id"]: item for item in manifest}
     updated_at = datetime.now(UTC).replace(microsecond=0).isoformat().replace("+00:00", "Z")
+    sent_count = sum(1 for log in logs.values() if log.get("status") == "sent_from_draft")
+    draft_count = len(manifest) - sent_count
     lines = [
         "# Codex10k Draft Batch Review Queue",
         "",
         f"Updated: {updated_at}",
         "",
-        "This is a review queue for Gmail drafts only. No email in this batch has been sent. Do not count any value here as revenue until completed and settled payment evidence exists in `data/ledger.csv`.",
+        f"This is a review queue for the 20 Gmail draft-batch packets. Sent: {sent_count}. Still draft-only: {draft_count}. Do not count any value here as revenue until completed and settled payment evidence exists in `data/ledger.csv`.",
         "",
         f"Total draft pipeline: {money(sum(item['price_usd'] for item in manifest))}.",
         "",
@@ -97,26 +104,28 @@ def write_md(manifest: list[dict], logs: dict[str, dict]) -> None:
         "",
         "## Recommended New-Draft Order",
         "",
-        "| Rank | Lead | Draft ID | Price | Why / Caution |",
-        "| ---: | --- | --- | ---: | --- |",
+        "| Rank | Lead | Status | Draft ID | Price | Why / Caution |",
+        "| ---: | --- | --- | --- | ---: | --- |",
     ]
     for index, lead_id in enumerate(NEW_ORDER, 1):
         item = by_id[lead_id]
-        lines.append(f"| {index} | {lead_id} {item['buyer']} | `{logs[lead_id]['draft_id']}` | {money(item['price_usd'])} | {RISK[lead_id]} |")
+        log = logs[lead_id]
+        lines.append(f"| {index} | {lead_id} {item['buyer']} | {status_label(log)} | `{log['draft_id']}` | {money(item['price_usd'])} | {RISK[lead_id]} |")
     lines.extend(
         [
             "",
             "## Recommended Follow-Up Order",
             "",
-            "Follow-up drafts should generally wait until the user wants a manual follow-up cadence. They are ready, but several original messages were sent on May 10, 2026.",
+            "Follow-up drafts should generally wait until the user wants a manual follow-up cadence. They remain draft-only unless marked sent below.",
             "",
-            "| Rank | Lead | Draft ID | Price | Why / Caution |",
-            "| ---: | --- | --- | ---: | --- |",
+            "| Rank | Lead | Status | Draft ID | Price | Why / Caution |",
+            "| ---: | --- | --- | --- | ---: | --- |",
         ]
     )
     for index, lead_id in enumerate(FOLLOW_ORDER, 1):
         item = by_id[lead_id]
-        lines.append(f"| {index} | {lead_id} {item['buyer']} | `{logs[lead_id]['draft_id']}` | {money(item['price_usd'])} | {RISK[lead_id]} |")
+        log = logs[lead_id]
+        lines.append(f"| {index} | {lead_id} {item['buyer']} | {status_label(log)} | `{log['draft_id']}` | {money(item['price_usd'])} | {RISK[lead_id]} |")
     lines.extend(
         [
             "",
@@ -141,7 +150,7 @@ def write_pdf(manifest: list[dict], logs: dict[str, dict]) -> None:
     small = ParagraphStyle("Small", parent=body, fontSize=6.35, leading=7.5)
     story = [
         Paragraph("Codex10k Draft Batch Review Queue", h1),
-        Paragraph("20 Gmail drafts are ready for review. No email in this batch has been sent. Verified net profit remains USD 0 until settled payment evidence exists.", body),
+        Paragraph(f"20 Gmail draft-batch packets tracked. Sent: {sum(1 for log in logs.values() if log.get('status') == 'sent_from_draft')}. Verified net profit remains USD 0 until settled payment evidence exists.", body),
         Paragraph(f"Total draft pipeline: {money(sum(item['price_usd'] for item in manifest))}", body),
         Paragraph("Recommended New-Draft Order", h2),
     ]
@@ -151,7 +160,7 @@ def write_pdf(manifest: list[dict], logs: dict[str, dict]) -> None:
             story.append(Paragraph("Follow-up drafts are ready, but most original messages were sent on May 10, 2026; use only when the user wants a manual follow-up cadence.", body))
         rows = table_rows(order, by_id, logs)
         wrapped = [[Paragraph(cell, small) for cell in row] for row in rows]
-        table = Table(wrapped, colWidths=[0.35 * inch, 1.55 * inch, 1.12 * inch, 0.75 * inch, 3.05 * inch], hAlign="LEFT")
+        table = Table(wrapped, colWidths=[0.35 * inch, 1.38 * inch, 0.38 * inch, 1.05 * inch, 0.68 * inch, 3.0 * inch], hAlign="LEFT")
         table.setStyle(
             TableStyle(
                 [

@@ -1,8 +1,10 @@
 # Codex10k Draft Batch Outbox
 
-Prepared local packets for Gmail draft review. These are drafts only; do not send without explicit user approval.
+Prepared local packets for Gmail review. Seven packets were sent from drafts after explicit user approval on May 10, 2026; the remaining packets are drafts only and must not be sent without explicit user approval.
 
 Review order: use `docs/draft-batch-review-queue.md` or `outputs/codex10k/draft_batch_review_queue.pdf` first.
+
+Sent from this batch: `C10K-090`, `C10K-093`, `C10K-092`, `C10K-088`, `C10K-085`, `C10K-086`, and `C10K-089`.
 
 ## C10K-084 BakerRipley
 
