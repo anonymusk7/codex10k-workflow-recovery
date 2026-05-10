@@ -1,0 +1,853 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hiawatha Academies Website RFQ Support</title>
+    <meta
+      name="description"
+      content="A limited independent multilingual, accessibility, content migration, and launch-readiness QA support proposal for Hiawatha Academies' school website modernization RFQ."
+    />
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #14211f;
+        --muted: #5c6b68;
+        --paper: #fbfaf5;
+        --panel: #ffffff;
+        --line: #dae2df;
+        --pine: #0d6b55;
+        --blue: #2a66a7;
+        --sky: #dfeff7;
+        --gold: #d3a84c;
+        --berry: #c85f5c;
+        --lavender: #7857a6;
+        --soft: #eef6f1;
+        --shadow: 0 22px 60px rgba(20, 33, 31, 0.14);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 30;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 14px clamp(18px, 4vw, 56px);
+        border-bottom: 1px solid var(--line);
+        background: rgba(251, 250, 245, 0.94);
+        backdrop-filter: blur(14px);
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+      }
+
+      .brand-mark {
+        display: grid;
+        place-items: center;
+        width: 42px;
+        height: 42px;
+        border-radius: 8px;
+        background: var(--ink);
+        color: #fff;
+        font-weight: 950;
+      }
+
+      .brand strong,
+      .brand small {
+        display: block;
+      }
+
+      .brand small,
+      nav {
+        color: var(--muted);
+      }
+
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 18px;
+        font-size: 0.94rem;
+      }
+
+      nav a {
+        text-decoration: none;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 0.92fr) minmax(390px, 1.08fr);
+        gap: clamp(32px, 5vw, 74px);
+        align-items: center;
+        min-height: calc(84vh - 72px);
+        padding: clamp(56px, 8vw, 104px) clamp(18px, 4vw, 56px);
+        background:
+          linear-gradient(122deg, rgba(238, 246, 241, 0.98), rgba(251, 250, 245, 0.96) 52%, rgba(223, 239, 247, 0.9)),
+          linear-gradient(90deg, rgba(200, 95, 92, 0.09), transparent 38%),
+          radial-gradient(circle at 86% 18%, rgba(211, 168, 76, 0.22), transparent 28%);
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        max-width: 900px;
+        margin-bottom: 22px;
+        font-size: clamp(2.45rem, 5.8vw, 4.55rem);
+        line-height: 1;
+        letter-spacing: 0;
+      }
+
+      h2 {
+        margin-bottom: 14px;
+        font-size: clamp(2rem, 4vw, 3.2rem);
+        line-height: 1;
+        letter-spacing: 0;
+      }
+
+      h3 {
+        margin-bottom: 10px;
+        font-size: 1.08rem;
+      }
+
+      .eyebrow {
+        margin-bottom: 12px;
+        color: var(--pine);
+        font-size: 0.78rem;
+        font-weight: 950;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      .lede {
+        max-width: 740px;
+        color: var(--muted);
+        font-size: clamp(1.06rem, 2vw, 1.28rem);
+        line-height: 1.55;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 28px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 46px;
+        padding: 0 18px;
+        border: 1px solid var(--ink);
+        border-radius: 8px;
+        font-weight: 850;
+        text-decoration: none;
+      }
+
+      .button.primary {
+        background: var(--ink);
+        color: #fff;
+      }
+
+      .button.secondary {
+        background: #fff;
+      }
+
+      .visual {
+        position: relative;
+        overflow: hidden;
+        min-height: 560px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel);
+        box-shadow: var(--shadow);
+      }
+
+      .visual img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        min-height: 560px;
+        object-fit: cover;
+      }
+
+      .visual::after {
+        position: absolute;
+        inset: 0;
+        content: "";
+        background:
+          linear-gradient(90deg, rgba(20, 33, 31, 0.68), rgba(20, 33, 31, 0.08) 42%, rgba(255, 255, 255, 0.02)),
+          linear-gradient(180deg, transparent 62%, rgba(20, 33, 31, 0.2));
+      }
+
+      .visual-card {
+        position: absolute;
+        left: 24px;
+        bottom: 24px;
+        z-index: 3;
+        width: min(380px, calc(100% - 48px));
+        padding: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 8px;
+        background: rgba(20, 33, 31, 0.82);
+        color: #fff;
+        backdrop-filter: blur(12px);
+      }
+
+      .visual-card strong {
+        display: block;
+        margin-bottom: 6px;
+        font-size: 1.38rem;
+        line-height: 1.1;
+      }
+
+      .visual-card p {
+        margin-bottom: 12px;
+        color: rgba(255, 255, 255, 0.82);
+        line-height: 1.5;
+      }
+
+      .visual-progress {
+        display: grid;
+        gap: 8px;
+      }
+
+      .progress-row {
+        display: grid;
+        grid-template-columns: 88px minmax(0, 1fr) 42px;
+        gap: 8px;
+        align-items: center;
+        font-size: 0.78rem;
+        color: rgba(255, 255, 255, 0.78);
+      }
+
+      .bar {
+        overflow: hidden;
+        height: 8px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      .fill {
+        display: block;
+        width: var(--w);
+        height: 100%;
+        border-radius: inherit;
+        background: linear-gradient(90deg, var(--gold), #77c896, var(--sky));
+        transform-origin: left;
+        animation: loadBar 3.6s ease-in-out infinite;
+      }
+
+      .orbit {
+        position: absolute;
+        right: 22px;
+        top: 22px;
+        z-index: 4;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+      }
+
+      .lang-pill {
+        display: grid;
+        place-items: center;
+        width: 42px;
+        height: 42px;
+        border: 1px solid rgba(255, 255, 255, 0.36);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.88);
+        color: var(--ink);
+        font-weight: 950;
+        box-shadow: 0 8px 24px rgba(20, 33, 31, 0.16);
+        animation: floatPill 4.4s ease-in-out infinite;
+      }
+
+      .lang-pill:nth-child(2) {
+        animation-delay: 0.35s;
+      }
+
+      .lang-pill:nth-child(3) {
+        animation-delay: 0.7s;
+      }
+
+      section {
+        padding: clamp(54px, 8vw, 96px) clamp(18px, 4vw, 56px);
+      }
+
+      .section-inner {
+        max-width: 1180px;
+        margin: 0 auto;
+      }
+
+      .split {
+        display: grid;
+        grid-template-columns: minmax(0, 0.95fr) minmax(320px, 1.05fr);
+        gap: clamp(28px, 5vw, 62px);
+        align-items: start;
+      }
+
+      .muted {
+        color: var(--muted);
+        line-height: 1.62;
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .card,
+      .quote,
+      .scope-box {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel);
+        box-shadow: 0 14px 34px rgba(20, 33, 31, 0.08);
+      }
+
+      .card {
+        min-height: 186px;
+        padding: 20px;
+      }
+
+      .card .number {
+        display: grid;
+        place-items: center;
+        width: 36px;
+        height: 36px;
+        margin-bottom: 18px;
+        border-radius: 8px;
+        color: #fff;
+        background: var(--pine);
+        font-weight: 950;
+      }
+
+      .card:nth-child(2) .number {
+        background: var(--blue);
+      }
+
+      .card:nth-child(3) .number {
+        background: var(--lavender);
+      }
+
+      .workflow {
+        display: grid;
+        gap: 12px;
+      }
+
+      .flow-step {
+        display: grid;
+        grid-template-columns: 46px minmax(0, 1fr) auto;
+        gap: 14px;
+        align-items: center;
+        padding: 16px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        box-shadow: 0 12px 28px rgba(20, 33, 31, 0.06);
+        animation: liftStep 6.4s ease-in-out infinite;
+      }
+
+      .flow-step:nth-child(2) {
+        animation-delay: 0.35s;
+      }
+
+      .flow-step:nth-child(3) {
+        animation-delay: 0.7s;
+      }
+
+      .flow-step:nth-child(4) {
+        animation-delay: 1.05s;
+      }
+
+      .icon {
+        display: grid;
+        place-items: center;
+        width: 46px;
+        height: 46px;
+        border-radius: 8px;
+        background: var(--soft);
+        color: var(--pine);
+        font-weight: 950;
+      }
+
+      .status {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 30px;
+        padding: 0 10px;
+        border-radius: 999px;
+        color: var(--pine);
+        background: var(--soft);
+        font-size: 0.76rem;
+        font-weight: 900;
+        white-space: nowrap;
+      }
+
+      .deliverables {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .deliverable {
+        padding: 18px;
+        border-left: 4px solid var(--pine);
+        border-radius: 8px;
+        background: #fff;
+        box-shadow: 0 10px 26px rgba(20, 33, 31, 0.06);
+      }
+
+      .deliverable:nth-child(2) {
+        border-color: var(--blue);
+      }
+
+      .deliverable:nth-child(3) {
+        border-color: var(--gold);
+      }
+
+      .deliverable:nth-child(4) {
+        border-color: var(--berry);
+      }
+
+      .deliverable:nth-child(5) {
+        border-color: var(--lavender);
+      }
+
+      .deliverable:nth-child(6) {
+        border-color: var(--pine);
+      }
+
+      .quote {
+        display: grid;
+        grid-template-columns: minmax(0, 0.95fr) minmax(310px, 1.05fr);
+        gap: 20px;
+        padding: clamp(22px, 4vw, 34px);
+      }
+
+      .price {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 250px;
+        padding: 24px;
+        border-radius: 8px;
+        color: #fff;
+        background:
+          linear-gradient(135deg, rgba(20, 33, 31, 0.96), rgba(13, 107, 85, 0.92)),
+          linear-gradient(90deg, rgba(42, 102, 167, 0.35), transparent);
+      }
+
+      .price strong {
+        display: block;
+        font-size: clamp(2.2rem, 5vw, 4rem);
+        line-height: 1;
+      }
+
+      .price span {
+        color: rgba(255, 255, 255, 0.78);
+      }
+
+      .scope-box {
+        padding: 22px;
+      }
+
+      .scope-list {
+        display: grid;
+        gap: 12px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .scope-list li {
+        position: relative;
+        padding-left: 30px;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+
+      .scope-list li::before {
+        position: absolute;
+        left: 0;
+        top: 0.1em;
+        display: grid;
+        place-items: center;
+        width: 20px;
+        height: 20px;
+        border-radius: 999px;
+        background: var(--soft);
+        color: var(--pine);
+        content: "✓";
+        font-size: 0.75rem;
+        font-weight: 950;
+      }
+
+      footer {
+        padding: 28px clamp(18px, 4vw, 56px);
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        background: #fff;
+      }
+
+      footer .section-inner {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      @keyframes loadBar {
+        0%,
+        100% {
+          transform: scaleX(0.78);
+        }
+
+        50% {
+          transform: scaleX(1);
+        }
+      }
+
+      @keyframes floatPill {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+
+        50% {
+          transform: translateY(8px);
+        }
+      }
+
+      @keyframes liftStep {
+        0%,
+        100% {
+          transform: translateY(0);
+          box-shadow: 0 12px 28px rgba(20, 33, 31, 0.06);
+        }
+
+        50% {
+          transform: translateY(-4px);
+          box-shadow: 0 18px 34px rgba(20, 33, 31, 0.11);
+        }
+      }
+
+      @media (max-width: 920px) {
+        .hero,
+        .split,
+        .quote {
+          grid-template-columns: 1fr;
+        }
+
+        .hero {
+          min-height: auto;
+        }
+
+        .visual,
+        .visual img {
+          min-height: 460px;
+        }
+
+        .cards,
+        .deliverables {
+          grid-template-columns: 1fr;
+        }
+
+        .flow-step {
+          grid-template-columns: 42px minmax(0, 1fr);
+        }
+
+        .status {
+          grid-column: 2;
+          justify-self: start;
+        }
+      }
+
+      @media (max-width: 640px) {
+        nav {
+          display: none;
+        }
+
+        .brand-mark {
+          width: 38px;
+          height: 38px;
+        }
+
+        .hero {
+          padding-top: 44px;
+        }
+
+        .visual,
+        .visual img {
+          min-height: 430px;
+        }
+
+        .orbit {
+          right: 12px;
+          top: 12px;
+        }
+
+        .lang-pill {
+          width: 36px;
+          height: 36px;
+          font-size: 0.84rem;
+        }
+
+        .visual-card {
+          left: 14px;
+          bottom: 14px;
+          width: calc(100% - 28px);
+          padding: 15px;
+        }
+
+        .progress-row {
+          grid-template-columns: 74px minmax(0, 1fr) 36px;
+        }
+
+        .button {
+          width: 100%;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Hiawatha Academies website RFQ support">
+        <span class="brand-mark">HA</span>
+        <span>
+          <strong>Hiawatha Website RFQ Support</strong>
+          <small>Independent proposal from Nakul</small>
+        </span>
+      </a>
+      <nav aria-label="Page navigation">
+        <a href="#fit">Fit</a>
+        <a href="#workflow">Workflow</a>
+        <a href="#deliverables">Deliverables</a>
+        <a href="#price">Fixed scope</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div>
+          <p class="eyebrow">Modernization and Redesign of School Website RFQ</p>
+          <h1 id="hero-title">A focused QA layer for a multilingual school website launch</h1>
+          <p class="lede">
+            Hiawatha's RFQ has real launch-risk areas: WCAG 2.1 A/AA, English-Spanish-Somali content, mobile responsiveness, content migration, family recruitment journeys, and staff handoff. I can support Hiawatha directly or the selected website vendor with a bounded acceptance-testing and launch-readiness slice.
+          </p>
+          <div class="hero-actions" aria-label="Primary actions">
+            <a class="button primary" href="#price">View fixed scope</a>
+            <a class="button secondary" href="#deliverables">Review deliverables</a>
+          </div>
+        </div>
+        <figure class="visual" aria-label="School website launch-readiness dashboard visual">
+          <img src="assets/hiawatha-school-workflow-visual.png" alt="A school website launch readiness dashboard with multilingual, accessibility, content migration, and QA progress panels." />
+          <div class="orbit" aria-hidden="true">
+            <span class="lang-pill">EN</span>
+            <span class="lang-pill">ES</span>
+            <span class="lang-pill">SO</span>
+          </div>
+          <figcaption class="visual-card">
+            <strong>Launch readiness, not guesswork</strong>
+            <p>Representative pages, key family paths, language coverage, accessibility checks, migration risks, analytics, and CMS publishing handoff are tracked in one acceptance register.</p>
+            <div class="visual-progress" aria-label="Illustrative workflow progress">
+              <div class="progress-row">
+                <span>Access</span>
+                <span class="bar"><span class="fill" style="--w: 92%"></span></span>
+                <span>92%</span>
+              </div>
+              <div class="progress-row">
+                <span>Language</span>
+                <span class="bar"><span class="fill" style="--w: 86%"></span></span>
+                <span>86%</span>
+              </div>
+              <div class="progress-row">
+                <span>Migration</span>
+                <span class="bar"><span class="fill" style="--w: 78%"></span></span>
+                <span>78%</span>
+              </div>
+            </div>
+          </figcaption>
+        </figure>
+      </section>
+
+      <section id="fit">
+        <div class="section-inner split">
+          <div>
+            <p class="eyebrow">RFQ-specific fit</p>
+            <h2>Where an independent QA slice helps</h2>
+            <p class="muted">
+              This is designed for the point in the project when the design/development vendor is moving quickly, but Hiawatha still needs clear evidence that families can enroll, navigate, translate, read, search, and use the site reliably before launch.
+            </p>
+          </div>
+          <div class="cards">
+            <article class="card">
+              <span class="number">1</span>
+              <h3>Family-facing journeys</h3>
+              <p class="muted">Enrollment, programs, families, calendars, careers, school pages, search, announcements, and high-use mobile paths are checked against the RFQ intent.</p>
+            </article>
+            <article class="card">
+              <span class="number">2</span>
+              <h3>Multilingual readiness</h3>
+              <p class="muted">English, Spanish, and Somali page coverage is sampled for navigation consistency, missing translations, template behavior, and practical family usability.</p>
+            </article>
+            <article class="card">
+              <span class="number">3</span>
+              <h3>Accessible publishing</h3>
+              <p class="muted">WCAG-oriented checks are paired with staff guardrails so future pages, PDFs, images, links, and announcements do not degrade after launch.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="workflow">
+        <div class="section-inner split">
+          <div>
+            <p class="eyebrow">Workflow</p>
+            <h2>From staging access to launch decision</h2>
+            <p class="muted">
+              The work is evidence-based and narrow: no student records, family records, credentials, payment data, or private files are needed by email. Dummy records and staging pages are enough for the first pass.
+            </p>
+          </div>
+          <div class="workflow" aria-label="Proposed support workflow">
+            <article class="flow-step">
+              <span class="icon">01</span>
+              <div>
+                <h3>Map the representative sample</h3>
+                <p class="muted">Agree on priority templates, school pages, language paths, forms, document types, and mobile breakpoints.</p>
+              </div>
+              <span class="status">Day 1</span>
+            </article>
+            <article class="flow-step">
+              <span class="icon">02</span>
+              <div>
+                <h3>Run accessibility and language QA</h3>
+                <p class="muted">Combine automated scan triage with manual checks for keyboard path, headings, labels, contrast, alt text, link purpose, and translation coverage.</p>
+              </div>
+              <span class="status">Days 2-4</span>
+            </article>
+            <article class="flow-step">
+              <span class="icon">03</span>
+              <div>
+                <h3>Validate migration and launch basics</h3>
+                <p class="muted">Spot check redirects, page titles, metadata, broken links, media, search, analytics events, CMS roles, forms, and publishing workflow.</p>
+              </div>
+              <span class="status">Days 4-7</span>
+            </article>
+            <article class="flow-step">
+              <span class="icon">04</span>
+              <div>
+                <h3>Retest and hand off</h3>
+                <p class="muted">Deliver the issue register, retest notes, launch-readiness summary, and staff checklist for accessible ongoing updates.</p>
+              </div>
+              <span class="status">Days 8-10</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="deliverables">
+        <div class="section-inner">
+          <p class="eyebrow">Deliverables</p>
+          <h2>Clear outputs Hiawatha can use</h2>
+          <div class="deliverables">
+            <article class="deliverable">
+              <h3>Acceptance checklist</h3>
+              <p class="muted">RFQ-aligned checklist for mobile, accessibility, multilingual navigation, content migration, forms, search, analytics, and CMS handoff.</p>
+            </article>
+            <article class="deliverable">
+              <h3>Issue register</h3>
+              <p class="muted">Severity, evidence, reproduction note, likely owner, remediation status, retest result, and launch-readiness note for each surfaced risk.</p>
+            </article>
+            <article class="deliverable">
+              <h3>Multilingual QA sample</h3>
+              <p class="muted">English, Spanish, and Somali coverage review across representative pages, navigation, calls to action, forms, and key family pathways.</p>
+            </article>
+            <article class="deliverable">
+              <h3>Migration checks</h3>
+              <p class="muted">Spot checks for priority content, redirects, metadata, documents, images, broken links, search results, and pages that affect recruitment or family communication.</p>
+            </article>
+            <article class="deliverable">
+              <h3>Staff publishing guardrails</h3>
+              <p class="muted">A concise checklist for accessible pages, headings, links, alt text, PDFs, announcements, embedded media, and translated content updates.</p>
+            </article>
+            <article class="deliverable">
+              <h3>Launch-readiness summary</h3>
+              <p class="muted">Final risk summary separating ready items, open launch blockers, acceptable known issues, and recommended post-launch follow-up.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="price">
+        <div class="section-inner quote">
+          <div class="price">
+            <div>
+              <p class="eyebrow" style="color: #dfeff7">Fixed support package</p>
+              <strong>USD 12,000</strong>
+            </div>
+            <span>Limited multilingual, accessibility, migration, and launch-readiness QA support for Hiawatha or the selected website vendor.</span>
+          </div>
+          <div class="scope-box">
+            <h2>Bounded on purpose</h2>
+            <ul class="scope-list">
+              <li>This is a QA, acceptance-testing, retest, and staff-handoff package, not a complete website redesign-prime proposal.</li>
+              <li>It does not include hosting, CMS licensing, full custom development, legal accessibility certification, or long-term maintenance unless scoped separately.</li>
+              <li>It can sit beside the selected website/CMS vendor without changing Hiawatha's procurement process or technology decision.</li>
+              <li>No student records, family records, credentials, payment data, analytics exports, or private Hiawatha files are requested by email.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="section-inner">
+        <span>Prepared by Nakul, independent freelancer/sole proprietor.</span>
+        <span>RFQ support slice for discussion only; final scope follows Hiawatha's procurement requirements.</span>
+      </div>
+    </footer>
+  </body>
+</html>
