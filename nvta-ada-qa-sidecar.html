@@ -1,0 +1,570 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NVTA ADA Website QA Sidecar</title>
+    <meta
+      name="description"
+      content="A limited independent WCAG 2.2 AA QA, retest, and staff checklist support quote for NVTA RFQ 26-R08."
+    />
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #10221f;
+        --muted: #60706c;
+        --paper: #fbfaf4;
+        --panel: #ffffff;
+        --line: #d8dfdc;
+        --green: #0b7258;
+        --blue: #2869a4;
+        --red: #d86149;
+        --gold: #e1b85b;
+        --soft: #eaf4ef;
+        --shadow: 0 20px 58px rgba(16, 34, 31, 0.14);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 14px clamp(18px, 4vw, 56px);
+        background: rgba(251, 250, 244, 0.94);
+        border-bottom: 1px solid var(--line);
+        backdrop-filter: blur(14px);
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+      }
+
+      .brand-mark {
+        display: grid;
+        place-items: center;
+        width: 42px;
+        height: 42px;
+        border-radius: 8px;
+        background: var(--ink);
+        color: #fff;
+        font-weight: 900;
+      }
+
+      .brand strong,
+      .brand small {
+        display: block;
+      }
+
+      .brand small,
+      nav {
+        color: var(--muted);
+      }
+
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 18px;
+        font-size: 0.95rem;
+      }
+
+      nav a {
+        text-decoration: none;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1.1fr);
+        gap: clamp(28px, 5vw, 72px);
+        align-items: center;
+        min-height: calc(84vh - 72px);
+        padding: clamp(54px, 8vw, 104px) clamp(18px, 4vw, 56px);
+        background:
+          linear-gradient(115deg, rgba(234, 244, 239, 0.98), rgba(251, 250, 244, 0.94)),
+          radial-gradient(circle at 84% 22%, rgba(225, 184, 91, 0.34), transparent 28%);
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        max-width: 850px;
+        margin-bottom: 22px;
+        font-size: clamp(2.55rem, 6vw, 4.9rem);
+        line-height: 1;
+        letter-spacing: 0;
+      }
+
+      h2 {
+        margin-bottom: 14px;
+        font-size: clamp(2rem, 4vw, 3.45rem);
+        line-height: 1;
+        letter-spacing: 0;
+      }
+
+      h3 {
+        margin-bottom: 10px;
+        font-size: 1.1rem;
+      }
+
+      .eyebrow {
+        margin-bottom: 12px;
+        color: var(--green);
+        font-size: 0.78rem;
+        font-weight: 900;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      .lede {
+        max-width: 720px;
+        color: var(--muted);
+        font-size: clamp(1.06rem, 2vw, 1.28rem);
+        line-height: 1.55;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 28px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 46px;
+        padding: 0 18px;
+        border: 1px solid var(--ink);
+        border-radius: 8px;
+        font-weight: 850;
+        text-decoration: none;
+      }
+
+      .button.primary {
+        background: var(--ink);
+        color: #fff;
+      }
+
+      .button.secondary {
+        background: #fff;
+      }
+
+      .visual-stage {
+        position: relative;
+      }
+
+      .visual-stage img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        box-shadow: var(--shadow);
+      }
+
+      .badge {
+        position: absolute;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 38px;
+        padding: 0 14px;
+        border: 1px solid rgba(11, 114, 88, 0.26);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.94);
+        color: var(--green);
+        font-size: 0.78rem;
+        font-weight: 950;
+        box-shadow: 0 14px 32px rgba(16, 34, 31, 0.12);
+        animation: floatBadge 5s infinite ease-in-out;
+      }
+
+      .badge.one {
+        top: 12%;
+        left: 8%;
+      }
+
+      .badge.two {
+        top: 12%;
+        right: 10%;
+        color: var(--blue);
+        animation-delay: 0.9s;
+      }
+
+      .badge.three {
+        left: 9%;
+        bottom: 10%;
+        color: var(--gold);
+        animation-delay: 1.7s;
+      }
+
+      .band {
+        padding: clamp(48px, 8vw, 92px) clamp(18px, 4vw, 56px);
+        border-top: 1px solid var(--line);
+        background: #fffdfa;
+      }
+
+      .band.soft {
+        background: var(--soft);
+      }
+
+      section[id] {
+        scroll-margin-top: 104px;
+      }
+
+      .section-head {
+        max-width: 900px;
+        margin-bottom: 32px;
+      }
+
+      .section-head p:not(.eyebrow),
+      .card p,
+      .node small,
+      li {
+        color: var(--muted);
+        line-height: 1.55;
+      }
+
+      .flow {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .card-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .node,
+      .card {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel);
+        box-shadow: var(--shadow);
+      }
+
+      .node {
+        min-height: 152px;
+        padding: 18px;
+      }
+
+      .node span {
+        display: inline-grid;
+        place-items: center;
+        width: 36px;
+        height: 36px;
+        margin-bottom: 14px;
+        border-radius: 8px;
+        background: var(--ink);
+        color: #fff;
+        font-size: 0.85rem;
+        font-weight: 900;
+      }
+
+      .node small {
+        display: block;
+        margin-top: 8px;
+      }
+
+      .card {
+        padding: 22px;
+      }
+
+      ul {
+        margin: 0;
+        padding-left: 20px;
+      }
+
+      li + li {
+        margin-top: 8px;
+      }
+
+      .price-row {
+        display: grid;
+        grid-template-columns: 1fr auto 1.1fr;
+        gap: 18px;
+        align-items: center;
+        margin-top: 20px;
+        padding: 22px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--ink);
+        color: #fff;
+      }
+
+      .price-row strong {
+        font-size: clamp(2rem, 4vw, 3.1rem);
+        letter-spacing: 0;
+      }
+
+      .price-row span:last-child {
+        color: rgba(255, 255, 255, 0.78);
+        line-height: 1.45;
+      }
+
+      .check-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .contact-band {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        padding: clamp(42px, 7vw, 76px) clamp(18px, 4vw, 56px);
+        background: var(--green);
+        color: #fff;
+      }
+
+      .contact-band h2 {
+        max-width: 900px;
+        margin-bottom: 0;
+      }
+
+      .contact-band .eyebrow {
+        color: var(--gold);
+      }
+
+      footer {
+        padding: 26px clamp(18px, 4vw, 56px);
+        color: var(--muted);
+        border-top: 1px solid var(--line);
+      }
+
+      @keyframes floatBadge {
+        0%,
+        100% {
+          transform: translateY(0);
+          opacity: 0.9;
+        }
+        50% {
+          transform: translateY(-9px);
+          opacity: 1;
+        }
+      }
+
+      @media (max-width: 1040px) {
+        .hero,
+        .check-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .flow,
+        .card-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 720px) {
+        nav,
+        .badge {
+          display: none;
+        }
+
+        .flow,
+        .card-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .price-row {
+          grid-template-columns: 1fr;
+        }
+
+        .contact-band {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          animation-duration: 0.001ms !important;
+          animation-iteration-count: 1 !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar" id="top">
+      <a class="brand" href="#top" aria-label="NVTA ADA website QA proposal">
+        <span class="brand-mark">AA</span>
+        <span>
+          <strong>ADA Website QA Sidecar</strong>
+          <small>limited independent quote from Nakul</small>
+        </span>
+      </a>
+      <nav aria-label="Page sections">
+        <a href="#workflow">Workflow</a>
+        <a href="#scope">Scope</a>
+        <a href="#checks">Acceptance</a>
+        <a href="#next">Next step</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <p class="eyebrow">RFQ 26-R08 / ADA Website Compliance</p>
+          <h1>Limited WCAG QA support for NVTA and Vine Transit websites</h1>
+          <p class="lede">
+            NVTA's RFQ asks for ADA website compliance support across public-facing websites and mobile views. My proposed slice is intentionally limited: QA triage, manual spot checks, document/PDF review, retest notes, and a staff publishing checklist that can sit beside full remediation work.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#scope">Review limited quote</a>
+            <a class="button secondary" href="#checks">See acceptance checks</a>
+          </div>
+        </div>
+
+        <div class="visual-stage" aria-label="Accessibility QA workflow visual">
+          <img src="assets/nvta-ada-qa-visual.png" alt="Accessibility QA dashboard showing scan triage, issue severity, manual testing, PDF review, retest queue, and staff checklist." />
+          <span class="badge one">WCAG 2.2 AA</span>
+          <span class="badge two">Retest</span>
+          <span class="badge three">Staff Checklist</span>
+        </div>
+      </section>
+
+      <section class="band" id="workflow">
+        <div class="section-head">
+          <p class="eyebrow">Suggested workflow</p>
+          <h2>Separate findings, remediation, and retest evidence</h2>
+          <p>
+            This support package is not a legal compliance guarantee. It is a practical QA and retest layer that helps NVTA see which issues were found, which were resolved, which remain open, and what staff should avoid reintroducing.
+          </p>
+        </div>
+        <div class="flow">
+          <div class="node">
+            <span>01</span>
+            <strong>Scope pages</strong>
+            <small>Define representative NVTA, Vine Transit, mobile, form, and PDF/document samples.</small>
+          </div>
+          <div class="node">
+            <span>02</span>
+            <strong>Scan triage</strong>
+            <small>Use automated checks to find likely issues, then remove false positives from the action list.</small>
+          </div>
+          <div class="node">
+            <span>03</span>
+            <strong>Manual checks</strong>
+            <small>Keyboard path, headings, labels, focus indicators, alt text, contrast, and link purpose.</small>
+          </div>
+          <div class="node">
+            <span>04</span>
+            <strong>Retest notes</strong>
+            <small>Track issue owner, severity, fix status, evidence, and retest result.</small>
+          </div>
+          <div class="node">
+            <span>05</span>
+            <strong>Staff checklist</strong>
+            <small>Give editors a short guardrail list for publishing pages, links, images, and PDFs.</small>
+          </div>
+        </div>
+      </section>
+
+      <section class="band soft" id="scope">
+        <div class="section-head">
+          <p class="eyebrow">Limited fixed quote</p>
+          <h2>USD 4,800 for QA, retest, and staff checklist support</h2>
+          <p>
+            This is a narrow independent support quote. If NVTA needs a full prime contractor for remediation and ongoing maintenance, this can support the selected vendor rather than replace that role.
+          </p>
+        </div>
+        <div class="card-grid">
+          <article class="card">
+            <h3>Audit triage</h3>
+            <p>Representative page, template, mobile, form, and PDF checks with severity and likely owner.</p>
+          </article>
+          <article class="card">
+            <h3>Retest tracker</h3>
+            <p>Issue list, evidence notes, retest result, open risk, and launch/readiness status.</p>
+          </article>
+          <article class="card">
+            <h3>Staff guardrails</h3>
+            <p>Short checklist for headings, links, alt text, PDF uploads, contrast, forms, and pre-publish review.</p>
+          </article>
+        </div>
+        <div class="price-row">
+          <span>Limited QA sidecar</span>
+          <strong>$4,800</strong>
+          <span>Fixed support package for QA evidence and staff checklist only; no legal certification or full remediation guarantee.</span>
+        </div>
+      </section>
+
+      <section class="band" id="checks">
+        <div class="section-head">
+          <p class="eyebrow">Acceptance checks</p>
+          <h2>What this package would deliver</h2>
+        </div>
+        <div class="check-grid">
+          <div>
+            <h3>Inputs needed</h3>
+            <ul>
+              <li>Priority URLs from NVTA.ca.gov and VineTransit.com.</li>
+              <li>Representative PDFs or document templates to include in the sample.</li>
+              <li>Preferred issue tracker format and staff checklist format.</li>
+              <li>Whether this supports NVTA directly or a selected remediation vendor.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Done means</h3>
+            <ul>
+              <li>Representative issues are logged with severity, evidence, and remediation hint.</li>
+              <li>Manual checks cover keyboard, labels, focus, headings, alt text, contrast, and link purpose.</li>
+              <li>Retested issues are marked pass/open with concise notes.</li>
+              <li>Staff receive a practical checklist for accessible content publishing.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact-band" id="next">
+        <div>
+          <p class="eyebrow">Next step</p>
+          <h2>If this limited quote is responsive, I can provide the issue tracker and staff checklist format before award discussions.</h2>
+        </div>
+        <a class="button secondary" href="#scope">Review price</a>
+      </section>
+    </main>
+
+    <footer>
+      <p>Public-safe quote support page based on NVTA's published RFQ. No NVTA private systems, credentials, analytics, rider data, or internal remediation records are shown.</p>
+    </footer>
+  </body>
+</html>

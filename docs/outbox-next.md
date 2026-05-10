@@ -240,3 +240,43 @@ If useful, send one client-safe workflow brief and I will reply with the exact p
 
 Best,
 Nakul
+
+## C10K-073 Napa Valley Transportation Authority
+
+Source checked May 10, 2026: official RFQ 26-R08 says quotes for ADA Website Compliance should be sent by email to `procurements@nvta.ca.gov`, copy `rcoombs@nvta.ca.gov`, with subject `Quote for RFQ No. 26-R08, ADA WEBSITE COMPLIANCE`. Quotes are due May 22, 2026 at 2:00 PM local time.
+
+To: procurements@nvta.ca.gov
+Cc: rcoombs@nvta.ca.gov
+
+Subject: Quote for RFQ No. 26-R08, ADA WEBSITE COMPLIANCE
+
+Status: prepared pending cadence and public page publish. Attach `outputs/codex10k/nvta_ada_qa_sidecar_quote.pdf`.
+
+Body:
+
+Hello Renel,
+
+Please find attached a limited independent quote for RFQ No. 26-R08, ADA Website Compliance.
+
+I am submitting a narrow QA/retest/staff-checklist support package rather than representing this as a full legal compliance certification or full remediation/maintenance prime contract.
+
+Reference page:
+
+https://anonymusk7.github.io/codex10k-workflow-recovery/nvta-ada-qa-sidecar.html?v=nvta1
+
+Quoted package: USD 4,800 fixed.
+
+Scope summary:
+
+- representative NVTA.ca.gov and VineTransit.com page/mobile sample
+- automated accessibility scan triage with false-positive cleanup
+- manual checks for keyboard path, headings, labels, focus indicators, alt text, contrast, forms, link purpose, and representative PDF/document samples
+- issue register with severity, evidence note, owner/status field, retest result, and open-risk note
+- staff checklist for accessible publishing of pages, images, links, forms, and PDFs
+
+Boundary: this is QA and retest support only. It does not include legal certification, full code remediation, CMS development, hosting, or ongoing maintenance unless scoped separately. No rider, HR, analytics, credential, or internal system data is needed by email.
+
+If this limited quote is responsive, I can provide the issue tracker template and staff checklist format before award discussions.
+
+Best,
+Nakul
