@@ -48,7 +48,7 @@ To: knickens@ducknc.gov
 
 Subject: Website Redesign RFP Submission - Town of Duck - limited QA sidecar
 
-Status: prepared, not sent yet. Run `node scripts/check-email-cadence.mjs --cap=10` before sending. Attach `outputs/codex10k/town_of_duck_launch_qa_sidecar_proposal.pdf` and include the public-safe page link after it returns HTTP 200.
+Status: sent May 10, 2026 as Gmail message `19e10294ab3b5ab5` with `outputs/codex10k/town_of_duck_launch_qa_sidecar_proposal.pdf` attached. Do not resend. Next action is to watch for procurement response; if positive, request priority pages, representative PDFs/forms/events, staging access timing, preferred tracker format, remediation owner, and procurement/payment path.
 
 Body:
 
