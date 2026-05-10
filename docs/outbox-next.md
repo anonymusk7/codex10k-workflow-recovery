@@ -86,6 +86,8 @@ To: visualfestation@gmail.com
 
 Subject: Skool + Zendo + Airtable + Stripe integration
 
+Status: sent May 10, 2026 as Gmail message `19e0fc30bdc1e43f`. Do not resend. Next action is to watch for a reply; if positive, request the first flow to prioritize, dummy/test records, and rules for refunds, failed payments, duplicates, and manual review.
+
 Cadence: before sending, run `node scripts/check-email-cadence.mjs --cap 10`; send only if it returns `allowed: true`, then log the timestamp in `data/email-send-log.csv`.
 
 Body:
