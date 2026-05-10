@@ -210,7 +210,7 @@ To: hello@chekcreative.com
 
 Subject: Paid Make automation partner pilot
 
-Status: prepared pending cadence and public page publish.
+Status: sent May 10, 2026 as Gmail message `19e10093fb4ce954`. Do not resend. Next action is to watch for a reply; if positive, request one client-safe workflow brief, tools involved, source-of-truth app, sample payloads, documentation preference, and convert the USD 1,200 pilot into a payment request.
 
 Body:
 
