@@ -1,0 +1,817 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>RRC STISS Salesforce QA Support</title>
+    <meta
+      name="description"
+      content="A subcontractor/support-slice packet for Railroad Commission of Texas RFO 455-26-1018 Salesforce and Tools Implementation Services and Support."
+    />
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #13211f;
+        --muted: #5d6b68;
+        --paper: #fbfaf5;
+        --panel: #ffffff;
+        --line: #d9e2df;
+        --pine: #0f7057;
+        --blue: #245f9f;
+        --navy: #102a43;
+        --gold: #d4a64c;
+        --coral: #c86155;
+        --sky: #e3f0f7;
+        --soft: #eef6f1;
+        --shadow: 0 22px 60px rgba(19, 33, 31, 0.14);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 14px clamp(18px, 4vw, 56px);
+        border-bottom: 1px solid var(--line);
+        background: rgba(251, 250, 245, 0.94);
+        backdrop-filter: blur(14px);
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+      }
+
+      .brand-mark {
+        display: grid;
+        place-items: center;
+        width: 42px;
+        height: 42px;
+        border-radius: 8px;
+        background: var(--ink);
+        color: #fff;
+        font-weight: 950;
+      }
+
+      .brand strong,
+      .brand small {
+        display: block;
+      }
+
+      .brand small,
+      nav {
+        color: var(--muted);
+      }
+
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 18px;
+        font-size: 0.94rem;
+      }
+
+      nav a {
+        text-decoration: none;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 0.92fr) minmax(390px, 1.08fr);
+        gap: clamp(32px, 5vw, 72px);
+        align-items: center;
+        min-height: calc(84vh - 72px);
+        padding: clamp(56px, 8vw, 104px) clamp(18px, 4vw, 56px);
+        background:
+          linear-gradient(122deg, rgba(238, 246, 241, 0.98), rgba(251, 250, 245, 0.96) 52%, rgba(227, 240, 247, 0.9)),
+          linear-gradient(90deg, rgba(36, 95, 159, 0.09), transparent 38%),
+          radial-gradient(circle at 84% 18%, rgba(212, 166, 76, 0.22), transparent 28%);
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        max-width: 920px;
+        margin-bottom: 22px;
+        font-size: clamp(2.42rem, 5.75vw, 4.55rem);
+        line-height: 1;
+        letter-spacing: 0;
+      }
+
+      h2 {
+        margin-bottom: 14px;
+        font-size: clamp(2rem, 4vw, 3.2rem);
+        line-height: 1;
+        letter-spacing: 0;
+      }
+
+      h3 {
+        margin-bottom: 10px;
+        font-size: 1.08rem;
+      }
+
+      .eyebrow {
+        margin-bottom: 12px;
+        color: var(--pine);
+        font-size: 0.78rem;
+        font-weight: 950;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      .lede {
+        max-width: 740px;
+        color: var(--muted);
+        font-size: clamp(1.06rem, 2vw, 1.28rem);
+        line-height: 1.55;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 28px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 46px;
+        padding: 0 18px;
+        border: 1px solid var(--ink);
+        border-radius: 8px;
+        font-weight: 850;
+        text-decoration: none;
+      }
+
+      .button.primary {
+        background: var(--ink);
+        color: #fff;
+      }
+
+      .button.secondary {
+        background: #fff;
+      }
+
+      .visual {
+        position: relative;
+        overflow: hidden;
+        min-height: 560px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel);
+        box-shadow: var(--shadow);
+      }
+
+      .visual img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        min-height: 560px;
+        object-fit: cover;
+      }
+
+      .visual::after {
+        position: absolute;
+        inset: 0;
+        content: "";
+        background:
+          linear-gradient(90deg, rgba(19, 33, 31, 0.65), rgba(19, 33, 31, 0.08) 42%, rgba(255, 255, 255, 0.02)),
+          linear-gradient(180deg, transparent 62%, rgba(19, 33, 31, 0.18));
+      }
+
+      .visual-card {
+        position: absolute;
+        left: 24px;
+        bottom: 24px;
+        z-index: 3;
+        width: min(398px, calc(100% - 48px));
+        padding: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 8px;
+        background: rgba(19, 33, 31, 0.84);
+        color: #fff;
+        backdrop-filter: blur(12px);
+      }
+
+      .visual-card strong {
+        display: block;
+        margin-bottom: 6px;
+        font-size: 1.38rem;
+        line-height: 1.1;
+      }
+
+      .visual-card p {
+        margin-bottom: 12px;
+        color: rgba(255, 255, 255, 0.82);
+        line-height: 1.5;
+      }
+
+      .status-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+      }
+
+      .metric {
+        padding: 10px;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .metric b {
+        display: block;
+        margin-bottom: 2px;
+        color: #fff;
+      }
+
+      .metric span {
+        color: rgba(255, 255, 255, 0.76);
+        font-size: 0.78rem;
+      }
+
+      .float-badge {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        z-index: 4;
+        display: inline-flex;
+        align-items: center;
+        min-height: 38px;
+        padding: 0 13px;
+        border: 1px solid rgba(255, 255, 255, 0.32);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.9);
+        color: var(--ink);
+        font-size: 0.78rem;
+        font-weight: 950;
+        box-shadow: 0 8px 24px rgba(19, 33, 31, 0.16);
+        animation: drift 4.6s ease-in-out infinite;
+      }
+
+      section {
+        padding: clamp(54px, 8vw, 96px) clamp(18px, 4vw, 56px);
+      }
+
+      .section-inner {
+        max-width: 1180px;
+        margin: 0 auto;
+      }
+
+      .split {
+        display: grid;
+        grid-template-columns: minmax(0, 0.95fr) minmax(320px, 1.05fr);
+        gap: clamp(28px, 5vw, 62px);
+        align-items: start;
+      }
+
+      .muted {
+        color: var(--muted);
+        line-height: 1.62;
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .card,
+      .quote,
+      .scope-box {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel);
+        box-shadow: 0 14px 34px rgba(19, 33, 31, 0.08);
+      }
+
+      .card {
+        min-height: 190px;
+        padding: 20px;
+      }
+
+      .card .number {
+        display: grid;
+        place-items: center;
+        width: 36px;
+        height: 36px;
+        margin-bottom: 18px;
+        border-radius: 8px;
+        color: #fff;
+        background: var(--pine);
+        font-weight: 950;
+      }
+
+      .card:nth-child(2) .number {
+        background: var(--blue);
+      }
+
+      .card:nth-child(3) .number {
+        background: var(--coral);
+      }
+
+      .workflow {
+        display: grid;
+        gap: 12px;
+      }
+
+      .flow-step {
+        display: grid;
+        grid-template-columns: 46px minmax(0, 1fr) auto;
+        gap: 14px;
+        align-items: center;
+        padding: 16px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        box-shadow: 0 12px 28px rgba(19, 33, 31, 0.06);
+        animation: liftStep 6.4s ease-in-out infinite;
+      }
+
+      .flow-step:nth-child(2) {
+        animation-delay: 0.35s;
+      }
+
+      .flow-step:nth-child(3) {
+        animation-delay: 0.7s;
+      }
+
+      .flow-step:nth-child(4) {
+        animation-delay: 1.05s;
+      }
+
+      .icon {
+        display: grid;
+        place-items: center;
+        width: 46px;
+        height: 46px;
+        border-radius: 8px;
+        background: var(--soft);
+        color: var(--pine);
+        font-weight: 950;
+      }
+
+      .status {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 30px;
+        padding: 0 10px;
+        border-radius: 999px;
+        color: var(--pine);
+        background: var(--soft);
+        font-size: 0.76rem;
+        font-weight: 900;
+        white-space: nowrap;
+      }
+
+      .deliverables {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .deliverable {
+        padding: 18px;
+        border-left: 4px solid var(--pine);
+        border-radius: 8px;
+        background: #fff;
+        box-shadow: 0 10px 26px rgba(19, 33, 31, 0.06);
+      }
+
+      .deliverable:nth-child(2) {
+        border-color: var(--blue);
+      }
+
+      .deliverable:nth-child(3) {
+        border-color: var(--gold);
+      }
+
+      .deliverable:nth-child(4) {
+        border-color: var(--coral);
+      }
+
+      .deliverable:nth-child(5) {
+        border-color: var(--navy);
+      }
+
+      .deliverable:nth-child(6) {
+        border-color: var(--pine);
+      }
+
+      .quote {
+        display: grid;
+        grid-template-columns: minmax(0, 0.95fr) minmax(310px, 1.05fr);
+        gap: 20px;
+        padding: clamp(22px, 4vw, 34px);
+      }
+
+      .price {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 250px;
+        padding: 24px;
+        border-radius: 8px;
+        color: #fff;
+        background:
+          linear-gradient(135deg, rgba(19, 33, 31, 0.96), rgba(15, 112, 87, 0.92)),
+          linear-gradient(90deg, rgba(36, 95, 159, 0.35), transparent);
+      }
+
+      .price strong {
+        display: block;
+        font-size: clamp(2.2rem, 5vw, 4rem);
+        line-height: 1;
+      }
+
+      .price span {
+        color: rgba(255, 255, 255, 0.78);
+      }
+
+      .scope-box {
+        padding: 22px;
+      }
+
+      .scope-list {
+        display: grid;
+        gap: 12px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .scope-list li {
+        position: relative;
+        padding-left: 30px;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+
+      .scope-list li::before {
+        position: absolute;
+        left: 0;
+        top: 0.1em;
+        display: grid;
+        place-items: center;
+        width: 20px;
+        height: 20px;
+        border-radius: 999px;
+        background: var(--soft);
+        color: var(--pine);
+        content: "✓";
+        font-size: 0.75rem;
+        font-weight: 950;
+      }
+
+      footer {
+        padding: 28px clamp(18px, 4vw, 56px);
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        background: #fff;
+      }
+
+      footer .section-inner {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      @keyframes drift {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+
+        50% {
+          transform: translateY(8px);
+        }
+      }
+
+      @keyframes liftStep {
+        0%,
+        100% {
+          transform: translateY(0);
+          box-shadow: 0 12px 28px rgba(19, 33, 31, 0.06);
+        }
+
+        50% {
+          transform: translateY(-4px);
+          box-shadow: 0 18px 34px rgba(19, 33, 31, 0.11);
+        }
+      }
+
+      @media (max-width: 920px) {
+        .hero,
+        .split,
+        .quote {
+          grid-template-columns: 1fr;
+        }
+
+        .hero {
+          min-height: auto;
+        }
+
+        .visual,
+        .visual img {
+          min-height: 460px;
+        }
+
+        .cards,
+        .deliverables {
+          grid-template-columns: 1fr;
+        }
+
+        .flow-step {
+          grid-template-columns: 42px minmax(0, 1fr);
+        }
+
+        .status {
+          grid-column: 2;
+          justify-self: start;
+        }
+      }
+
+      @media (max-width: 640px) {
+        nav {
+          display: none;
+        }
+
+        .brand-mark {
+          width: 38px;
+          height: 38px;
+        }
+
+        .hero {
+          padding-top: 44px;
+        }
+
+        .visual,
+        .visual img {
+          min-height: 520px;
+        }
+
+        .visual {
+          display: flex;
+          flex-direction: column;
+          background: #fff;
+        }
+
+        .visual img {
+          height: 245px;
+          min-height: 245px;
+          object-position: 66% center;
+        }
+
+        .visual::after {
+          display: none;
+        }
+
+        .float-badge {
+          right: 12px;
+          top: 12px;
+        }
+
+        .visual-card {
+          position: relative;
+          left: auto;
+          bottom: auto;
+          width: auto;
+          margin: 14px;
+          padding: 15px;
+        }
+
+        .status-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .button {
+          width: 100%;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="RRC STISS Salesforce support">
+        <span class="brand-mark">SF</span>
+        <span>
+          <strong>RRC STISS Salesforce Support</strong>
+          <small>Railroad Commission of Texas support packet from Nakul</small>
+        </span>
+      </a>
+      <nav aria-label="Page navigation">
+        <a href="#fit">Fit</a>
+        <a href="#workflow">Workflow</a>
+        <a href="#deliverables">Deliverables</a>
+        <a href="#price">Fixed slice</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div>
+          <p class="eyebrow">RFO 455-26-1018 STISS - support slice only</p>
+          <h1 id="hero-title">A practical QA and traceability layer for Workorder 1</h1>
+          <p class="lede">
+            Railroad Commission of Texas STISS scope is broad enough for a qualified prime team. This packet is narrower: a named independent support slice for Salesforce QA, data migration checks, accessibility testing, release traceability, documentation, and training handoff around Workorder 1 and future workorders.
+          </p>
+          <div class="hero-actions" aria-label="Primary actions">
+            <a class="button primary" href="#price">View fixed slice</a>
+            <a class="button secondary" href="#deliverables">Review deliverables</a>
+          </div>
+        </div>
+        <figure class="visual" aria-label="Salesforce implementation QA dashboard visual">
+          <img src="assets/rrc-salesforce-qa-visual.png" alt="A Salesforce implementation QA dashboard with requirements traceability, migration checks, release readiness, UAT scripts, and support handoff panels." />
+          <span class="float-badge">Prime support</span>
+          <figcaption class="visual-card">
+            <strong>Trace requirements to release evidence</strong>
+            <p>For TDRF and future workorders, the useful support lane is requirements mapping, configuration QA, migration checks, UAT evidence, Copado/Jira release notes, and handoff.</p>
+            <div class="status-grid" aria-label="Illustrative support focus">
+              <div class="metric"><b>REQ</b><span>trace matrix</span></div>
+              <div class="metric"><b>UAT</b><span>scripts/retest</span></div>
+              <div class="metric"><b>KT</b><span>handoff docs</span></div>
+            </div>
+          </figcaption>
+        </figure>
+      </section>
+
+      <section id="fit">
+        <div class="section-inner split">
+          <div>
+            <p class="eyebrow">RFO-specific fit</p>
+            <h2>Best used beside a qualified prime</h2>
+            <p class="muted">
+              The public RFO names a large Salesforce and tools ecosystem: Salesforce, MuleSoft, Informatica, GoAnywhere, Snowflake, Box, Neubus, Conga, JIRA, Copado, RunMyJobs, data migration, training, documentation, UAT support, and accessibility testing. This slice strengthens the execution evidence without claiming prime capacity.
+            </p>
+          </div>
+          <div class="cards">
+            <article class="card">
+              <span class="number">1</span>
+              <h3>Requirements traceability</h3>
+              <p class="muted">Map TDRF requirements to Salesforce configuration, integrations, migration checks, test cases, release notes, and owner signoff.</p>
+            </article>
+            <article class="card">
+              <span class="number">2</span>
+              <h3>Migration and UAT QA</h3>
+              <p class="muted">Validate data mapping, attachments, payments, letters, dashboards, role access, regression paths, and accessibility checks.</p>
+            </article>
+            <article class="card">
+              <span class="number">3</span>
+              <h3>Release handoff</h3>
+              <p class="muted">Keep Jira/Copado evidence, support notes, training quick references, and post-release defect triage usable for agency staff.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="workflow">
+        <div class="section-inner split">
+          <div>
+            <p class="eyebrow">Workflow</p>
+            <h2>From workorder scope to supportable release</h2>
+            <p class="muted">
+              The first pass can use approved requirement excerpts, sample records, lower-environment screenshots, and non-confidential mappings. No regulatory records, payment data, credentials, or confidential RRC files are requested by email.
+            </p>
+          </div>
+          <div class="workflow" aria-label="Proposed support workflow">
+            <article class="flow-step">
+              <span class="icon">01</span>
+              <div>
+                <h3>Traceability setup</h3>
+                <p class="muted">Map requirements, acceptance criteria, integrations, data objects, roles, reports, and release artifacts.</p>
+              </div>
+              <span class="status">Week 1</span>
+            </article>
+            <article class="flow-step">
+              <span class="icon">02</span>
+              <div>
+                <h3>Configuration and data QA</h3>
+                <p class="muted">Review flows, Lightning pages, validation rules, migration mappings, attachments, dashboards, access, and integrations.</p>
+              </div>
+              <span class="status">Weeks 2-3</span>
+            </article>
+            <article class="flow-step">
+              <span class="icon">03</span>
+              <div>
+                <h3>UAT and release evidence</h3>
+                <p class="muted">Prepare scripts, defect triage, regression checks, accessibility notes, Copado/Jira status, and retest evidence.</p>
+              </div>
+              <span class="status">Weeks 3-4</span>
+            </article>
+            <article class="flow-step">
+              <span class="icon">04</span>
+              <div>
+                <h3>Training and support handoff</h3>
+                <p class="muted">Package quick references, admin notes, known issues, knowledge-transfer checklist, and post-release support queue rules.</p>
+              </div>
+              <span class="status">Week 4</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="deliverables">
+        <div class="section-inner">
+          <p class="eyebrow">Deliverables</p>
+          <h2>Outputs a prime team can attach to delivery</h2>
+          <div class="deliverables">
+            <article class="deliverable">
+              <h3>Traceability matrix</h3>
+              <p class="muted">Requirements to design/build/test/release mapping with acceptance criteria, owner, status, evidence, and risk notes.</p>
+            </article>
+            <article class="deliverable">
+              <h3>Data migration QA pack</h3>
+              <p class="muted">Object/field mapping checks, classification notes, reconciliation rules, duplicate handling, attachment checks, and exception log.</p>
+            </article>
+            <article class="deliverable">
+              <h3>UAT script set</h3>
+              <p class="muted">Scripts for external submissions, authenticated RAMP users, internal processing, payments, letters, dashboards, and role access.</p>
+            </article>
+            <article class="deliverable">
+              <h3>Regression and accessibility checks</h3>
+              <p class="muted">Repeatable checks for key flows, screen behavior, forms, dashboards, documents, mobile/tablet basics, and accessibility findings.</p>
+            </article>
+            <article class="deliverable">
+              <h3>Jira/Copado release support</h3>
+              <p class="muted">Defect/retest register, release-readiness notes, dependency/risk log, and production-support transition checklist.</p>
+            </article>
+            <article class="deliverable">
+              <h3>Training and documentation kit</h3>
+              <p class="muted">Quick references, admin support notes, runbook gaps, known issues, and knowledge-transfer checklist.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="price">
+        <div class="section-inner quote">
+          <div class="price">
+            <div>
+              <p class="eyebrow" style="color: #e3f0f7">Fixed support slice</p>
+              <strong>USD 22,500</strong>
+            </div>
+            <span>Limited Salesforce QA, migration validation, UAT, release traceability, documentation, and handoff support for a prime or approved subcontract path.</span>
+          </div>
+          <div class="scope-box">
+            <h2>Bounded by design</h2>
+            <ul class="scope-list">
+              <li>This is a specialist support slice, not a full RFO prime response.</li>
+              <li>It should be used through a qualified prime, subcontract, or formally approved procurement path.</li>
+              <li>It does not include Texas authorization, HUB/VetHUB HSP ownership, insurance representation, prime references, production credentials, or full delivery staffing unless separately verified.</li>
+              <li>No regulatory records, payment data, credentials, or confidential RRC files are requested by email.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="section-inner">
+        <span>Prepared by Nakul, independent freelancer/sole proprietor.</span>
+        <span>Support-slice packet only; final response must follow RRC RFO requirements and any prime/subcontract rules.</span>
+      </div>
+    </footer>
+  </body>
+</html>
