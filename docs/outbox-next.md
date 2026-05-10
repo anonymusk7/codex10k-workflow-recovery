@@ -48,7 +48,7 @@ To: jess@rootbeerlady.com
 
 Subject: Website Development RFP - Nakul
 
-Status: prepared, not sent yet. Run `node scripts/check-email-cadence.mjs --cap=10` before sending. Attach `outputs/codex10k/ely_migration_qa_launch_readiness_proposal.pdf` and include the public-safe page link after it returns HTTP 200.
+Status: sent May 10, 2026 as Gmail message `19e1037e9f166d0a` with `outputs/codex10k/ely_migration_qa_launch_readiness_proposal.pdf` attached. Do not resend. Next action is to watch for RFP response; if positive, request current crawl/export, representative listing export, staging/vendor timeline, preferred tracker format, and procurement/payment path.
 
 Body:
 
