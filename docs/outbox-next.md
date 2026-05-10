@@ -43,6 +43,45 @@ If this limited support slice is useful, I can provide the acceptance checklist 
 Best,
 Nakul
 
+## C10K-080 Baxter State Park Authority
+
+Source checked May 10, 2026: official BSP RFP PDF says electronic proposals are due May 20, 2026 to `nava.tabak@baxterstatepark.org`.
+
+To: nava.tabak@baxterstatepark.org
+
+Subject: Baxter State Park website RFP - limited launch QA support
+
+Status: sent May 10, 2026 as Gmail message `19e10a5e7c318c9b` with `outputs/codex10k/baxter_website_launch_qa_sidecar_proposal.pdf` attached. This was the first of the three user-approved extra May 10 emails; next outbound requires `node scripts/check-email-cadence.mjs --cap=13` and at least 30 minutes after `2026-05-10T06:49:39Z`.
+
+Body:
+
+Hello Nava,
+
+I saw Baxter State Park's April 6 RFP for a new website, hosting, and technical maintenance services, with electronic proposals due May 20, 2026.
+
+I am Nakul, an independent freelancer/sole proprietor. I am not submitting this as a full design-prime, hosting, or long-term maintenance bid. I prepared a limited support slice that could help BSP or the selected website vendor with launch-readiness evidence around the RFP's risk areas: ADA Title II web/mobile accessibility checks, content transition, mobile QA, search/forms/ecommerce paths, performance review, and staff handoff notes.
+
+Reference page:
+
+https://anonymusk7.github.io/codex10k-workflow-recovery/baxter-website-launch-qa-sidecar.html?v=baxter1
+
+Attached package: USD 8,500 fixed.
+
+The package would produce:
+
+- RFP-aligned acceptance checklist
+- issue register with severity, evidence, likely owner, fix status, and retest result
+- ADA-oriented manual checks for headings, keyboard path, focus, labels, alt text, contrast, links, forms, documents, and mobile paths
+- content-transition spot checks for priority pages, redirects, metadata, downloads, maps, news/posts, search, and high-use visitor flows
+- launch-readiness and staff publishing handoff notes
+
+Boundary: no visitor records, ecommerce exports, credentials, analytics exports, or private BSP files should be sent by email. Public pages, approved staging access after procurement approval, and representative test cases are enough to start the checklist.
+
+If this limited support slice can be considered, please register this sender for any addenda and let me know the preferred procurement path.
+
+Best,
+Nakul
+
 ## C10K-047 SoIN Tourism
 
 To: Janelle@GoSoIN.com
