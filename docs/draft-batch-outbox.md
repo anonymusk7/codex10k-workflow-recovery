@@ -821,3 +821,26 @@ If this is useful, a simple reply with the right billing/procurement contact is 
 Best,
 Nakul
 ```
+
+## Gmail Draft IDs
+
+- `C10K-084` `r7718642615731016285` to `abrown@bakerripley.org` - Eligibility note for RFP 26-06 Salesforce QA support
+- `C10K-085` `r-5424769604189818739` to `Sandra.DeLaCruz@cga.ct.gov` - 2026-01 APA SharePoint RFP subcontractor/support question
+- `C10K-086` `r7792718751307555089` to `sfortin@mainecc.edu` - MCCS IAM Solution RFP - focused UAT support slice
+- `C10K-087` `r8757273967754748544` to `nerenga@abmc.gov` - Proposal support slice - 74330226R0044 HRIS
+- `C10K-088` `r-516733945645526600` to `kate.francis@springfieldmo.gov` - CRM data migration QA support for museum RFQ
+- `C10K-089` `r-3371871953269203560` to `dbelcik@hillsborough.net` - Data/GIS workflow support question for as-needed services RFP
+- `C10K-090` `r1477712879751866611` to `ajones@svdpcincinnati.org` - Website RFP QA/support slice for SVDP Cincinnati
+- `C10K-091` `r9137065922616610769` to `campaigndirector@northumberlandhs.com` - Website RFP launch QA and donation/adoption workflow support
+- `C10K-092` `r-4264919839455923807` to `Arowland@iie.org` - Fulbright Scholar Program Website Maintenance - support slice
+- `C10K-093` `r341758721023828887` to `development@thrivevictoria.org` - Website Designer RFP - launch QA and campaign workflow support
+- `C10K-094` `r5353432031169205359` to `nava.tabak@baxterstatepark.org` - Following up: Baxter ADA/migration launch QA follow-up
+- `C10K-095` `r3100201977837495910` to `sara.rowe@hcps.org` - Following up: Harford routing data QA follow-up
+- `C10K-096` `r5521619101680114811` to `RVA-PMS.RFP@co.pg.md.us` - Following up: Parking PMS migration QA follow-up
+- `C10K-097` `r907155150484054466` to `procurements@nvta.ca.gov` - Following up: NVTA ADA website QA follow-up
+- `C10K-098` `r3606409848104572723` to `knickens@ducknc.gov` - Following up: Town of Duck launch QA follow-up
+- `C10K-099` `r-4234669480558694433` to `jess@rootbeerlady.com` - Following up: Ely tourism migration QA follow-up
+- `C10K-100` `r3962797927973152463` to `kgroves@hiawathaacademies.org` - Following up: Hiawatha multilingual website QA follow-up
+- `C10K-101` `r8198823679674218259` to `tim@3dwalkabout.com.au` - Following up: 3D Walkabout HubSpot-ClickUp sprint follow-up
+- `C10K-102` `r332576918970528924` to `contact@snipeagent.ai` - Following up: SnipeAgent architecture pass follow-up
+- `C10K-103` `r-3557540405541149303` to `hello@chekcreative.com` - Following up: Chek Creative automation pilot follow-up

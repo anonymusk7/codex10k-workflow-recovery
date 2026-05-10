@@ -46,7 +46,9 @@
       "USD 19,500 fixed",
       "eligibility first",
       "Salesforce QA"
-    ]
+    ],
+    "draft_id": "r7718642615731016285",
+    "draft_message_id": "19e1131cdbe3bdaf"
   },
   {
     "lead_id": "C10K-085",
@@ -95,7 +97,9 @@
       "USD 12,500 fixed",
       "SharePoint QA",
       "RFP question"
-    ]
+    ],
+    "draft_id": "r-5424769604189818739",
+    "draft_message_id": "19e11323eb29966e"
   },
   {
     "lead_id": "C10K-086",
@@ -144,7 +148,9 @@
       "USD 10,500 fixed",
       "IAM UAT",
       "no credentials"
-    ]
+    ],
+    "draft_id": "r7792718751307555089",
+    "draft_message_id": "19e113286e3d869b"
   },
   {
     "lead_id": "C10K-087",
@@ -193,7 +199,9 @@
       "USD 12,500 fixed",
       "HRIS QA",
       "no PII"
-    ]
+    ],
+    "draft_id": "r8757273967754748544",
+    "draft_message_id": "19e1132cd3f3895f"
   },
   {
     "lead_id": "C10K-088",
@@ -242,7 +250,9 @@
       "USD 7,500 fixed",
       "CRM migration QA",
       "donor-data safe"
-    ]
+    ],
+    "draft_id": "r-516733945645526600",
+    "draft_message_id": "19e113327b7d8fb3"
   },
   {
     "lead_id": "C10K-089",
@@ -291,7 +301,9 @@
       "USD 6,500 fixed",
       "GIS/data QA",
       "no licensed claim"
-    ]
+    ],
+    "draft_id": "r-3371871953269203560",
+    "draft_message_id": "19e11337718ef02e"
   },
   {
     "lead_id": "C10K-090",
@@ -340,7 +352,9 @@
       "USD 6,800 fixed",
       "donor-path QA",
       "accessibility"
-    ]
+    ],
+    "draft_id": "r1477712879751866611",
+    "draft_message_id": "19e1133bd871a403"
   },
   {
     "lead_id": "C10K-091",
@@ -389,7 +403,9 @@
       "USD 4,800 fixed",
       "adoption workflow",
       "donor-data safe"
-    ]
+    ],
+    "draft_id": "r9137065922616610769",
+    "draft_message_id": "19e11340feabaf61"
   },
   {
     "lead_id": "C10K-092",
@@ -438,7 +454,9 @@
       "USD 12,500 fixed",
       "maintenance QA",
       "Fulbright site"
-    ]
+    ],
+    "draft_id": "r-4264919839455923807",
+    "draft_message_id": "19e11345f9759c29"
   },
   {
     "lead_id": "C10K-093",
@@ -487,7 +505,9 @@
       "USD 7,500 fixed",
       "campaign QA",
       "privacy-safe"
-    ]
+    ],
+    "draft_id": "r341758721023828887",
+    "draft_message_id": "19e1134e72b60be7"
   },
   {
     "lead_id": "C10K-094",
@@ -536,7 +556,9 @@
       "USD 8,500 fixed",
       "scoped packet",
       "approval path"
-    ]
+    ],
+    "draft_id": "r5353432031169205359",
+    "draft_message_id": "19e113580f66531a"
   },
   {
     "lead_id": "C10K-095",
@@ -585,7 +607,9 @@
       "USD 9,500 fixed",
       "scoped packet",
       "approval path"
-    ]
+    ],
+    "draft_id": "r3100201977837495910",
+    "draft_message_id": "19e1135ccf33002a"
   },
   {
     "lead_id": "C10K-096",
@@ -634,7 +658,9 @@
       "USD 14,500 fixed",
       "scoped packet",
       "approval path"
-    ]
+    ],
+    "draft_id": "r5521619101680114811",
+    "draft_message_id": "19e113610ef1cc11"
   },
   {
     "lead_id": "C10K-097",
@@ -683,7 +709,9 @@
       "USD 4,800 fixed",
       "scoped packet",
       "approval path"
-    ]
+    ],
+    "draft_id": "r907155150484054466",
+    "draft_message_id": "19e11364fd65bdc7"
   },
   {
     "lead_id": "C10K-098",
@@ -732,7 +760,9 @@
       "USD 6,800 fixed",
       "scoped packet",
       "approval path"
-    ]
+    ],
+    "draft_id": "r3606409848104572723",
+    "draft_message_id": "19e1136991db974d"
   },
   {
     "lead_id": "C10K-099",
@@ -781,7 +811,9 @@
       "USD 12,500 fixed",
       "scoped packet",
       "approval path"
-    ]
+    ],
+    "draft_id": "r-4234669480558694433",
+    "draft_message_id": "19e1136df9736d9e"
   },
   {
     "lead_id": "C10K-100",
@@ -830,7 +862,9 @@
       "USD 12,000 fixed",
       "scoped packet",
       "approval path"
-    ]
+    ],
+    "draft_id": "r3962797927973152463",
+    "draft_message_id": "19e11372d0f5c8db"
   },
   {
     "lead_id": "C10K-101",
@@ -879,7 +913,9 @@
       "USD 1,800 fixed",
       "scoped packet",
       "approval path"
-    ]
+    ],
+    "draft_id": "r8198823679674218259",
+    "draft_message_id": "19e113780da4b0c6"
   },
   {
     "lead_id": "C10K-102",
@@ -928,7 +964,9 @@
       "USD 400 fixed",
       "scoped packet",
       "approval path"
-    ]
+    ],
+    "draft_id": "r332576918970528924",
+    "draft_message_id": "19e1137c0bd591c1"
   },
   {
     "lead_id": "C10K-103",
@@ -977,6 +1015,8 @@
       "USD 1,200 fixed",
       "scoped packet",
       "approval path"
-    ]
+    ],
+    "draft_id": "r-3557540405541149303",
+    "draft_message_id": "19e11382b690d1e5"
   }
 ]

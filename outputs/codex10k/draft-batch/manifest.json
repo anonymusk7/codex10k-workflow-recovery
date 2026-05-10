@@ -14,7 +14,8 @@
     "price_usd": 19500,
     "send_caution": "Mandatory vendor conference risk. This draft asks eligibility before proposing work.",
     "reply_message_id": "",
-    "draft_id": ""
+    "draft_id": "r7718642615731016285",
+    "draft_message_id": "19e1131cdbe3bdaf"
   },
   {
     "lead_id": "C10K-085",
@@ -31,7 +32,8 @@
     "price_usd": 12500,
     "send_caution": "Email is appropriate, but Sandra is the inquiry contact; proposal/submission goes to Vincent.",
     "reply_message_id": "",
-    "draft_id": ""
+    "draft_id": "r-5424769604189818739",
+    "draft_message_id": "19e11323eb29966e"
   },
   {
     "lead_id": "C10K-086",
@@ -48,7 +50,8 @@
     "price_usd": 10500,
     "send_caution": "Email submission is allowed, but questions deadline passed; keep this as a support component, not a substantive RFP question.",
     "reply_message_id": "",
-    "draft_id": ""
+    "draft_id": "r7792718751307555089",
+    "draft_message_id": "19e113286e3d869b"
   },
   {
     "lead_id": "C10K-087",
@@ -65,7 +68,8 @@
     "price_usd": 12500,
     "send_caution": "Federal HRIS. Avoid PII and avoid implying this is the full HRIS proposal.",
     "reply_message_id": "",
-    "draft_id": ""
+    "draft_id": "r8757273967754748544",
+    "draft_message_id": "19e1132cd3f3895f"
   },
   {
     "lead_id": "C10K-088",
@@ -82,7 +86,8 @@
     "price_usd": 7500,
     "send_caution": "Email is allowed. Keep formal, RFQ-specific, and do not claim platform-prime qualifications.",
     "reply_message_id": "",
-    "draft_id": ""
+    "draft_id": "r-516733945645526600",
+    "draft_message_id": "19e113327b7d8fb3"
   },
   {
     "lead_id": "C10K-089",
@@ -99,7 +104,8 @@
     "price_usd": 6500,
     "send_caution": "Do not imply engineering credentials. Email is appropriate only as a support/teaming question.",
     "reply_message_id": "",
-    "draft_id": ""
+    "draft_id": "r-3371871953269203560",
+    "draft_message_id": "19e11337718ef02e"
   },
   {
     "lead_id": "C10K-090",
@@ -116,7 +122,8 @@
     "price_usd": 6800,
     "send_caution": "Direct email is available. Local-firm preference exists, so keep this as support-sidecar unless bidding as prime.",
     "reply_message_id": "",
-    "draft_id": ""
+    "draft_id": "r1477712879751866611",
+    "draft_message_id": "19e1133bd871a403"
   },
   {
     "lead_id": "C10K-091",
@@ -133,7 +140,8 @@
     "price_usd": 4800,
     "send_caution": "Ontario/local vendor preference. Keep as support-sidecar and do not imply local status.",
     "reply_message_id": "",
-    "draft_id": ""
+    "draft_id": "r9137065922616610769",
+    "draft_message_id": "19e11340feabaf61"
   },
   {
     "lead_id": "C10K-092",
@@ -150,7 +158,8 @@
     "price_usd": 12500,
     "send_caution": "Full-service RFP. Keep as support slice unless user can submit full qualified proposal.",
     "reply_message_id": "",
-    "draft_id": ""
+    "draft_id": "r-4264919839455923807",
+    "draft_message_id": "19e11345f9759c29"
   },
   {
     "lead_id": "C10K-093",
@@ -167,7 +176,8 @@
     "price_usd": 7500,
     "send_caution": "Direct email proposal path. Canadian nonprofit; quote in USD for Codex10k tracking but buyer budget is CAD.",
     "reply_message_id": "",
-    "draft_id": ""
+    "draft_id": "r341758721023828887",
+    "draft_message_id": "19e1134e72b60be7"
   },
   {
     "lead_id": "C10K-094",
@@ -184,7 +194,8 @@
     "price_usd": 8500,
     "send_caution": "Follow-up draft only. Do not send immediately unless user wants a manual follow-up cadence.",
     "reply_message_id": "19e10a5e7c318c9b",
-    "draft_id": ""
+    "draft_id": "r5353432031169205359",
+    "draft_message_id": "19e113580f66531a"
   },
   {
     "lead_id": "C10K-095",
@@ -201,7 +212,8 @@
     "price_usd": 9500,
     "send_caution": "Follow-up draft only. Do not send immediately unless user wants a manual follow-up cadence.",
     "reply_message_id": "19e10c2baf1299e8",
-    "draft_id": ""
+    "draft_id": "r3100201977837495910",
+    "draft_message_id": "19e1135ccf33002a"
   },
   {
     "lead_id": "C10K-096",
@@ -218,7 +230,8 @@
     "price_usd": 14500,
     "send_caution": "Follow-up draft only. Do not send immediately unless user wants a manual follow-up cadence.",
     "reply_message_id": "19e10e01ea3147ae",
-    "draft_id": ""
+    "draft_id": "r5521619101680114811",
+    "draft_message_id": "19e113610ef1cc11"
   },
   {
     "lead_id": "C10K-097",
@@ -235,7 +248,8 @@
     "price_usd": 4800,
     "send_caution": "Follow-up draft only. Do not send immediately unless user wants a manual follow-up cadence.",
     "reply_message_id": "19e101890b095ee2",
-    "draft_id": ""
+    "draft_id": "r907155150484054466",
+    "draft_message_id": "19e11364fd65bdc7"
   },
   {
     "lead_id": "C10K-098",
@@ -252,7 +266,8 @@
     "price_usd": 6800,
     "send_caution": "Follow-up draft only. Do not send immediately unless user wants a manual follow-up cadence.",
     "reply_message_id": "19e10294ab3b5ab5",
-    "draft_id": ""
+    "draft_id": "r3606409848104572723",
+    "draft_message_id": "19e1136991db974d"
   },
   {
     "lead_id": "C10K-099",
@@ -269,7 +284,8 @@
     "price_usd": 12500,
     "send_caution": "Follow-up draft only. Do not send immediately unless user wants a manual follow-up cadence.",
     "reply_message_id": "19e1037e9f166d0a",
-    "draft_id": ""
+    "draft_id": "r-4234669480558694433",
+    "draft_message_id": "19e1136df9736d9e"
   },
   {
     "lead_id": "C10K-100",
@@ -286,7 +302,8 @@
     "price_usd": 12000,
     "send_caution": "Follow-up draft only. Do not send immediately unless user wants a manual follow-up cadence.",
     "reply_message_id": "19e104c1b35de655",
-    "draft_id": ""
+    "draft_id": "r3962797927973152463",
+    "draft_message_id": "19e11372d0f5c8db"
   },
   {
     "lead_id": "C10K-101",
@@ -303,7 +320,8 @@
     "price_usd": 1800,
     "send_caution": "Follow-up draft only. Do not send immediately unless user wants a manual follow-up cadence.",
     "reply_message_id": "19e0feb8882b174a",
-    "draft_id": ""
+    "draft_id": "r8198823679674218259",
+    "draft_message_id": "19e113780da4b0c6"
   },
   {
     "lead_id": "C10K-102",
@@ -320,7 +338,8 @@
     "price_usd": 400,
     "send_caution": "Follow-up draft only. Do not send immediately unless user wants a manual follow-up cadence.",
     "reply_message_id": "19e0ffab0e946f49",
-    "draft_id": ""
+    "draft_id": "r332576918970528924",
+    "draft_message_id": "19e1137c0bd591c1"
   },
   {
     "lead_id": "C10K-103",
@@ -337,6 +356,7 @@
     "price_usd": 1200,
     "send_caution": "Follow-up draft only. Do not send immediately unless user wants a manual follow-up cadence.",
     "reply_message_id": "19e10093fb4ce954",
-    "draft_id": ""
+    "draft_id": "r-3557540405541149303",
+    "draft_message_id": "19e11382b690d1e5"
   }
 ]
