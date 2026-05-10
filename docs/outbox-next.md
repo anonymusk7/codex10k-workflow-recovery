@@ -40,6 +40,44 @@ If this support slice is useful, reply with the expected staging or vendor-selec
 Best,
 Nakul
 
+## C10K-074 Town of Duck, NC
+
+Source checked May 10, 2026: official Town of Duck website redesign and CMS implementation RFP was published April 23, 2026. Proposals are due May 14, 2026 at 5:00 PM EST, electronic submissions are acceptable, and the RFP contact is Kay Nickens at `knickens@ducknc.gov`.
+
+To: knickens@ducknc.gov
+
+Subject: Website Redesign RFP Submission - Town of Duck - limited QA sidecar
+
+Status: prepared, not sent yet. Run `node scripts/check-email-cadence.mjs --cap=10` before sending. Attach `outputs/codex10k/town_of_duck_launch_qa_sidecar_proposal.pdf` and include the public-safe page link after it returns HTTP 200.
+
+Body:
+
+Hello Kay,
+
+I saw the Town of Duck's Website Redesign and CMS Implementation RFP, including the ADA, Section 508, WCAG 2.2 AA, content migration, searchable document, analytics, staff workflow, and post-launch support requirements.
+
+I am Nakul, an independent freelancer/sole proprietor. I am not submitting this as a full redesign-prime proposal, hosting proposal, CMS license, or legal compliance certification. I am submitting a limited sidecar proposal that could support the Town directly or support the selected website/CMS vendor around launch QA and staff handoff.
+
+Reference page:
+
+https://anonymusk7.github.io/codex10k-workflow-recovery/duck-ada-launch-qa-sidecar.html?v=duck1
+
+Attached proposal: USD 6,800 fixed.
+
+Scope summary:
+
+- WCAG-oriented QA across representative templates, mobile views, forms, documents, and high-use public-service paths
+- content migration spot checks for redirects, metadata, linked documents, searchability, events/calendar pages, and broken-link risks
+- issue register with severity, evidence, likely owner, status, retest result, and launch-readiness note
+- staff publishing checklist for accessible pages, images, links, forms, calendar/event entries, and PDFs
+
+Boundaries: this is QA, retest, and staff-handoff support only. It does not include full redesign, CMS implementation, hosting, licensing, legal certification, or long-term maintenance unless separately scoped. No resident records, credentials, analytics exports, or internal Town files are needed by email.
+
+If this limited support proposal is responsive, I can provide the issue-register template and staff checklist format before award discussions.
+
+Best,
+Nakul
+
 Generated artifact:
 
 - `outputs/codex10k/soin_launch_qa_support_proposal.pdf`
