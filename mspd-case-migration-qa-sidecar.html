@@ -1,0 +1,796 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MSPD Case Management Migration QA Support</title>
+    <meta
+      name="description"
+      content="A portal-ready support-slice packet for Missouri State Public Defender RFP MSPD 0000000003SL Integrated Public Defense Management System."
+    />
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #16221f;
+        --muted: #5e6d69;
+        --paper: #fbfaf5;
+        --panel: #ffffff;
+        --line: #d7e1dd;
+        --green: #0e7057;
+        --navy: #153650;
+        --blue: #27669f;
+        --gold: #d1a14a;
+        --red: #c96055;
+        --soft: #eff7f2;
+        --sky: #e6f1f7;
+        --shadow: 0 24px 62px rgba(22, 34, 31, 0.14);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 14px clamp(18px, 4vw, 56px);
+        border-bottom: 1px solid var(--line);
+        background: rgba(251, 250, 245, 0.94);
+        backdrop-filter: blur(14px);
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+      }
+
+      .brand-mark {
+        display: grid;
+        place-items: center;
+        width: 42px;
+        height: 42px;
+        border-radius: 8px;
+        background: var(--ink);
+        color: #fff;
+        font-weight: 950;
+      }
+
+      .brand strong,
+      .brand small {
+        display: block;
+      }
+
+      .brand small,
+      nav {
+        color: var(--muted);
+      }
+
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 18px;
+        font-size: 0.94rem;
+      }
+
+      nav a {
+        text-decoration: none;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        max-width: 920px;
+        margin-bottom: 22px;
+        font-size: clamp(2.42rem, 5.7vw, 4.55rem);
+        line-height: 1;
+        letter-spacing: 0;
+      }
+
+      h2 {
+        margin-bottom: 14px;
+        font-size: clamp(2rem, 4vw, 3.15rem);
+        line-height: 1;
+        letter-spacing: 0;
+      }
+
+      h3 {
+        margin-bottom: 10px;
+        font-size: 1.08rem;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 0.92fr) minmax(390px, 1.08fr);
+        gap: clamp(32px, 5vw, 72px);
+        align-items: center;
+        min-height: calc(84vh - 72px);
+        padding: clamp(56px, 8vw, 104px) clamp(18px, 4vw, 56px);
+        background:
+          linear-gradient(122deg, rgba(239, 247, 242, 0.98), rgba(251, 250, 245, 0.96) 52%, rgba(230, 241, 247, 0.92)),
+          linear-gradient(90deg, rgba(39, 102, 159, 0.09), transparent 38%),
+          radial-gradient(circle at 84% 18%, rgba(209, 161, 74, 0.2), transparent 28%);
+      }
+
+      .eyebrow {
+        margin-bottom: 12px;
+        color: var(--green);
+        font-size: 0.78rem;
+        font-weight: 950;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      .lede {
+        max-width: 760px;
+        color: var(--muted);
+        font-size: clamp(1.06rem, 2vw, 1.28rem);
+        line-height: 1.55;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 28px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 46px;
+        padding: 0 18px;
+        border: 1px solid var(--ink);
+        border-radius: 8px;
+        font-weight: 850;
+        text-decoration: none;
+      }
+
+      .button.primary {
+        background: var(--ink);
+        color: #fff;
+      }
+
+      .button.secondary {
+        background: #fff;
+      }
+
+      .visual {
+        position: relative;
+        overflow: hidden;
+        min-height: 560px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel);
+        box-shadow: var(--shadow);
+      }
+
+      .visual img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        min-height: 560px;
+        object-fit: cover;
+        object-position: 51% 50%;
+        transform: scale(1.06);
+      }
+
+      .visual::after {
+        position: absolute;
+        inset: 0;
+        content: "";
+        background:
+          linear-gradient(90deg, rgba(22, 34, 31, 0.68), rgba(22, 34, 31, 0.08) 46%, rgba(255, 255, 255, 0.02)),
+          linear-gradient(180deg, transparent 61%, rgba(22, 34, 31, 0.22));
+      }
+
+      .visual-card {
+        position: absolute;
+        left: 24px;
+        bottom: 24px;
+        z-index: 3;
+        width: min(420px, calc(100% - 48px));
+        padding: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 8px;
+        background: rgba(22, 34, 31, 0.86);
+        color: #fff;
+        backdrop-filter: blur(12px);
+      }
+
+      .visual-card strong {
+        display: block;
+        margin-bottom: 6px;
+        font-size: 1.36rem;
+        line-height: 1.1;
+      }
+
+      .visual-card p {
+        margin-bottom: 12px;
+        color: rgba(255, 255, 255, 0.83);
+        line-height: 1.5;
+      }
+
+      .float-badge {
+        position: absolute;
+        top: 24px;
+        right: 24px;
+        z-index: 3;
+        padding: 11px 18px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.92);
+        color: var(--ink);
+        font-size: 0.86rem;
+        font-weight: 900;
+        box-shadow: 0 10px 28px rgba(22, 34, 31, 0.12);
+      }
+
+      .status-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+      }
+
+      .metric {
+        padding: 10px;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .metric b {
+        display: block;
+        margin-bottom: 2px;
+        color: #fff;
+      }
+
+      .metric span {
+        color: rgba(255, 255, 255, 0.76);
+        font-size: 0.78rem;
+      }
+
+      section:not(.hero) {
+        padding: clamp(64px, 9vw, 118px) clamp(18px, 4vw, 56px);
+      }
+
+      .section-inner {
+        width: min(1180px, 100%);
+        margin: 0 auto;
+      }
+
+      .split {
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1.1fr);
+        gap: clamp(30px, 6vw, 82px);
+        align-items: start;
+      }
+
+      .muted {
+        color: var(--muted);
+        line-height: 1.62;
+      }
+
+      .cards,
+      .deliverables {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .card,
+      .deliverable,
+      .flow-step,
+      .scope-box,
+      .quote {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.88);
+        box-shadow: 0 16px 44px rgba(22, 34, 31, 0.08);
+      }
+
+      .card {
+        padding: 22px;
+      }
+
+      .number,
+      .icon {
+        display: grid;
+        place-items: center;
+        width: 36px;
+        height: 36px;
+        margin-bottom: 18px;
+        border-radius: 8px;
+        color: #fff;
+        font-weight: 950;
+      }
+
+      .card:nth-child(1) .number,
+      .flow-step:nth-child(1) .icon {
+        background: var(--green);
+      }
+
+      .card:nth-child(2) .number,
+      .flow-step:nth-child(2) .icon {
+        background: var(--blue);
+      }
+
+      .card:nth-child(3) .number,
+      .flow-step:nth-child(3) .icon {
+        background: var(--red);
+      }
+
+      .flow-step:nth-child(4) .icon {
+        background: var(--gold);
+        color: var(--ink);
+      }
+
+      .workflow {
+        display: grid;
+        gap: 14px;
+      }
+
+      .flow-step {
+        position: relative;
+        display: grid;
+        grid-template-columns: 50px 1fr auto;
+        gap: 16px;
+        align-items: center;
+        padding: 18px;
+        overflow: hidden;
+      }
+
+      .flow-step::before {
+        position: absolute;
+        inset: 0 auto 0 0;
+        width: 5px;
+        content: "";
+        background: linear-gradient(180deg, var(--green), var(--blue), var(--gold));
+        transform: scaleY(0.2);
+        transform-origin: top;
+        animation: progress 7s ease-in-out infinite;
+      }
+
+      .flow-step:nth-child(2)::before {
+        animation-delay: 0.45s;
+      }
+
+      .flow-step:nth-child(3)::before {
+        animation-delay: 0.9s;
+      }
+
+      .flow-step:nth-child(4)::before {
+        animation-delay: 1.35s;
+      }
+
+      .icon {
+        margin: 0;
+        background: var(--soft);
+        color: var(--green);
+      }
+
+      .status {
+        justify-self: end;
+        padding: 7px 11px;
+        border-radius: 999px;
+        background: var(--soft);
+        color: var(--green);
+        font-size: 0.78rem;
+        font-weight: 850;
+        white-space: nowrap;
+      }
+
+      .deliverables {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        margin-top: 20px;
+      }
+
+      .deliverable {
+        padding: 22px;
+        border-left: 5px solid var(--green);
+      }
+
+      .deliverable:nth-child(2) {
+        border-left-color: var(--blue);
+      }
+
+      .deliverable:nth-child(3) {
+        border-left-color: var(--gold);
+      }
+
+      .deliverable:nth-child(4) {
+        border-left-color: var(--red);
+      }
+
+      .deliverable:nth-child(5) {
+        border-left-color: var(--navy);
+      }
+
+      .deliverable:nth-child(6) {
+        border-left-color: var(--green);
+      }
+
+      .quote {
+        display: grid;
+        grid-template-columns: 0.92fr 1.08fr;
+        gap: 20px;
+        padding: clamp(18px, 3vw, 34px);
+      }
+
+      .price {
+        display: flex;
+        min-height: 260px;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 24px;
+        border-radius: 8px;
+        background: linear-gradient(135deg, var(--navy), var(--green));
+        color: #fff;
+      }
+
+      .price strong {
+        display: block;
+        font-size: clamp(2.3rem, 7vw, 4rem);
+        letter-spacing: 0;
+        line-height: 1;
+      }
+
+      .price span {
+        max-width: 490px;
+        color: rgba(255, 255, 255, 0.86);
+        line-height: 1.45;
+      }
+
+      .scope-box {
+        padding: 24px;
+      }
+
+      .scope-list {
+        display: grid;
+        gap: 12px;
+        margin: 0;
+        padding: 0;
+        color: var(--muted);
+        list-style: none;
+      }
+
+      .scope-list li {
+        position: relative;
+        padding-left: 30px;
+        line-height: 1.5;
+      }
+
+      .scope-list li::before {
+        position: absolute;
+        left: 0;
+        top: 0.18rem;
+        display: grid;
+        place-items: center;
+        width: 19px;
+        height: 19px;
+        border-radius: 999px;
+        background: var(--soft);
+        color: var(--green);
+        content: "✓";
+        font-weight: 950;
+      }
+
+      footer {
+        padding: 28px clamp(18px, 4vw, 56px);
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+      }
+
+      footer .section-inner {
+        display: grid;
+        gap: 8px;
+      }
+
+      @keyframes progress {
+        0%,
+        100% {
+          transform: scaleY(0.2);
+        }
+
+        45%,
+        65% {
+          transform: scaleY(1);
+        }
+      }
+
+      @media (max-width: 900px) {
+        .topbar {
+          align-items: flex-start;
+        }
+
+        nav {
+          display: none;
+        }
+
+        .hero,
+        .split,
+        .quote {
+          grid-template-columns: 1fr;
+        }
+
+        .visual {
+          min-height: 520px;
+        }
+
+        .visual img {
+          min-height: 520px;
+        }
+
+        .cards,
+        .deliverables {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .hero {
+          padding-top: 44px;
+        }
+
+        h1 {
+          font-size: 2.28rem;
+        }
+
+        h2 {
+          font-size: 2rem;
+        }
+
+        .visual {
+          min-height: 650px;
+        }
+
+        .visual img {
+          min-height: 650px;
+          object-position: 54% 50%;
+        }
+
+        .visual-card {
+          left: 14px;
+          bottom: 14px;
+          width: calc(100% - 28px);
+          padding: 15px;
+        }
+
+        .status-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .flow-step {
+          grid-template-columns: 50px 1fr;
+        }
+
+        .flow-step .status {
+          grid-column: 2;
+          justify-self: start;
+        }
+
+        .button {
+          width: 100%;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="MSPD case management migration support">
+        <span class="brand-mark">MO</span>
+        <span>
+          <strong>MSPD Migration QA Support</strong>
+          <small>Missouri State Public Defender support packet from Nakul</small>
+        </span>
+      </a>
+      <nav aria-label="Page navigation">
+        <a href="#fit">Fit</a>
+        <a href="#workflow">Workflow</a>
+        <a href="#deliverables">Deliverables</a>
+        <a href="#price">Fixed slice</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div>
+          <p class="eyebrow">RFP MSPD 0000000003SL - support slice only</p>
+          <h1 id="hero-title">Migration QA and release evidence for a statewide case system</h1>
+          <p class="lede">
+            Missouri State Public Defender's Integrated Public Defense Management System is a prime-scale platform procurement. This packet is narrower: a named support slice for legacy migration validation, requirements traceability, UAT evidence, defect triage, reporting readiness, and stabilization support.
+          </p>
+          <div class="hero-actions" aria-label="Primary actions">
+            <a class="button primary" href="#price">View fixed slice</a>
+            <a class="button secondary" href="#deliverables">Review deliverables</a>
+          </div>
+        </div>
+        <figure class="visual" aria-label="Public defense case-management migration QA visual">
+          <img src="assets/mspd-case-migration-qa-visual.png" alt="A secure case management migration dashboard with legacy records, migration progress, UAT readiness, privacy checks, integrations, training, and release readiness panels." />
+          <span class="float-badge">Prime support</span>
+          <figcaption class="visual-card">
+            <strong>Prove the migration before cutover</strong>
+            <p>For a sensitive statewide case platform, the useful support lane is defensible mapping, reconciliation evidence, UAT scripts, defect retest, reporting checks, and go-live handoff.</p>
+            <div class="status-grid" aria-label="Illustrative support focus">
+              <div class="metric"><b>DATA</b><span>reconcile</span></div>
+              <div class="metric"><b>UAT</b><span>scripts/retest</span></div>
+              <div class="metric"><b>GO</b><span>handoff</span></div>
+            </div>
+          </figcaption>
+        </figure>
+      </section>
+
+      <section id="fit">
+        <div class="section-inner split">
+          <div>
+            <p class="eyebrow">RFP-specific fit</p>
+            <h2>Best used beside a compliant prime</h2>
+            <p class="muted">
+              Public summaries describe a large statewide case-management modernization with portals, document intelligence, analytics, integrations, HCL Notes/Domino migration, UAT, training, and stabilization. This slice strengthens implementation evidence without claiming to provide the core SaaS platform, security certifications, court integrations, or full prime obligations.
+            </p>
+          </div>
+          <div class="cards">
+            <article class="card">
+              <span class="number">1</span>
+              <h3>Legacy migration QA</h3>
+              <p class="muted">Map source databases, forms, fields, attachments, users, and case events to target objects, with exception logs and sample reconciliation.</p>
+            </article>
+            <article class="card">
+              <span class="number">2</span>
+              <h3>UAT and defect evidence</h3>
+              <p class="muted">Prepare test scripts, triage gaps, retest fixes, and keep acceptance evidence organized for internal users, contract attorneys, and portal workflows.</p>
+            </article>
+            <article class="card">
+              <span class="number">3</span>
+              <h3>Cutover and stabilization</h3>
+              <p class="muted">Support readiness tracking, training handoff, reporting checks, launch risks, and 90-day stabilization notes usable by a prime team.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="workflow">
+        <div class="section-inner split">
+          <div>
+            <p class="eyebrow">Workflow</p>
+            <h2>From legacy inventory to auditable release</h2>
+            <p class="muted">
+              The first pass can use public RFP materials, non-confidential requirement excerpts, sanitized mapping samples, and approved lower-environment evidence. No privileged case records, client data, credentials, or production exports are requested by email.
+            </p>
+          </div>
+          <div class="workflow" aria-label="Proposed support workflow">
+            <article class="flow-step">
+              <span class="icon">01</span>
+              <div>
+                <h3>Migration inventory</h3>
+                <p class="muted">Create source-to-target checklist, field risk tags, attachment handling notes, and data-quality acceptance criteria.</p>
+              </div>
+              <span class="status">Week 1</span>
+            </article>
+            <article class="flow-step">
+              <span class="icon">02</span>
+              <div>
+                <h3>Validation and reporting</h3>
+                <p class="muted">Run sample reconciliation, exception categories, dashboard/report spot checks, and issue-owner tracking.</p>
+              </div>
+              <span class="status">Weeks 2-3</span>
+            </article>
+            <article class="flow-step">
+              <span class="icon">03</span>
+              <div>
+                <h3>UAT and defect retest</h3>
+                <p class="muted">Package scenario scripts, portal checks, workflow tests, privacy notes, defect retest, and acceptance evidence.</p>
+              </div>
+              <span class="status">Weeks 3-5</span>
+            </article>
+            <article class="flow-step">
+              <span class="icon">04</span>
+              <div>
+                <h3>Go-live handoff</h3>
+                <p class="muted">Prepare readiness register, training support notes, launch support checklist, known issues, and stabilization rhythm.</p>
+              </div>
+              <span class="status">Week 6</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="deliverables">
+        <div class="section-inner">
+          <p class="eyebrow">Deliverables</p>
+          <h2>Evidence a prime team can attach to implementation</h2>
+          <div class="deliverables">
+            <article class="deliverable">
+              <h3>Migration QA workbook</h3>
+              <p class="muted">Source inventory, target mapping, field risk notes, reconciliation approach, exception categories, and owner/status columns.</p>
+            </article>
+            <article class="deliverable">
+              <h3>Requirements traceability</h3>
+              <p class="muted">Functional requirements mapped to build, data, integration, test, reporting, training, evidence, and signoff status.</p>
+            </article>
+            <article class="deliverable">
+              <h3>UAT script set</h3>
+              <p class="muted">Scripts for intake, case assignment, attorney/client portals, documents, events, financials, reports, permissions, and notifications.</p>
+            </article>
+            <article class="deliverable">
+              <h3>Defect and retest register</h3>
+              <p class="muted">Clear severity, reproduction path, evidence, retest result, release risk, owner, and stabilization follow-up format.</p>
+            </article>
+            <article class="deliverable">
+              <h3>Readiness dashboard outline</h3>
+              <p class="muted">Weekly implementation status pack covering open risks, migration progress, UAT coverage, training readiness, and launch blockers.</p>
+            </article>
+            <article class="deliverable">
+              <h3>Stabilization handoff kit</h3>
+              <p class="muted">Go-live support checklist, known issues, triage rhythm, training notes, post-launch reporting checks, and data export concerns.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="price">
+        <div class="section-inner quote">
+          <div class="price">
+            <div>
+              <p class="eyebrow" style="color: #e6f1f7">Fixed support slice</p>
+              <strong>USD 28,500</strong>
+            </div>
+            <span>Limited migration QA, UAT, reporting-readiness, cutover evidence, and stabilization support for a prime or approved subcontract path.</span>
+          </div>
+          <div class="scope-box">
+            <h2>Bounded by design</h2>
+            <ul class="scope-list">
+              <li>This is a specialist support slice, not a full RFP prime response.</li>
+              <li>It should be used through MissouriBUYS/MOVERS, a qualified prime, subcontract, or formally approved procurement path.</li>
+              <li>It does not include the core case-management platform, hosting, SOC 2/ISO certification, CJIS/HIPAA legal certification, insurance representation, or statewide SaaS operations unless separately verified.</li>
+              <li>No privileged case data, client records, credentials, production exports, or confidential MSPD files are requested by email.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="section-inner">
+        <span>Prepared by Nakul, independent freelancer/sole proprietor.</span>
+        <span>Support-slice packet only; final response must follow MissouriBUYS/MOVERS requirements and any prime/subcontract rules.</span>
+      </div>
+    </footer>
+  </body>
+</html>
