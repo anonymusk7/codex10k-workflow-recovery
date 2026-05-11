@@ -1,0 +1,79 @@
+{
+  "name": "tsperf-type-lens",
+  "displayName": "TSPerf Type Lens",
+  "description": "VS Code extension prototype for measuring TypeScript type complexity and checker load time.",
+  "version": "0.1.0",
+  "publisher": "nakul-codex10k",
+  "license": "MIT",
+  "private": true,
+  "engines": {
+    "vscode": "^1.92.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onLanguage:typescript",
+    "onLanguage:typescriptreact",
+    "onCommand:tsperf.analyzeTypeAtCursor",
+    "onCommand:tsperf.refreshTypeLens",
+    "onCommand:tsperf.runTrace"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "tsperf.analyzeTypeAtCursor",
+        "title": "TSPerf: Analyze Type at Cursor"
+      },
+      {
+        "command": "tsperf.refreshTypeLens",
+        "title": "TSPerf: Refresh Type Lens"
+      },
+      {
+        "command": "tsperf.runTrace",
+        "title": "TSPerf: Run TypeScript Trace"
+      }
+    ],
+    "configuration": {
+      "title": "TSPerf Type Lens",
+      "properties": {
+        "tsperf.maxDepth": {
+          "type": "number",
+          "default": 5,
+          "minimum": 1,
+          "maximum": 8,
+          "description": "Maximum recursive depth for type complexity scoring."
+        },
+        "tsperf.maxProperties": {
+          "type": "number",
+          "default": 60,
+          "minimum": 5,
+          "maximum": 200,
+          "description": "Maximum properties to inspect per object type."
+        },
+        "tsperf.traceHotspotThresholdMs": {
+          "type": "number",
+          "default": 5,
+          "minimum": 1,
+          "maximum": 1000,
+          "description": "Minimum trace event duration shown in the trace summary."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "test": "npm run compile && node test/run-tests.mjs",
+    "package": "npm run compile && vsce package --no-dependencies"
+  },
+  "dependencies": {
+    "typescript": "^5.5.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.5.0",
+    "@types/vscode": "^1.92.0",
+    "@vscode/vsce": "^3.2.1"
+  }
+}

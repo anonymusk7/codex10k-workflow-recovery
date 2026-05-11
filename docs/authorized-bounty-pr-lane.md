@@ -20,6 +20,20 @@ This lane is for lawful, in-scope security and bounty work only. It is not reven
 | DevNetwork AI + ML Hackathon / TrueFoundry resilient agents | https://devnetwork-ai-ml-hack-2026.devpost.com/ | Prize path for a buildable resilient-agent artifact; not a vulnerability exploit. | Build an agent failure lab with simulated MCP/provider outages and clear logs. | Count only awarded and paid prize net of costs. |
 | Algora/GitHub bounty issues | https://algora.io/projectdiscovery/bounties | PR-first payment model on GitHub issues. | Find issues with clear acceptance criteria, no account/private-data access, and tests. | Count only paid bounty after PR acceptance and payment evidence. |
 
+## Current Artifact
+
+`bounties/tsperf-type-lens/` contains a local MIT-licensed VS Code extension prototype for the TSPerf challenge. It has inline CodeLens, heuristic type-complexity scoring, checker materialization timing, and a trace-backed command that runs TypeScript with `--generateTrace` and summarizes hotspots. It is not submitted or published.
+
+Local proof commands:
+
+```bash
+cd bounties/tsperf-type-lens
+npm test
+npm run package
+```
+
+Gate before any public action: verify the bounty is still open and payable, create/select a public repo, add repository metadata, record a demo, and get explicit user approval to submit or PR.
+
 ## Report Template
 
 1. Scope confirmation: program URL, asset, and rule allowing the test.
