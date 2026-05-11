@@ -199,6 +199,13 @@ function scoreType(
     drivers.push("depth cap");
     return 4;
   }
+  if (isPrimitiveLike(type)) {
+    return 1;
+  }
+  if (isCompilerLibraryType(type)) {
+    drivers.push("compiler-library type");
+    return 2;
+  }
   const id = typeIdentity(type);
   if (seen.has(id)) {
     drivers.push("recursive reference");
@@ -269,6 +276,30 @@ function scoreType(
 
 function typeIdentity(type: ts.Type): number {
   return (type as ts.Type & { id?: number }).id ?? type.flags;
+}
+
+function isPrimitiveLike(type: ts.Type): boolean {
+  const primitiveFlags =
+    ts.TypeFlags.StringLike |
+    ts.TypeFlags.NumberLike |
+    ts.TypeFlags.BooleanLike |
+    ts.TypeFlags.BigIntLike |
+    ts.TypeFlags.ESSymbolLike |
+    ts.TypeFlags.Null |
+    ts.TypeFlags.Undefined |
+    ts.TypeFlags.Void |
+    ts.TypeFlags.Never |
+    ts.TypeFlags.Any |
+    ts.TypeFlags.Unknown;
+  return (type.flags & primitiveFlags) !== 0;
+}
+
+function isCompilerLibraryType(type: ts.Type): boolean {
+  const declarations = type.symbol?.declarations ?? type.aliasSymbol?.declarations ?? [];
+  return declarations.some((declaration) => {
+    const fileName = declaration.getSourceFile().fileName.replaceAll("\\", "/");
+    return /\/node_modules\/typescript\/lib\/lib\..+\.d\.ts$/.test(fileName) || /\/typescript\/lib\/lib\..+\.d\.ts$/.test(fileName);
+  });
 }
 
 function ratingFor(complexity: number, elapsedMs: number): Rating {

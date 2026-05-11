@@ -26,9 +26,12 @@ This is a local developer tool. It does not call external services, upload sourc
 ```bash
 npm install
 npm test
+npm run demo
 ```
 
 To try it in VS Code, run `npm run compile`, then launch an Extension Development Host from this folder.
+
+The demo fixture at `demo/slow-types.ts` contains intentionally broad union/intersection/mapped types for screenshots and sanity checks.
 
 ## Current limits
 

@@ -18,12 +18,14 @@ Status: local proof built; do not submit or publish without explicit approval.
 ```bash
 npm install
 npm test
+npm run demo
 npm run package
 ```
 
 Latest local result:
 
 - `npm test`: passed.
+- `npm run demo`: passed. Latest top result ranked `SlowCustomerState` as extreme (`C437`, ~77ms) above `LargeUnion` (`C307`, ~5ms), with drivers including depth caps, compiler-library boundaries, unions, properties, and call signatures.
 - `npm run package`: passed; warning only for missing public repository metadata.
 
 ## Before Submission

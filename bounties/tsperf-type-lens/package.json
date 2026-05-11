@@ -66,6 +66,7 @@
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "test": "npm run compile && node test/run-tests.mjs",
+    "demo": "npm run compile && node scripts/report-demo.mjs",
     "package": "npm run compile && vsce package --no-dependencies"
   },
   "dependencies": {
