@@ -1,0 +1,26 @@
+Hello,
+
+I prepared a focused ERP data-conversion and UAT readiness packet for the St. Cloud ERP procurement.
+
+I am Nakul, an independent freelancer/sole proprietor. This is a support slice beside an ERP implementation prime, or a formal portal component only if eligibility and forms are confirmed.
+
+Reference page:
+https://anonymusk7.github.io/codex10k-workflow-recovery/c10k-112-city-of-st-cloud-erp-software-and-implementation-services.html?v=may11prep
+
+Proposal packet: USD 5,500 fixed; support slice only.
+
+The support slice would produce:
+
+- Conversion inventory worksheet for finance, HR, payroll, procurement, and assets
+- Interface risk log for inbound/outbound systems, owners, cadence, and failure modes
+- UAT script pack with role, data, pass/fail evidence, and retest fields
+- Cutover checklist with freeze, validation, rollback, and first-payroll safeguards
+- Proposal appendix language for migration, testing, and launch-readiness controls
+- Open decisions list for the ERP prime and City project team
+
+Boundary: No payroll, employee, vendor, bank, or HR records should be sent by email; use schema-only exports, dummy records, or an approved workspace.
+
+If this support slice is eligible, the first input would be the public requirements list, target ERP modules, and schema-only migration inventory.
+
+Best,
+Nakul

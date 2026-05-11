@@ -1,0 +1,26 @@
+Hi Ann,
+
+I saw your Make/Typebot/OpenAI/Airtable setup post and prepared a small rescue scope around the 403/API permission issue and first working flow.
+
+I am Nakul, an independent freelancer/sole proprietor. This is a fixed rescue sprint using a sandbox bot, dummy Airtable rows, and approved keys only in a secure workspace.
+
+Reference page:
+https://anonymusk7.github.io/codex10k-workflow-recovery/c10k-121-ann-make-typebot-openai-and-airtable-setup.html?v=may11prep
+
+Proposal packet: USD 850 fixed; sandbox and dummy rows first.
+
+The support slice would produce:
+
+- OpenAI/model access and 403-permission diagnosis checklist
+- One working multi-step Typebot flow with conditions and expected bot responses
+- Airtable read/write connection through Make using dummy rows and clear field mapping
+- Basic error visibility for failed API calls, missing fields, and bad model responses
+- Token/scope setup guide without exposing secrets in messages
+- Final acceptance checklist with one pass/fail test run
+
+Boundary: No API keys, personal data, private customer records, or regulated advice content should be sent by forum DM or email.
+
+If useful, send a screenshot of the error, dummy Airtable field names, and the one Typebot path you want working first.
+
+Best,
+Nakul

@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>South Carolina Governor&#x27;s School for Science and Mathematics CMS support and accessibility/security response pack</title>
+    <meta name="description" content="Prepared support packet for South Carolina Governor&#x27;s School for Science and Mathematics: CMS support and accessibility/security response pack." />
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #142129;
+        --muted: #5c6870;
+        --paper: #fbfaf5;
+        --panel: #ffffff;
+        --line: #dfe5e2;
+        --blue: #235f91;
+        --green: #18704f;
+        --gold: #c99a2f;
+        --soft: #eef5f2;
+        --shadow: 0 22px 60px rgba(20, 33, 41, 0.15);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+      * { box-sizing: border-box; }
+      body { margin: 0; background: var(--paper); color: var(--ink); }
+      a { color: inherit; }
+      .topbar {
+        position: sticky; top: 0; z-index: 20; display: flex; align-items: center; justify-content: space-between; gap: 18px;
+        padding: 14px clamp(18px, 4vw, 56px); border-bottom: 1px solid var(--line);
+        background: rgba(251, 250, 245, 0.94); backdrop-filter: blur(14px);
+      }
+      .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+      .brand-mark { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 8px; background: var(--ink); color: #fff; font-weight: 950; }
+      .brand strong, .brand span { display: block; }
+      .brand span { color: var(--muted); font-size: 0.86rem; }
+      .brand-mark { color: #fff; }
+      nav { display: flex; flex-wrap: wrap; gap: 18px; color: var(--muted); font-weight: 720; }
+      nav a { text-decoration: none; }
+      .hero, .section { padding: clamp(34px, 6vw, 76px) clamp(18px, 5vw, 72px); }
+      .hero { display: grid; grid-template-columns: minmax(0, 0.94fr) minmax(340px, 1.06fr); gap: clamp(26px, 5vw, 64px); align-items: center; min-height: calc(100vh - 72px); }
+      .eyebrow { margin: 0 0 12px; color: var(--gold); font-size: 0.78rem; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; }
+      h1 { max-width: 820px; margin: 0; font-size: 4.9rem; line-height: 0.96; letter-spacing: 0; }
+      .lede { max-width: 720px; margin: 24px 0 0; color: var(--muted); font-size: 1.18rem; line-height: 1.62; }
+      .price-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+      .pill { display: inline-flex; align-items: center; min-height: 42px; padding: 10px 14px; border: 1px solid var(--line); border-radius: 8px; background: var(--panel); color: var(--ink); font-weight: 850; }
+      .primary { background: var(--blue); color: #fff; }
+      .visual { position: relative; overflow: hidden; margin: 0; border: 1px solid rgba(20, 33, 41, 0.14); border-radius: 8px; background: #dfe9dc; box-shadow: var(--shadow); }
+      .visual img { display: block; width: 100%; height: auto; }
+      .workflow-strip { position: absolute; left: clamp(14px, 3vw, 30px); right: clamp(14px, 3vw, 30px); bottom: clamp(14px, 3vw, 28px); display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 7px; }
+      .step { position: relative; min-height: 78px; padding: 10px; border: 1px solid rgba(255, 255, 255, 0.42); border-radius: 8px; background: rgba(255, 255, 255, 0.86); box-shadow: 0 14px 34px rgba(20, 33, 41, 0.14); backdrop-filter: blur(12px); }
+      .step::before { content: ""; position: absolute; inset: -1px; border: 2px solid transparent; border-radius: inherit; animation: focusStep 10s linear infinite; pointer-events: none; }
+      .step:nth-child(2)::before { animation-delay: 2s; }
+      .step:nth-child(3)::before { animation-delay: 4s; }
+      .step:nth-child(4)::before { animation-delay: 6s; }
+      .step:nth-child(5)::before { animation-delay: 8s; }
+      .step small { display: block; color: var(--blue); font-size: 0.68rem; font-weight: 950; text-transform: uppercase; }
+      .step strong { display: block; margin-top: 6px; color: var(--ink); font-size: 0.72rem; line-height: 1.18; overflow-wrap: normal; word-break: normal; hyphens: none; }
+      .section { border-top: 1px solid var(--line); }
+      .section h2 { margin: 0 0 18px; font-size: 2.85rem; line-height: 1; letter-spacing: 0; }
+      .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+      .card { min-height: 168px; padding: 22px; border: 1px solid var(--line); border-radius: 8px; background: var(--panel); }
+      .card h3 { margin: 0 0 12px; font-size: 1.02rem; }
+      .card p, .scope-list li, .fineprint { color: var(--muted); line-height: 1.56; }
+      .scope-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 28px; max-width: 960px; margin: 0; padding-left: 20px; }
+      .closing { display: grid; grid-template-columns: minmax(0, 0.72fr) minmax(280px, 0.28fr); gap: 26px; align-items: start; }
+      .quote { padding: 24px; border-radius: 8px; background: var(--ink); color: #fff; }
+      .quote strong { display: block; font-size: 2.4rem; line-height: 1; }
+      .quote span { display: block; margin-top: 12px; color: rgba(255, 255, 255, 0.78); line-height: 1.5; }
+      @keyframes focusStep { 0%, 16% { border-color: rgba(35, 95, 145, 0.95); box-shadow: 0 0 0 4px rgba(35, 95, 145, 0.13); } 17%, 100% { border-color: transparent; box-shadow: none; } }
+      @media (max-width: 940px) {
+        .hero, .closing { grid-template-columns: 1fr; }
+        .hero { min-height: auto; }
+        .grid, .scope-list { grid-template-columns: 1fr; }
+        .workflow-strip { position: static; grid-template-columns: 1fr; padding: 12px; background: #fff; }
+        .step { min-height: 70px; }
+        h1 { font-size: 3.85rem; }
+        .section h2 { font-size: 2.35rem; }
+      }
+      @media (max-width: 640px) {
+        nav { display: none; }
+        .brand > span:not(.brand-mark) { display: none; }
+        h1 { font-size: 2.55rem; }
+        .section h2 { font-size: 2.1rem; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="South Carolina Governor&#x27;s School for Science and Mathematics support packet">
+        <span class="brand-mark">S</span>
+        <span>
+          <strong>South Carolina Governor&#x27;s School for Science and Mathematics</strong>
+          <span>CMS support and accessibility/security response pack from Nakul</span>
+        </span>
+      </a>
+      <nav aria-label="Packet sections"><a href="#fit">Fit</a><a href="#workflow">Workflow</a><a href="#deliverables">Deliverables</a><a href="#next">Next step</a></nav>
+    </header>
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div>
+          <p class="eyebrow">SC GSSM web support</p>
+          <h1 id="hero-title">CMS support evidence for a school website response</h1>
+          <p class="lede">I can prepare a security questionnaire evidence map, WCAG support plan, integration/test matrix, support KPI template, and redacted-copy QA checklist for the website/CMS response.</p>
+          <div class="price-row" aria-label="Proposal summary"><span class="pill primary">USD 5,900 fixed</span>
+<span class="pill ">support slice</span>
+<span class="pill ">no private data by email</span></div>
+        </div>
+        <figure class="visual" aria-label="CMS support and accessibility/security response pack workflow preview">
+          <img src="assets/gssm-cms-security-visual.png" alt="Workflow visual for CMS support and accessibility/security response pack." />
+          <figcaption class="workflow-strip" id="workflow"><span class="step"><small>01</small><strong>Inventory</strong></span>
+<span class="step"><small>02</small><strong>Security map</strong></span>
+<span class="step"><small>03</small><strong>WCAG plan</strong></span>
+<span class="step"><small>04</small><strong>Support KPIs</strong></span>
+<span class="step"><small>05</small><strong>Redacted copy</strong></span></figcaption>
+        </figure>
+      </section>
+      <section class="section" id="fit"><h2>Fit</h2><div class="grid"><article class="card"><h3>Procurement fit</h3><p>Security and accessibility response details are material, not garnish.</p></article>
+<article class="card"><h3>School-safe data</h3><p>No student or staff data is needed to prepare the first packet.</p></article>
+<article class="card"><h3>Durable support</h3><p>KPI templates help the buyer compare ongoing support promises.</p></article></div></section>
+      <section class="section" id="deliverables"><h2>Deliverables</h2><ul class="scope-list"><li>Security questionnaire evidence map for CMS, hosting, access control, backups, and incident response</li>
+<li>WCAG support plan with sample checks, cadence, exception handling, and ownership model</li>
+<li>Integration inventory and test matrix for forms, calendars, media, analytics, and authentication</li>
+<li>Monthly support KPI template for tickets, response, fixes, audits, and releases</li>
+<li>Redacted-copy QA checklist for public procurement posting</li>
+<li>Decision log for hosting, support, custom development, and maintenance assumptions</li></ul></section>
+      <section class="section" id="next">
+        <div class="closing">
+          <div>
+            <h2>Next step</h2>
+            <p class="fineprint">Use only through the South Carolina procurement path or an approved web/CMS prime route after forms are confirmed.</p>
+            <p class="fineprint">Prepared by Nakul as an independent freelancer/sole proprietor. This is not a hosting contract, full redesign prime bid, legal accessibility certification, student-data compliance opinion, or cybersecurity certification.</p>
+          </div>
+          <aside class="quote" aria-label="Fixed price"><strong>$5,900</strong><span>Fixed support pack, subject to portal eligibility and final scope.</span></aside>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

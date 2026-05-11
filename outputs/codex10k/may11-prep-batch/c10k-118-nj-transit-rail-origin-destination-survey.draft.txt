@@ -1,0 +1,26 @@
+Hello,
+
+I prepared a narrow O-D survey data QA and dashboard prototype support packet for NJ TRANSIT RFP 0000234.
+
+I am Nakul, an independent freelancer/sole proprietor. This is a data QA subconsultant/support slice beside a qualified survey/planning firm, not a survey-prime proposal.
+
+Reference page:
+https://anonymusk7.github.io/codex10k-workflow-recovery/c10k-118-nj-transit-rail-origin-destination-survey.html?v=may11prep
+
+Proposal packet: USD 3,200 fixed; survey-data support only.
+
+The support slice would produce:
+
+- Survey schema QA checklist for route, station, time, trip purpose, transfers, and demographics fields
+- Cleaning and validation rules for duplicates, impossible trips, missing values, and inconsistent station names
+- Nonresponse and weighting risk checklist for planner/statistician review
+- Dashboard wireframes for line, station pair, corridor, and survey-completion views
+- Field-to-analysis handoff plan with data dictionary and QA evidence fields
+- Prime-team memo with assumptions, exclusions, and next data decisions
+
+Boundary: No rider personal data, raw survey responses, location traces, or nonpublic operational datasets should be sent by email.
+
+If this support slice is eligible, the first input would be the public RFP package and a dummy survey schema.
+
+Best,
+Nakul

@@ -1,0 +1,26 @@
+Hi Emanuel,
+
+I saw your Notion-to-Adalo integration post and prepared a small v1 sync scope that keeps the first milestone clear.
+
+I am Nakul, an independent freelancer/sole proprietor. This is a fixed v1 integration proof using sample records and approved API access.
+
+Reference page:
+https://anonymusk7.github.io/codex10k-workflow-recovery/c10k-120-emanuel-arias-notion-and-adalo-integration.html?v=may11prep
+
+Proposal packet: USD 1,500 fixed; one approved sync direction first.
+
+The support slice would produce:
+
+- Schema map for up to two Notion databases and two Adalo collections
+- Sync-direction decision note with create/update/delete behavior and conflict rules
+- Make scenario or equivalent integration plan for one approved direction
+- Upsert and dedupe rules with stable IDs and retry behavior
+- Error log for failed records, missing fields, API limits, and auth problems
+- Handoff doc with setup steps, tokens-to-create list, and acceptance checklist
+
+Boundary: No live API tokens, user private data, payment data, or production records should be shared by forum DM or email.
+
+If useful, send sample field names from the Notion database and Adalo collection, plus whether Notion should push to Adalo or the reverse.
+
+Best,
+Nakul

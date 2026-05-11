@@ -1,0 +1,26 @@
+Hello,
+
+I prepared a narrow GIS/ECM task-order starter packet for the WSSC Water engineering records support opportunity.
+
+I am Nakul, an independent freelancer/sole proprietor. This is a support appendix beside a qualified BOA prime or formal portal component only if eligibility is confirmed.
+
+Reference page:
+https://anonymusk7.github.io/codex10k-workflow-recovery/c10k-114-wssc-water-gis-and-engineering-records-document-management-support.html?v=may11prep
+
+Proposal packet: USD 3,500 fixed; BOA support slice only.
+
+The support slice would produce:
+
+- Three likely task-order use cases with scope, data needs, acceptance evidence, and handoff notes
+- GIS/ECM data and workflow risk register for engineering records and project systems
+- Draft staffing/responsibility matrix for GIS, document management, and workflow support
+- Cloud/SQL migration and integration assumptions list for prime review
+- Ten-page technical support appendix outline for a formal BOA response
+- Open questions checklist for OpenGov or prime-team clarification
+
+Boundary: No utility engineering records, maps with sensitive infrastructure, credentials, or nonpublic project files should be sent by email.
+
+If this support slice is eligible, the first input would be the public RFP sections and any non-sensitive task-order priorities.
+
+Best,
+Nakul

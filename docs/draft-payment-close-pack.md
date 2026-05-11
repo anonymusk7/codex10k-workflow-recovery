@@ -1,6 +1,6 @@
 # Codex10k Draft Payment Close Pack
 
-Updated: 2026-05-10T09:43:38Z
+Updated: 2026-05-11T01:51:03Z
 
 Use this only after a buyer positively replies or asks for payment. No invoice, Stripe link, Checkout Session, or charge should be created until the buyer approves the exact scope, price, data boundary, and payment path.
 
@@ -70,7 +70,7 @@ Nakul
 
 - Draft ID: `r1477712879751866611`
 - Offer: Website launch QA, accessibility, and donor-path support
-- Status: gmail_draft_created_no_send
+- Status: sent_from_draft
 - Amount: USD 6,800
 - Planning-only card fee estimate: USD 197.50; estimated net before direct costs: USD 6,602.50
 - Collection terms: 50% kickoff / 50% acceptance or buyer PO terms
@@ -82,7 +82,7 @@ Nakul
 
 - Draft ID: `r341758721023828887`
 - Offer: Youth-services website QA and campaign-readiness support
-- Status: gmail_draft_created_no_send
+- Status: sent_from_draft
 - Amount: USD 7,500
 - Planning-only card fee estimate: USD 217.80; estimated net before direct costs: USD 7,282.20
 - Collection terms: 50% kickoff / 50% acceptance or buyer PO terms
@@ -94,7 +94,7 @@ Nakul
 
 - Draft ID: `r-4264919839455923807`
 - Offer: Fulbright Scholar website maintenance QA and accessibility support
-- Status: gmail_draft_created_no_send
+- Status: sent_from_draft
 - Amount: USD 12,500
 - Planning-only card fee estimate: USD 362.80; estimated net before direct costs: USD 12,137.20
 - Collection terms: 50% kickoff / 50% acceptance or buyer PO terms
@@ -106,7 +106,7 @@ Nakul
 
 - Draft ID: `r-516733945645526600`
 - Offer: Museum CRM data migration and acceptance QA support
-- Status: gmail_draft_created_no_send
+- Status: sent_from_draft
 - Amount: USD 7,500
 - Planning-only card fee estimate: USD 217.80; estimated net before direct costs: USD 7,282.20
 - Collection terms: 50% kickoff / 50% acceptance or buyer PO terms
@@ -118,7 +118,7 @@ Nakul
 
 - Draft ID: `r-5424769604189818739`
 - Offer: SharePoint workflow QA and maintenance support slice
-- Status: gmail_draft_created_no_send
+- Status: sent_from_draft
 - Amount: USD 12,500
 - Planning-only card fee estimate: USD 362.80; estimated net before direct costs: USD 12,137.20
 - Collection terms: 50% kickoff / 50% acceptance or buyer PO terms
@@ -130,7 +130,7 @@ Nakul
 
 - Draft ID: `r7792718751307555089`
 - Offer: IAM role validation and rollout QA support
-- Status: gmail_draft_created_no_send
+- Status: sent_from_draft
 - Amount: USD 10,500
 - Planning-only card fee estimate: USD 304.80; estimated net before direct costs: USD 10,195.20
 - Collection terms: 50% kickoff / 50% acceptance or buyer PO terms
@@ -142,7 +142,7 @@ Nakul
 
 - Draft ID: `r-3371871953269203560`
 - Offer: GIS/data workflow QA and deliverable support slice
-- Status: gmail_draft_created_no_send
+- Status: auto_reply_received
 - Amount: USD 6,500
 - Planning-only card fee estimate: USD 188.80; estimated net before direct costs: USD 6,311.20
 - Collection terms: 50% kickoff / 50% acceptance or buyer PO terms
@@ -154,7 +154,7 @@ Nakul
 
 - Draft ID: `r8757273967754748544`
 - Offer: HRIS migration and acceptance QA support
-- Status: gmail_draft_created_no_send
+- Status: sent_from_draft
 - Amount: USD 12,500
 - Planning-only card fee estimate: USD 362.80; estimated net before direct costs: USD 12,137.20
 - Collection terms: 50% kickoff / 50% acceptance or buyer PO terms

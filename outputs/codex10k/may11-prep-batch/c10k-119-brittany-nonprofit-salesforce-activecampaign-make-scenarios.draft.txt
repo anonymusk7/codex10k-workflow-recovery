@@ -1,0 +1,26 @@
+Hi Brittany,
+
+I saw your Make Community post about Salesforce and ActiveCampaign scenarios not behaving correctly for your nonprofit.
+
+I am Nakul, an independent freelancer/sole proprietor. This is a fixed rescue sprint using dummy records or least-privilege access after approval.
+
+Reference page:
+https://anonymusk7.github.io/codex10k-workflow-recovery/c10k-119-brittany-nonprofit-salesforce-activecampaign-make-scenarios.html?v=may11prep
+
+Proposal packet: USD 1,200 fixed; dummy records first.
+
+The support slice would produce:
+
+- Scenario audit for up to two Make workflows and the exact Salesforce/ActiveCampaign failure points
+- Field mapping and update-rule document covering creates, updates, ownership, and duplicates
+- Filter, dedupe, and error-path fixes in a testable copy or approved workspace
+- Failure alerts for bad payloads, auth issues, missing fields, and repeated errors
+- Dummy-record test checklist with pass/fail evidence and retest notes
+- Short handoff runbook for future changes and safe credential rotation
+
+Boundary: No donor, constituent, member, volunteer, fundraising, or sensitive CRM records should be shared by forum DM or email.
+
+If useful, send one dummy record, the two scenarios causing the most trouble, and what should happen when the workflow succeeds.
+
+Best,
+Nakul

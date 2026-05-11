@@ -1,0 +1,26 @@
+Hello,
+
+I saw Boston's EV00017196 IAM managed-services procurement and prepared a narrow support appendix focused on UAT and implementation-readiness evidence.
+
+I am Nakul, an independent freelancer/sole proprietor. This is a specialist support appendix beside a qualified IAM managed-services prime or a portal response if eligibility is confirmed.
+
+Reference page:
+https://anonymusk7.github.io/codex10k-workflow-recovery/c10k-111-city-of-boston-identity-and-access-management-managed-services.html?v=may11prep
+
+Proposal packet: USD 4,800 fixed; subject to portal or prime/subcontract eligibility.
+
+The support slice would produce:
+
+- Requirements-to-acceptance matrix for core IAM managed-services obligations
+- Implementation and test-plan outline with role, access, and break-glass scenarios
+- UAT checklist covering provisioning, deprovisioning, MFA, role changes, and reporting
+- Security and compliance response draft language for a prime team's review
+- Issue/risk register with owner, severity, evidence, and closure criteria
+- Five-day support appendix package ready for formal team review
+
+Boundary: No credentials, tenant exports, employee records, or security-sensitive configuration should be sent by email. Use dummy scenarios or an approved secure workspace.
+
+If this support slice is eligible, the first input would be the prime response outline and any public/non-sensitive requirements matrix.
+
+Best,
+Nakul

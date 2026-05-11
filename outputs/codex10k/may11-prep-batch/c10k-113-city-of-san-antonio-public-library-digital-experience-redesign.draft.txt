@@ -1,0 +1,26 @@
+Hello,
+
+I saw the SAPL Digital Experience Redesign solicitation and prepared a narrow launch-acceptance and accessibility QA support pack.
+
+I am Nakul, an independent freelancer/sole proprietor. This is a specialist launch-acceptance support pack beside the PaaS vendor or as a formal portal component if eligible.
+
+Reference page:
+https://anonymusk7.github.io/codex10k-workflow-recovery/c10k-113-city-of-san-antonio-public-library-digital-experience-redesign.html?v=may11prep
+
+Proposal packet: USD 9,500 fixed; portal/vendor support only.
+
+The support slice would produce:
+
+- Patron journey test matrix for discovery, account, holds, renewals, digital resources, and help paths
+- Keyboard, screen-reader, contrast, focus, and mobile checks for priority templates
+- Search/navigation acceptance tests with expected results and failure notes
+- Admin workflow UAT scripts for content updates, resource changes, and help escalation
+- Launch readiness report with blocker severity, retest status, and go/no-go summary
+- Staff handoff checklist for routine checks after launch
+
+Boundary: No patron records, library account data, staff credentials, or restricted analytics should be sent by email. Use public catalog examples or approved test accounts.
+
+If this support role is eligible, the first input would be public patron journeys and the draft implementation/launch plan.
+
+Best,
+Nakul

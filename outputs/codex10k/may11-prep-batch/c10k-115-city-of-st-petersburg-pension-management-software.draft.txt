@@ -1,0 +1,26 @@
+Hello,
+
+I prepared a focused pension software fit-gap and workflow QA packet for the St. Petersburg RFP lane.
+
+I am Nakul, an independent freelancer/sole proprietor. This is an evaluation/support slice for the City project team or a pension SaaS implementation team, not a software-product bid.
+
+Reference page:
+https://anonymusk7.github.io/codex10k-workflow-recovery/c10k-115-city-of-st-petersburg-pension-management-software.html?v=may11prep
+
+Proposal packet: USD 2,800 fixed; support/evaluation slice only.
+
+The support slice would produce:
+
+- Functional fit-gap matrix for activity tracking, member portal, documents, reports, and audit trail
+- Migration risk log for import/export fields, history depth, attachments, and validation checks
+- Workflow QA checklist for approvals, notices, document handling, and exception states
+- Vendor demo script with must-show scenarios and pass/fail evidence fields
+- Sample implementation schedule with discovery, build, test, parallel run, and go-live checks
+- Open issues memo for procurement or implementation-team review
+
+Boundary: No member records, pension calculations, bank data, beneficiary data, credentials, or personnel data should be sent by email.
+
+If this support slice is eligible, the first input would be the public functional requirements and a dummy demo scenario set.
+
+Best,
+Nakul

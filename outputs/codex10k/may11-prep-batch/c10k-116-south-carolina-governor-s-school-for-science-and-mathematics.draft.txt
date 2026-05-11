@@ -1,0 +1,26 @@
+Hello,
+
+I prepared a CMS support and accessibility/security response packet for the SC GSSM website solicitation.
+
+I am Nakul, an independent freelancer/sole proprietor. This is a support appendix beside a qualified web/CMS prime or formal portal component if vendor registration and forms are confirmed.
+
+Reference page:
+https://anonymusk7.github.io/codex10k-workflow-recovery/c10k-116-south-carolina-governor-s-school-for-science-and-mathematics.html?v=may11prep
+
+Proposal packet: USD 5,900 fixed; response-support slice only.
+
+The support slice would produce:
+
+- Security questionnaire evidence map for CMS, hosting, access control, backups, and incident response
+- WCAG support plan with sample checks, cadence, exception handling, and ownership model
+- Integration inventory and test matrix for forms, calendars, media, analytics, and authentication
+- Monthly support KPI template for tickets, response, fixes, audits, and releases
+- Redacted-copy QA checklist for public procurement posting
+- Decision log for hosting, support, custom development, and maintenance assumptions
+
+Boundary: No student, parent, applicant, donor, staff, credential, or nonpublic security data should be sent by email.
+
+If this support slice is eligible, the first input would be the public RFP attachment set and the response structure.
+
+Best,
+Nakul

@@ -1,0 +1,26 @@
+Hello,
+
+I prepared a narrow district web RFP compliance sidecar for Northside ISD RFP 2026-070.
+
+I am Nakul, an independent freelancer/sole proprietor. This is a support sidecar for a qualified district web prime or formal portal package if eligibility, references, and forms are already in place.
+
+Reference page:
+https://anonymusk7.github.io/codex10k-workflow-recovery/c10k-117-northside-independent-school-district-district-web-services.html?v=may11prep
+
+Proposal packet: USD 7,500 fixed; portal/prime support only.
+
+The support slice would produce:
+
+- Statement-of-work response matrix aligned to required web, CMS, implementation, and support questions
+- Accessibility/security response matrix with evidence requests and unknowns
+- Data-transfer and FERPA-aware checklist for SFTP, authentication, exports, and role-based publishing
+- Pricing narrative skeleton separating platform, implementation, support, and optional services
+- Portal package QA checklist for required PDFs/XLS files, signatures, forms, and attachments
+- Submission readiness memo with blockers, missing references, and nonresponsive-risk flags
+
+Boundary: No student, family, staff, SFTP, authentication, district account, or private website data should be sent by email.
+
+If this support slice is eligible, the first input would be the prime response draft and required-document checklist.
+
+Best,
+Nakul
