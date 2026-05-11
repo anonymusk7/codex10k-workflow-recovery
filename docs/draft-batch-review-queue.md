@@ -1,8 +1,8 @@
 # Codex10k Draft Batch Review Queue
 
-Updated: 2026-05-11T01:51:03Z
+Updated: 2026-05-11T02:29:07Z
 
-This is a review queue for the 20 Gmail draft-batch packets. Sent: 8. Still draft-only: 12. Do not count any value here as revenue until completed and settled payment evidence exists in `data/ledger.csv`.
+This is a review queue for the 20 Gmail draft-batch packets. Sent: 9. Still draft-only: 11. Do not count any value here as revenue until completed and settled payment evidence exists in `data/ledger.csv`.
 
 Total draft pipeline: USD 172,600.
 
@@ -20,7 +20,7 @@ Payment close pack: `docs/draft-payment-close-pack.md` and `outputs/codex10k/dra
 | 6 | C10K-086 Maine Community College System | sent | `r7792718751307555089` | USD 10,500 | Email path exists; questions deadline passed, so keep it as support component. |
 | 7 | C10K-089 Town of Hillsborough | sent | `r-3371871953269203560` | USD 6,500 | No licensed engineering claim; data/GIS support only. |
 | 8 | C10K-087 American Battle Monuments Commission | sent | `r8757273967754748544` | USD 12,500 | Federal HRIS; slower, formal, no employee PII. |
-| 9 | C10K-084 BakerRipley | draft | `r7718642615731016285` | USD 19,500 | Mandatory vendor conference risk; eligibility question only. |
+| 9 | C10K-084 BakerRipley | sent | `r7718642615731016285` | USD 19,500 | Mandatory vendor conference risk; eligibility question only. |
 | 10 | C10K-091 Northumberland Humane Society | draft | `r9137065922616610769` | USD 4,800 | Ontario/local vendor preference; support-sidecar only. |
 
 ## Recommended Follow-Up Order

@@ -1,6 +1,6 @@
 # Codex10k Draft Payment Close Pack
 
-Updated: 2026-05-11T01:51:03Z
+Updated: 2026-05-11T02:29:07Z
 
 Use this only after a buyer positively replies or asks for payment. No invoice, Stripe link, Checkout Session, or charge should be created until the buyer approves the exact scope, price, data boundary, and payment path.
 
@@ -166,7 +166,7 @@ Nakul
 
 - Draft ID: `r7718642615731016285`
 - Offer: Salesforce implementation QA and UAT support sidecar
-- Status: gmail_draft_created_no_send
+- Status: sent_from_draft
 - Amount: USD 19,500
 - Planning-only card fee estimate: USD 565.80; estimated net before direct costs: USD 18,934.20
 - Collection terms: 50% kickoff / 50% acceptance or buyer PO terms
