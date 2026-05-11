@@ -157,3 +157,8 @@ Rules:
 - Created Gmail drafts only for C10K-107 Marley (`gmail_draft:r5078376235347498872`, message `19e11896d51706b1`) and C10K-110 MORPC (`gmail_draft:r8406472525554024594`, message `19e1189af82c22e8`) with PDF attachments. No emails were sent.
 - Remaining five packets stay forum/portal/local draft only: C10K-104 Claire, C10K-105 Ray, C10K-106 Eli, C10K-108 Town of Parker / PACE, and C10K-109 City of Raleigh Planning & Development.
 - QA evidence: desktop/mobile browser pass for all seven pages returned HTTP 200, no console errors, no failed assets, no horizontal overflow, and visible brand marks; PDF text checks found one page each, USD pricing, boundary language, and no split Opportunity labels.
+
+### May 11, 2026 cadence-controlled activity
+
+- `C10K-089` Town of Hillsborough produced only an automatic out-of-office reply from Doug Belcik (`gmail:19e116d7c935aee2`) after the May 10 send. It is not a buyer response and should not be counted as positive demand; wait for a human reply or a light follow-up after May 13 if still relevant.
+- `C10K-087` American Battle Monuments Commission was sent from the prepared Gmail draft after the May 11 cadence guard returned allowed. Sent Gmail message `19e14b5fa14e435a` to `nerenga@abmc.gov` with the USD 12,500 HRIS migration/UAT/launch-readiness QA support slice and PDF attachment. Boundary remains support-only: no employee PII by email and no claim to be the full HRIS prime.
