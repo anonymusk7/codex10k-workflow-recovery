@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Automation Incident Audit</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #182024;
+      --muted: #56636b;
+      --line: #d7dee2;
+      --panel: #f6f8f5;
+      --accent: #0b6b57;
+      --accent-2: #8a4b2a;
+      --bg: #fffdf8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font: 16px/1.55 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+    }
+    main {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 48px 20px 64px;
+    }
+    .eyebrow {
+      color: var(--accent);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 13px;
+      letter-spacing: 0;
+    }
+    h1 {
+      max-width: 760px;
+      margin: 10px 0 16px;
+      font-size: clamp(36px, 6vw, 64px);
+      line-height: 1.02;
+      letter-spacing: 0;
+    }
+    .lede {
+      max-width: 720px;
+      font-size: 20px;
+      color: var(--muted);
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 28px 0 36px;
+    }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 18px;
+      border: 1px solid var(--accent);
+      background: var(--accent);
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .button.secondary {
+      background: transparent;
+      color: var(--accent);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 28px;
+    }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: white;
+      padding: 18px;
+    }
+    .card h2 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      letter-spacing: 0;
+    }
+    .card p, li { color: var(--muted); }
+    section {
+      border-top: 1px solid var(--line);
+      margin-top: 40px;
+      padding-top: 32px;
+    }
+    h2 {
+      font-size: 28px;
+      letter-spacing: 0;
+    }
+    .price {
+      display: inline-block;
+      color: var(--accent-2);
+      font-size: 28px;
+      font-weight: 800;
+      margin-top: 10px;
+    }
+    ul { padding-left: 22px; }
+    .note {
+      background: var(--panel);
+      border-left: 4px solid var(--accent);
+      padding: 16px 18px;
+      color: var(--muted);
+    }
+    @media (max-width: 760px) {
+      main { padding-top: 32px; }
+      .grid { grid-template-columns: 1fr; }
+      .lede { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="eyebrow">Fixed-scope workflow rescue</div>
+    <h1>Find out why one automation is failing before rebuilding everything.</h1>
+    <p class="lede">A USD 250 audit for one failing Make, Zapier, n8n, CRM, form, AI, or data-sync workflow. You get a failure map, data contract, duplicate/lost-event risks, and a repair plan in 24-48 hours after approved samples.</p>
+
+    <div class="actions">
+      <a class="button" href="mailto:nanznakul@gmail.com?subject=Automation%20Incident%20Audit">Request audit</a>
+      <a class="button secondary" href="#deliverables">View deliverables</a>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h2>For messy workflows</h2>
+        <p>Missed records, duplicate sends, failed retries, stale CRM data, broken approvals, or inconsistent AI output.</p>
+      </div>
+      <div class="card">
+        <h2>Small by design</h2>
+        <p>One workflow, one failure inventory, one concrete first fix. No open-ended discovery spiral.</p>
+      </div>
+      <div class="card">
+        <h2>Safe intake</h2>
+        <p>Use redacted screenshots, fake records, logs, sample payloads, or screen share. No credentials by email.</p>
+      </div>
+    </div>
+
+    <section id="deliverables">
+      <h2>What You Receive</h2>
+      <ul>
+        <li>Workflow map across systems, triggers, actions, and data objects.</li>
+        <li>Ranked failure inventory with severity and likely cause.</li>
+        <li>Data contract for required fields, formats, owners, and validation checks.</li>
+        <li>Retry and idempotency review to catch duplicates or lost events.</li>
+        <li>Repair or rebuild recommendation with a first implementation slice.</li>
+        <li>Acceptance checklist for testing the repaired workflow.</li>
+      </ul>
+      <div class="price">USD 250 fixed</div>
+    </section>
+
+    <section>
+      <h2>Good Fit</h2>
+      <p>You already have one automation that matters, and you can show safe evidence of how it fails. The audit is not a full repair; it is the decision packet before repair.</p>
+      <p class="note">Do not send production credentials, API keys, customer private data, or regulated records by ordinary email. The first pass can use redacted screenshots, sample payloads, or a secure workspace approved by you.</p>
+    </section>
+  </main>
+</body>
+</html>
