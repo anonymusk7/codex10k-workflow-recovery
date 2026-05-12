@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Workflow Recovery Sprints</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #172126;
+      --muted: #58656d;
+      --line: #d6dde0;
+      --soft: #f4f7f2;
+      --bg: #fffdf8;
+      --green: #0b6b57;
+      --blue: #315d83;
+      --clay: #8a4b2a;
+      --gold: #b07b24;
+    }
+    * { box-sizing: border-box; }
+    html { max-width: 100%; overflow-x: hidden; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font: 16px/1.55 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+    main {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 42px 0 64px;
+    }
+    .top {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(320px, .85fr);
+      gap: 32px;
+      align-items: center;
+      min-height: 420px;
+      border-bottom: 1px solid var(--line);
+    }
+    .eyebrow {
+      color: var(--green);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 10px 0 16px;
+      max-width: 760px;
+      font-size: clamp(38px, 6vw, 66px);
+      line-height: 1.02;
+      letter-spacing: 0;
+      overflow-wrap: anywhere;
+    }
+    .lede {
+      max-width: 700px;
+      color: var(--muted);
+      font-size: 20px;
+      overflow-wrap: anywhere;
+    }
+    .workflow {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: white;
+      padding: 18px;
+      min-width: 0;
+    }
+    .workflow-row {
+      display: grid;
+      grid-template-columns: 112px 1fr;
+      gap: 14px;
+      padding: 14px 0;
+      border-top: 1px solid var(--line);
+    }
+    .workflow-row:first-child { border-top: 0; }
+    .label {
+      color: var(--green);
+      font-weight: 800;
+      font-size: 13px;
+      text-transform: uppercase;
+    }
+    .workflow-row strong { display: block; margin-bottom: 2px; }
+    .workflow-row span { color: var(--muted); }
+    .offers {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 34px;
+    }
+    .offer {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      min-width: 0;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: white;
+      padding: 20px;
+    }
+    .offer h2 {
+      margin: 0 0 8px;
+      font-size: 22px;
+      letter-spacing: 0;
+      overflow-wrap: anywhere;
+    }
+    .offer p, li { color: var(--muted); }
+    .price {
+      margin: 6px 0 16px;
+      color: var(--clay);
+      font-size: 28px;
+      font-weight: 900;
+    }
+    ul {
+      padding-left: 20px;
+      margin: 0 0 20px;
+    }
+    .push { flex: 1; }
+    a.button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      width: 100%;
+      border: 1px solid var(--green);
+      background: var(--green);
+      color: white;
+      text-decoration: none;
+      font-weight: 800;
+      text-align: center;
+    }
+    .proof {
+      margin-top: 34px;
+      padding: 22px;
+      border-left: 4px solid var(--blue);
+      background: var(--soft);
+      color: var(--muted);
+    }
+    .proof strong { color: var(--ink); }
+    .terms {
+      margin-top: 26px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .term {
+      min-width: 0;
+      border-top: 3px solid var(--gold);
+      background: white;
+      padding: 14px;
+      color: var(--muted);
+    }
+    .term strong {
+      display: block;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+    @media (max-width: 860px) {
+      main { width: calc(100% - 28px); max-width: 1120px; padding-top: 28px; }
+      .top { grid-template-columns: 1fr; min-height: 0; padding-bottom: 28px; }
+      .offers, .terms { grid-template-columns: 1fr; }
+      h1 { font-size: clamp(34px, 10vw, 44px); }
+      .lede { font-size: 18px; }
+      .workflow-row { grid-template-columns: 1fr; gap: 4px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="top">
+      <div>
+        <div class="eyebrow">Fixed-scope automation rescue</div>
+        <h1>Workflow recovery sprints for teams that already know what hurts.</h1>
+        <p class="lede">Small paid packages for broken automations, messy CRM exports, unreliable reporting, and AI research workflows. Each starts with safe evidence, clear acceptance checks, and no credentials by ordinary email.</p>
+      </div>
+      <div class="workflow" aria-label="Delivery flow">
+        <div class="workflow-row">
+          <div class="label">1. Scope</div>
+          <div><strong>One painful workflow</strong><span>Pick the failure, migration, report, or onboarding bottleneck.</span></div>
+        </div>
+        <div class="workflow-row">
+          <div class="label">2. Evidence</div>
+          <div><strong>Redacted samples first</strong><span>Use screenshots, exports, sample payloads, or a secure workspace.</span></div>
+        </div>
+        <div class="workflow-row">
+          <div class="label">3. Delivery</div>
+          <div><strong>Acceptance checklist</strong><span>You get a concrete output and a testable handoff.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="offers" aria-label="Available sprints">
+      <article class="offer">
+        <h2>Automation Incident Audit</h2>
+        <div class="price">USD 250 fixed</div>
+        <p>For one failing Make, Zapier, n8n, CRM, form, AI, or data-sync workflow.</p>
+        <ul class="push">
+          <li>Failure map</li>
+          <li>Data contract</li>
+          <li>Duplicate and lost-event review</li>
+          <li>24-48 hour repair plan after approved samples</li>
+        </ul>
+        <a class="button" href="mailto:nanznakul@gmail.com?subject=Request%3A%20Automation%20Incident%20Audit&body=Workflow%20that%20is%20failing%3A%0ATools%20involved%3A%0AMost%20painful%20failure%20mode%3A%0ASafe%20evidence%20available%3A%0ACompletion%20approver%3A%0A">Request audit</a>
+      </article>
+
+      <article class="offer">
+        <h2>CRM Document Export Rescue</h2>
+        <div class="price">USD 450 fixed</div>
+        <p>For teams stuck moving HubSpot or CRM documents into another system.</p>
+        <ul class="push">
+          <li>25-record sample inventory</li>
+          <li>Document source and association map</li>
+          <li>Export folder or target import proof</li>
+          <li>Full-run quote and migration runbook</li>
+        </ul>
+        <a class="button" href="mailto:nanznakul@gmail.com?subject=Request%3A%20CRM%20Document%20Export%20Rescue&body=Source%20CRM%3A%0ATarget%20system%3A%0ADocument%20types%3A%0ASample%20size%20available%3A%0ASafe%20evidence%20available%3A%0A">Request proof</a>
+      </article>
+
+      <article class="offer">
+        <h2>Research Automation Scale-Up</h2>
+        <div class="price">USD 750 Phase 0</div>
+        <p>For live Gemini or AI research workflows that need self-serve client onboarding.</p>
+        <ul class="push">
+          <li>Current-state scenario map</li>
+          <li>Client config schema</li>
+          <li>Prompt and output contract</li>
+          <li>Implementation backlog with estimates</li>
+        </ul>
+        <a class="button" href="mailto:nanznakul@gmail.com?subject=Request%3A%20Research%20Automation%20Scale-Up&body=Current%20workflow%20tools%3A%0ANumber%20of%20clients%20or%20reports%3A%0AResearch%20cadence%3A%0ASelf-serve%20onboarding%20goal%3A%0ASafe%20evidence%20available%3A%0A">Request Phase 0</a>
+      </article>
+    </section>
+
+    <section class="proof">
+      <strong>Payment and data boundary:</strong> payment link or invoice is sent only after fit is confirmed. Do not send production credentials, API keys, customer private data, regulated records, or payment data by ordinary email. Settlement is the only revenue event.
+    </section>
+
+    <section class="terms" aria-label="Operating terms">
+      <div class="term"><strong>Fixed start</strong>Every offer begins with a bounded deliverable before any full rebuild.</div>
+      <div class="term"><strong>Safe intake</strong>Redacted examples are enough for the first pass.</div>
+      <div class="term"><strong>Fast handoff</strong>Each sprint ends with acceptance checks and next-step pricing.</div>
+      <div class="term"><strong>No hidden count</strong>Revenue is not counted until payment settles after fees and refunds.</div>
+    </section>
+  </main>
+</body>
+</html>
