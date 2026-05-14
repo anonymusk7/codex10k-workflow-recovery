@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Workflow Recovery Portfolio</title>
+  <meta name="description" content="Compact portfolio of fixed-scope workflow recovery, automation QA, and handoff artifacts.">
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #172126;
+      --muted: #58656d;
+      --line: #d9e1df;
+      --paper: #fffdf8;
+      --soft: #f2f6f4;
+      --green: #0b6b57;
+      --blue: #315d83;
+      --clay: #8a4b2a;
+      --gold: #b07b24;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font: 16px/1.55 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    a { color: inherit; }
+    main {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 34px 0 64px;
+    }
+    .top {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(300px, .95fr);
+      gap: 30px;
+      align-items: center;
+      min-height: 440px;
+      border-bottom: 1px solid var(--line);
+    }
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--green);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 0 0 16px;
+      max-width: 780px;
+      font-size: clamp(38px, 6vw, 66px);
+      line-height: 1.02;
+      letter-spacing: 0;
+    }
+    h2 {
+      margin: 0 0 10px;
+      font-size: clamp(26px, 4vw, 42px);
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+    h3 {
+      margin: 0 0 8px;
+      font-size: 20px;
+      letter-spacing: 0;
+    }
+    p { margin-top: 0; }
+    .lede {
+      max-width: 720px;
+      color: var(--muted);
+      font-size: 20px;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 18px;
+      border: 1px solid var(--green);
+      background: var(--green);
+      color: white;
+      text-decoration: none;
+      font-weight: 800;
+    }
+    .button.secondary {
+      background: transparent;
+      color: var(--green);
+    }
+    .hero-visual {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: white;
+      overflow: hidden;
+    }
+    .hero-visual img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+    }
+    .hero-visual div {
+      padding: 18px;
+      color: var(--muted);
+    }
+    .band {
+      padding: 42px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .case {
+      min-width: 0;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: white;
+      overflow: hidden;
+    }
+    .case img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      border-bottom: 1px solid var(--line);
+    }
+    .case div { padding: 18px; }
+    .case p,
+    .case li { color: var(--muted); }
+    ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .proof {
+      border-top: 4px solid var(--gold);
+      background: var(--soft);
+      padding: 16px;
+      color: var(--muted);
+    }
+    .proof strong {
+      display: block;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .note {
+      margin-top: 18px;
+      padding: 18px;
+      border-left: 4px solid var(--blue);
+      background: white;
+      color: var(--muted);
+    }
+    @media (max-width: 860px) {
+      main { width: calc(100% - 28px); padding-top: 24px; }
+      .top,
+      .grid,
+      .proof-grid { grid-template-columns: 1fr; }
+      .top { min-height: 0; padding-bottom: 32px; }
+      h1 { font-size: clamp(34px, 10vw, 44px); }
+      .lede { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="top">
+      <div>
+        <p class="eyebrow">Workflow recovery portfolio</p>
+        <h1>Small, bounded automation work with evidence and handoff.</h1>
+        <p class="lede">I focus on narrow workflow failures where a team already has tools in place, but needs the map, test cases, recovery path, or first working slice. The examples below use public or synthetic artifacts only.</p>
+        <div class="actions">
+          <a class="button" href="workflow-recovery-sprints.html">View fixed-scope offers</a>
+          <a class="button secondary" href="mailto:nanznakul@gmail.com?subject=Workflow%20portfolio%20follow-up">Request a scoped first pass</a>
+        </div>
+      </div>
+      <aside class="hero-visual" aria-label="Workflow example preview">
+        <img src="assets/goodiex-sales-workflow-visual.png" alt="Sales workflow visual sample">
+        <div>Typical outputs are acceptance checklists, field maps, scenario registers, test fixtures, and short operator runbooks.</div>
+      </aside>
+    </section>
+
+    <section class="band">
+      <h2>Representative work samples</h2>
+      <div class="grid">
+        <article class="case">
+          <img src="assets/caregiver-sms-state-visual.png" alt="Caregiver SMS state flow visual">
+          <div>
+            <h3>SMS workflow architecture</h3>
+            <p>State model and integration plan for Bubble, Supabase, Make, Twilio, Claude, and Slack approval handling.</p>
+            <ul>
+              <li>State transitions</li>
+              <li>Approval gates</li>
+              <li>Failure and retry notes</li>
+            </ul>
+          </div>
+        </article>
+        <article class="case">
+          <img src="assets/synergy-automation-workflow-visual.png" alt="Automation workflow visual">
+          <div>
+            <h3>n8n/Make reliability pass</h3>
+            <p>Workflow map, payload assumptions, edge cases, and runbook structure for automation teams and agencies.</p>
+            <ul>
+              <li>Trigger and field contract</li>
+              <li>Failure-path review</li>
+              <li>Client-safe handoff</li>
+            </ul>
+          </div>
+        </article>
+        <article class="case">
+          <img src="assets/hubspot-document-export-visual.png" alt="CRM document export visual">
+          <div>
+            <h3>CRM document export rescue</h3>
+            <p>Bounded proof package for teams moving CRM-attached files into another system without losing associations.</p>
+            <ul>
+              <li>Sample inventory</li>
+              <li>Association map</li>
+              <li>Full-run quote path</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="band">
+      <h2>Reusable deliverable types</h2>
+      <div class="proof-grid">
+        <div class="proof"><strong>Field maps</strong>Source, target, validation, dedupe, and ownership notes for messy handoffs.</div>
+        <div class="proof"><strong>Scenario registers</strong>Trigger, action, owner, failure path, and recovery note for each workflow.</div>
+        <div class="proof"><strong>Test fixtures</strong>Dummy rows, sample payloads, and expected outputs before live access is needed.</div>
+        <div class="proof"><strong>Runbooks</strong>Concise handoff docs so a team can rerun, debug, or safely extend the workflow.</div>
+      </div>
+      <div class="note">Data boundary: the first pass can use redacted screenshots, dummy rows, synthetic payloads, exports, or a least-privilege sandbox invite. Do not send passwords, API keys, card data, production secrets, private customer records, or regulated records by ordinary email.</div>
+    </section>
+  </main>
+</body>
+</html>
